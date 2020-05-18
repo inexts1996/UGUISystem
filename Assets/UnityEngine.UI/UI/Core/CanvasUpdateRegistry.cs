@@ -104,6 +104,12 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 18/5 2020 Image 源码学习
+        /// 判断element是否是可以用的Object
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         private bool ObjectValidForUpdate(ICanvasElement element)
         {
             var valid = element != null;
@@ -115,6 +121,10 @@ namespace UnityEngine.UI
             return valid;
         }
 
+        /// <summary>
+        /// 18/5 2020 Image 源码学习
+        /// 清除layoutRebuild队列以及GraphicRebuild队列中无用的item
+        /// </summary>
         private void CleanInvalidItems()
         {
             // So MB's override the == operator for null equality, which checks
@@ -156,12 +166,17 @@ namespace UnityEngine.UI
             }
         }
 
+        // 18/5 2020 Image 源码学习
+        // ?? 没搞懂是升序还是降序
         private static readonly Comparison<ICanvasElement> s_SortLayoutFunction = SortLayoutList;
         private void PerformUpdate()
         {
             UISystemProfilerApi.BeginSample(UISystemProfilerApi.SampleType.Layout);
             CleanInvalidItems();
 
+            // 18/5 2020 Image源码学习
+            //标记当前正在执行layout的rebuild
+            //避免此时注册到队列中或者从队列中移除
             m_PerformingLayoutUpdate = true;
 
             m_LayoutRebuildQueue.Sort(s_SortLayoutFunction);
@@ -169,9 +184,14 @@ namespace UnityEngine.UI
             {
                 for (int j = 0; j < m_LayoutRebuildQueue.Count; j++)
                 {
+                    
+                    // 18/5 2020 Image源码学习
+                    //从队列中取得一个element
                     var rebuild = instance.m_LayoutRebuildQueue[j];
                     try
                     {
+                        // 18/5 2020 Image源码学习
+                        //element可用的情况下进行rebuild
                         if (ObjectValidForUpdate(rebuild))
                             rebuild.Rebuild((CanvasUpdate)i);
                     }
@@ -182,6 +202,9 @@ namespace UnityEngine.UI
                 }
             }
 
+            // 18/5 2020 Image源码学习
+            //更新完毕之后，调用layout rebuild Complete方法，执行完成后需要做的一些事情
+            //清除队列，并且更新m_PerformingLayoutUpdate的值为false，开始接受新一轮的注册和删除 
             for (int i = 0; i < m_LayoutRebuildQueue.Count; ++i)
                 m_LayoutRebuildQueue[i].LayoutComplete();
 
@@ -189,8 +212,12 @@ namespace UnityEngine.UI
             m_PerformingLayoutUpdate = false;
 
             // now layout is complete do culling...
+            // 18/5 2020 Image源码学习
+            //布局完成之后，进行裁剪
             ClipperRegistry.instance.Cull();
 
+            // 18/5 2020 Image源码学习
+            //Graphic rebuild同layout rebuild，只不过没有裁剪操作
             m_PerformingGraphicUpdate = true;
             for (var i = (int)CanvasUpdate.PreRender; i < (int)CanvasUpdate.MaxUpdateValue; i++)
             {
