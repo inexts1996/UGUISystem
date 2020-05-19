@@ -312,6 +312,12 @@ namespace UnityEngine.UI
         /// Will not return if successfully added.
         /// </summary>
         /// <param name="element">The element that is needing rebuilt.</param>
+        /// 19/5 2020 Image 源码学习
+        /// 将element注册到graphic rebuild队列中
+        /// 由于基础的图形的基类都是Graphic类，而Graphic类继承了ICanvasElement接口，实现了rebuild方法
+        /// 所以在preformUpdate方法中，进行Graphic rebuild的时候，调用的都是Graphic类的Rebuild方法进行Graphic的rebuild
+        /// 但是想ScrollRect、InputFiled等同样继承自ICanvasElement接口，实现了自己的rebuild方法，所以Graphic rebuild的时候会调用自己的rebuild方法
+        /// 不会和Graphic有关联
         public static void RegisterCanvasElementForGraphicRebuild(ICanvasElement element)
         {
             instance.InternalRegisterCanvasElementForGraphicRebuild(element);

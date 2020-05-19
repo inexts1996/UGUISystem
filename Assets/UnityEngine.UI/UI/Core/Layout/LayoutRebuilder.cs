@@ -253,6 +253,10 @@ namespace UnityEngine.UI
             rebuilder.Initialize(controller);
             //如果注册rebuild队列中已经包含了这个gameobject，就直接进行释放回收
             //不包含的话，就注册进去，暂时不回收
+            // 19/5 2020 Image 源码学习
+            //这里注册的到rebuild队列的对象类型为继承自ICanvasElement的LayoutRebuilder
+            //主要是受s_rebuilders的影响,这样在CanvasUpdateRegistry中进行layoutRebuid的时候调用的就是LayoutRebuilder重写的rebuild方法了
+            //TryRegisterCanvasElementForLayoutRebuild这个方法使用了多态的概念
             if (!CanvasUpdateRegistry.TryRegisterCanvasElementForLayoutRebuild(rebuilder))
                 s_Rebuilders.Release(rebuilder);
         }
