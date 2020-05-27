@@ -2415,6 +2415,8 @@ namespace UnityEngine.UI
         {
             switch (update)
             {
+                // 26/5 2020 Image 源码学习
+                //LatePreRender专门为inputField渲染而设置
                 case CanvasUpdate.LatePreRender:
                     UpdateGeometry();
                     break;

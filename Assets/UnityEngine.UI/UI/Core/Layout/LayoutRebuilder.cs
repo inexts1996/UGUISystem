@@ -57,6 +57,11 @@ namespace UnityEngine.UI
             return m_ToRebuild == null;
         }
 
+        /// <summary>
+        /// 27/5 2020 Image源码学习
+        /// 移除列表中是Behaviour类型但不可用的组件
+        /// </summary>
+        /// <param name="components"></param>
         static void StripDisabledBehavioursFromList(List<Component> components)
         {
             components.RemoveAll(e => e is Behaviour && !((Behaviour)e).isActiveAndEnabled);
@@ -95,6 +100,13 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 27/5 2020 Image源码学习
+        /// 设置layout rebuild计算后的值
+        /// 先设置父类，然后再设置子类物体
+        /// </summary>
+        /// <param name="rect"></param>
+        /// <param name="action"></param>
         private void PerformLayoutControl(RectTransform rect, UnityAction<Component> action)
         {
             if (rect == null)
@@ -129,6 +141,13 @@ namespace UnityEngine.UI
             ListPool<Component>.Release(components);
         }
 
+        /// <summary>
+        ///27/5 2020 Image源码学习
+        /// 递归遍历当前组件所有的子物体，逐个进行计算layout rebuild的操作
+        /// 先计算子物体，然后再计算父物体
+        /// </summary>
+        /// <param name="rect"></param>
+        /// <param name="action"></param>
         private void PerformLayoutCalculation(RectTransform rect, UnityAction<Component> action)
         {
             if (rect == null)

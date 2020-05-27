@@ -15,6 +15,9 @@ namespace UnityEngine.UI
     /// The minHeight, preferredHeight, and flexibleHeight properties may rely on horizontal aspects of the RectTransform, such as the width or the X component of the position.
     /// Any properties of the RectTransforms on child layout elements may always be relied on.
     /// </remarks>
+    /// 27/5 2020 Image源码学习
+    /// IlayoutElement主要用来layout rebuild之后，重新计算水平和垂直的size
+    /// 是layout rebuild的计算阶段，要和ILayoutController搭配使用
     public interface ILayoutElement
     {
         /// <summary>
@@ -142,6 +145,10 @@ namespace UnityEngine.UI
     ///
     /// The component may use this information to determine the width and height to use for its own RectTransform or the RectTransforms of its children.
     /// </remarks>
+    /// 27/5 2020 Image源码学习
+    /// 和ILayoutElement是成对使用的
+    /// 主要是在实现ILayoutElement的组件layout rebuild计算之后，根据计算结果进行设置
+    /// 是执行的layout rebuild的执行阶段
     public interface ILayoutController
     {
         /// <summary>

@@ -191,7 +191,7 @@ namespace UnityEngine.UI
                     try
                     {
                         // 18/5 2020 Image源码学习
-                        //element可用的情况下进行rebuild
+                        //element可用的情况下进行rebuild,这里调用基本上是layoutRebuilder中的rebuild方法
                         if (ObjectValidForUpdate(rebuild))
                             rebuild.Rebuild((CanvasUpdate)i);
                     }
@@ -316,7 +316,7 @@ namespace UnityEngine.UI
         /// 将element注册到graphic rebuild队列中
         /// 由于基础的图形的基类都是Graphic类，而Graphic类继承了ICanvasElement接口，实现了rebuild方法
         /// 所以在preformUpdate方法中，进行Graphic rebuild的时候，调用的都是Graphic类的Rebuild方法进行Graphic的rebuild
-        /// 但是想ScrollRect、InputFiled等同样继承自ICanvasElement接口，实现了自己的rebuild方法，所以Graphic rebuild的时候会调用自己的rebuild方法
+        /// 但是像ScrollRect、InputFiled等同样继承自ICanvasElement接口，实现了自己的rebuild方法，所以Graphic rebuild的时候会调用自己的rebuild方法
         /// 不会和Graphic有关联
         public static void RegisterCanvasElementForGraphicRebuild(ICanvasElement element)
         {
