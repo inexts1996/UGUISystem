@@ -17,7 +17,8 @@ namespace UnityEngine.UI
         /// <returns></returns>
         public static bool SetColor(ref Color currentValue, Color newValue)
         {
-            if (currentValue.r == newValue.r && currentValue.g == newValue.g && currentValue.b == newValue.b && currentValue.a == newValue.a)
+            if (currentValue.r == newValue.r && currentValue.g == newValue.g && currentValue.b == newValue.b &&
+                currentValue.a == newValue.a)
                 return false;
 
             currentValue = newValue;

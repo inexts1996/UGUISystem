@@ -9,19 +9,17 @@ namespace UnityEngine.UI
     /// </summary>
     public class Shadow : BaseMeshEffect
     {
-        [SerializeField]
-        private Color m_EffectColor = new Color(0f, 0f, 0f, 0.5f);
+        [SerializeField] private Color m_EffectColor = new Color(0f, 0f, 0f, 0.5f);
 
-        [SerializeField]
-        private Vector2 m_EffectDistance = new Vector2(1f, -1f);
+        [SerializeField] private Vector2 m_EffectDistance = new Vector2(1f, -1f);
 
-        [SerializeField]
-        private bool m_UseGraphicAlpha = true;
+        [SerializeField] private bool m_UseGraphicAlpha = true;
 
         private const float kMaxEffectDistance = 600f;
 
         protected Shadow()
-        {}
+        {
+        }
 
 #if UNITY_EDITOR
         protected override void OnValidate()
@@ -106,7 +104,7 @@ namespace UnityEngine.UI
                 vt.position = v;
                 var newColor = color;
                 if (m_UseGraphicAlpha)
-                    newColor.a = (byte)((newColor.a * verts[i].color.a) / 255);
+                    newColor.a = (byte) ((newColor.a * verts[i].color.a) / 255);
                 vt.color = newColor;
                 verts[i] = vt;
             }

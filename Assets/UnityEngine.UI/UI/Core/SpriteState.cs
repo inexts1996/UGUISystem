@@ -9,35 +9,44 @@ namespace UnityEngine.UI
     /// </summary>
     public struct SpriteState : IEquatable<SpriteState>
     {
-        [SerializeField]
-        private Sprite m_HighlightedSprite;
+        [SerializeField] private Sprite m_HighlightedSprite;
 
-        [SerializeField]
-        private Sprite m_PressedSprite;
+        [SerializeField] private Sprite m_PressedSprite;
 
-        [SerializeField]
-        private Sprite m_DisabledSprite;
+        [SerializeField] private Sprite m_DisabledSprite;
 
         /// <summary>
         /// Highlighted sprite.
         /// </summary>
-        public Sprite highlightedSprite    { get { return m_HighlightedSprite; } set { m_HighlightedSprite = value; } }
+        public Sprite highlightedSprite
+        {
+            get { return m_HighlightedSprite; }
+            set { m_HighlightedSprite = value; }
+        }
 
         /// <summary>
         /// Pressed sprite.
         /// </summary>
-        public Sprite pressedSprite     { get { return m_PressedSprite; } set { m_PressedSprite = value; } }
+        public Sprite pressedSprite
+        {
+            get { return m_PressedSprite; }
+            set { m_PressedSprite = value; }
+        }
 
         /// <summary>
         /// Disabled sprite.
         /// </summary>
-        public Sprite disabledSprite    { get { return m_DisabledSprite; } set { m_DisabledSprite = value; } }
+        public Sprite disabledSprite
+        {
+            get { return m_DisabledSprite; }
+            set { m_DisabledSprite = value; }
+        }
 
         public bool Equals(SpriteState other)
         {
             return highlightedSprite == other.highlightedSprite &&
-                pressedSprite == other.pressedSprite &&
-                disabledSprite == other.disabledSprite;
+                   pressedSprite == other.pressedSprite &&
+                   disabledSprite == other.disabledSprite;
         }
     }
 }

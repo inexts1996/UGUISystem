@@ -47,7 +47,7 @@ namespace UnityEngine.UI
             /// <summary>
             /// No navigation is allowed from this object.
             /// </summary>
-            None        = 0,
+            None = 0,
 
             /// <summary>
             /// Horizontal Navigation.
@@ -55,7 +55,7 @@ namespace UnityEngine.UI
             /// <remarks>
             /// Navigation should only be allowed when left / right move events happen.
             /// </remarks>
-            Horizontal  = 1,
+            Horizontal = 1,
 
             /// <summary>
             /// Vertical navigation.
@@ -63,7 +63,7 @@ namespace UnityEngine.UI
             /// <remarks>
             /// Navigation should only be allowed when up / down move events happen.
             /// </remarks>
-            Vertical    = 2,
+            Vertical = 2,
 
             /// <summary>
             /// Automatic navigation.
@@ -71,7 +71,7 @@ namespace UnityEngine.UI
             /// <remarks>
             /// Attempt to find the 'best' next object to select. This should be based on a sensible heuristic.
             /// </remarks>
-            Automatic   = 3,
+            Automatic = 3,
 
             /// <summary>
             /// Explicit navigation.
@@ -79,33 +79,32 @@ namespace UnityEngine.UI
             /// <remarks>
             /// User should explicitly specify what is selected by each move event.
             /// </remarks>
-            Explicit    = 4,
+            Explicit = 4,
         }
 
         // Which method of navigation will be used.
-        [SerializeField]
-        private Mode m_Mode;
+        [SerializeField] private Mode m_Mode;
 
         // Game object selected when the joystick moves up. Used when navigation is set to "Explicit".
-        [SerializeField]
-        private Selectable m_SelectOnUp;
+        [SerializeField] private Selectable m_SelectOnUp;
 
         // Game object selected when the joystick moves down. Used when navigation is set to "Explicit".
-        [SerializeField]
-        private Selectable m_SelectOnDown;
+        [SerializeField] private Selectable m_SelectOnDown;
 
         // Game object selected when the joystick moves left. Used when navigation is set to "Explicit".
-        [SerializeField]
-        private Selectable m_SelectOnLeft;
+        [SerializeField] private Selectable m_SelectOnLeft;
 
         // Game object selected when the joystick moves right. Used when navigation is set to "Explicit".
-        [SerializeField]
-        private Selectable m_SelectOnRight;
+        [SerializeField] private Selectable m_SelectOnRight;
 
         /// <summary>
         /// Navigation mode.
         /// </summary>
-        public Mode       mode           { get { return m_Mode; } set { m_Mode = value; } }
+        public Mode mode
+        {
+            get { return m_Mode; }
+            set { m_Mode = value; }
+        }
 
         /// <summary>
         /// Specify a Selectable UI GameObject to highlight when the Up arrow key is pressed.
@@ -138,7 +137,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public Selectable selectOnUp     { get { return m_SelectOnUp; } set { m_SelectOnUp = value; } }
+        public Selectable selectOnUp
+        {
+            get { return m_SelectOnUp; }
+            set { m_SelectOnUp = value; }
+        }
 
         /// <summary>
         /// Specify a Selectable UI GameObject to highlight when the down arrow key is pressed.
@@ -171,7 +174,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public Selectable selectOnDown   { get { return m_SelectOnDown; } set { m_SelectOnDown = value; } }
+        public Selectable selectOnDown
+        {
+            get { return m_SelectOnDown; }
+            set { m_SelectOnDown = value; }
+        }
 
         /// <summary>
         /// Specify a Selectable UI GameObject to highlight when the left arrow key is pressed.
@@ -204,7 +211,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public Selectable selectOnLeft   { get { return m_SelectOnLeft; } set { m_SelectOnLeft = value; } }
+        public Selectable selectOnLeft
+        {
+            get { return m_SelectOnLeft; }
+            set { m_SelectOnLeft = value; }
+        }
 
         /// <summary>
         /// Specify a Selectable UI GameObject to highlight when the right arrow key is pressed.
@@ -237,7 +248,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public Selectable selectOnRight  { get { return m_SelectOnRight; } set { m_SelectOnRight = value; } }
+        public Selectable selectOnRight
+        {
+            get { return m_SelectOnRight; }
+            set { m_SelectOnRight = value; }
+        }
 
         /// <summary>
         /// Return a Navigation with sensible default values.
@@ -273,10 +288,10 @@ namespace UnityEngine.UI
         public bool Equals(Navigation other)
         {
             return mode == other.mode &&
-                selectOnUp == other.selectOnUp &&
-                selectOnDown == other.selectOnDown &&
-                selectOnLeft == other.selectOnLeft &&
-                selectOnRight == other.selectOnRight;
+                   selectOnUp == other.selectOnUp &&
+                   selectOnDown == other.selectOnDown &&
+                   selectOnLeft == other.selectOnLeft &&
+                   selectOnRight == other.selectOnRight;
         }
     }
 }

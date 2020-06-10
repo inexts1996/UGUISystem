@@ -22,30 +22,24 @@ namespace UnityEngine.UI
     /// </remarks>
     public class RectMask2D : UIBehaviour, IClipper, ICanvasRaycastFilter
     {
-        [NonSerialized]
-        private readonly RectangularVertexClipper m_VertexClipper = new RectangularVertexClipper();
+        [NonSerialized] private readonly RectangularVertexClipper m_VertexClipper = new RectangularVertexClipper();
 
-        [NonSerialized]
-        private RectTransform m_RectTransform;
+        [NonSerialized] private RectTransform m_RectTransform;
 
-        [NonSerialized]
-        private HashSet<IClippable> m_ClipTargets = new HashSet<IClippable>();
+        [NonSerialized] private HashSet<IClippable> m_ClipTargets = new HashSet<IClippable>();
 
-        [NonSerialized]
-        private bool m_ShouldRecalculateClipRects;
+        [NonSerialized] private bool m_ShouldRecalculateClipRects;
 
-        [NonSerialized]
-        private List<RectMask2D> m_Clippers = new List<RectMask2D>();
+        [NonSerialized] private List<RectMask2D> m_Clippers = new List<RectMask2D>();
 
-        [NonSerialized]
-        private Rect m_LastClipRectCanvasSpace;
-        [NonSerialized]
-        private bool m_ForceClip;
+        [NonSerialized] private Rect m_LastClipRectCanvasSpace;
+        [NonSerialized] private bool m_ForceClip;
 
         /// <remarks>
         /// Returns a non-destroyed instance or a null reference.
         /// </remarks>
         [NonSerialized] private Canvas m_Canvas;
+
         private Canvas Canvas
         {
             get
@@ -70,10 +64,7 @@ namespace UnityEngine.UI
         /// </summary>
         public Rect canvasRect
         {
-            get
-            {
-                return m_VertexClipper.GetCanvasRect(rectTransform, Canvas);
-            }
+            get { return m_VertexClipper.GetCanvasRect(rectTransform, Canvas); }
         }
 
         /// <summary>
@@ -85,7 +76,8 @@ namespace UnityEngine.UI
         }
 
         protected RectMask2D()
-        {}
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -145,7 +137,8 @@ namespace UnityEngine.UI
                         m_Corners[i] = rootCanvas.transform.InverseTransformPoint(m_Corners[i]);
                 }
 
-                return new Rect(m_Corners[0].x, m_Corners[0].y, m_Corners[2].x - m_Corners[0].x, m_Corners[2].y - m_Corners[0].y);
+                return new Rect(m_Corners[0].x, m_Corners[0].y, m_Corners[2].x - m_Corners[0].x,
+                    m_Corners[2].y - m_Corners[0].y);
             }
         }
 

@@ -18,7 +18,11 @@ namespace UnityEngine.UI
         /// <summary>
         /// The padding to add around the child layout elements.
         /// </summary>
-        public RectOffset padding { get { return m_Padding; } set { SetProperty(ref m_Padding, value); } }
+        public RectOffset padding
+        {
+            get { return m_Padding; }
+            set { SetProperty(ref m_Padding, value); }
+        }
 
         [SerializeField] protected TextAnchor m_ChildAlignment = TextAnchor.UpperLeft;
 
@@ -28,9 +32,14 @@ namespace UnityEngine.UI
         /// <remarks>
         ///  some child layout elements specify no flexible width and height, the children may not take up all the available space inside the layout group. The alignment setting specifies how to align them within the layout group when this is the case.
         ///  </remarks>
-        public TextAnchor childAlignment { get { return m_ChildAlignment; } set { SetProperty(ref m_ChildAlignment, value); } }
+        public TextAnchor childAlignment
+        {
+            get { return m_ChildAlignment; }
+            set { SetProperty(ref m_ChildAlignment, value); }
+        }
 
         [System.NonSerialized] private RectTransform m_Rect;
+
         protected RectTransform rectTransform
         {
             get
@@ -47,7 +56,11 @@ namespace UnityEngine.UI
         private Vector2 m_TotalFlexibleSize = Vector2.zero;
 
         [System.NonSerialized] private List<RectTransform> m_RectChildren = new List<RectTransform>();
-        protected List<RectTransform> rectChildren { get { return m_RectChildren; } }
+
+        protected List<RectTransform> rectChildren
+        {
+            get { return m_RectChildren; }
+        }
 
         // ILayoutElement Interface
         public virtual void CalculateLayoutInputHorizontal()
@@ -70,7 +83,7 @@ namespace UnityEngine.UI
 
                 for (int j = 0; j < toIgnoreList.Count; j++)
                 {
-                    var ignorer = (ILayoutIgnorer)toIgnoreList[j];
+                    var ignorer = (ILayoutIgnorer) toIgnoreList[j];
                     if (!ignorer.ignoreLayout)
                     {
                         m_RectChildren.Add(rect);
@@ -78,6 +91,7 @@ namespace UnityEngine.UI
                     }
                 }
             }
+
             ListPool<Component>.Release(toIgnoreList);
             m_Tracker.Clear();
         }
@@ -87,37 +101,58 @@ namespace UnityEngine.UI
         /// <summary>
         /// See LayoutElement.minWidth
         /// </summary>
-        public virtual float minWidth { get { return GetTotalMinSize(0); } }
+        public virtual float minWidth
+        {
+            get { return GetTotalMinSize(0); }
+        }
 
         /// <summary>
         /// See LayoutElement.preferredWidth
         /// </summary>
-        public virtual float preferredWidth { get { return GetTotalPreferredSize(0); } }
+        public virtual float preferredWidth
+        {
+            get { return GetTotalPreferredSize(0); }
+        }
 
         /// <summary>
         /// See LayoutElement.flexibleWidth
         /// </summary>
-        public virtual float flexibleWidth { get { return GetTotalFlexibleSize(0); } }
+        public virtual float flexibleWidth
+        {
+            get { return GetTotalFlexibleSize(0); }
+        }
 
         /// <summary>
         /// See LayoutElement.minHeight
         /// </summary>
-        public virtual float minHeight { get { return GetTotalMinSize(1); } }
+        public virtual float minHeight
+        {
+            get { return GetTotalMinSize(1); }
+        }
 
         /// <summary>
         /// See LayoutElement.preferredHeight
         /// </summary>
-        public virtual float preferredHeight { get { return GetTotalPreferredSize(1); } }
+        public virtual float preferredHeight
+        {
+            get { return GetTotalPreferredSize(1); }
+        }
 
         /// <summary>
         /// See LayoutElement.flexibleHeight
         /// </summary>
-        public virtual float flexibleHeight { get { return GetTotalFlexibleSize(1); } }
+        public virtual float flexibleHeight
+        {
+            get { return GetTotalFlexibleSize(1); }
+        }
 
         /// <summary>
         /// See LayoutElement.layoutPriority
         /// </summary>
-        public virtual int layoutPriority { get { return 0; } }
+        public virtual int layoutPriority
+        {
+            get { return 0; }
+        }
 
         // ILayoutController Interface
 
@@ -201,9 +236,9 @@ namespace UnityEngine.UI
         protected float GetAlignmentOnAxis(int axis)
         {
             if (axis == 0)
-                return ((int)childAlignment % 3) * 0.5f;
+                return ((int) childAlignment % 3) * 0.5f;
             else
-                return ((int)childAlignment / 3) * 0.5f;
+                return ((int) childAlignment / 3) * 0.5f;
         }
 
         /// <summary>
@@ -233,9 +268,12 @@ namespace UnityEngine.UI
 
             m_Tracker.Add(this, rect,
                 DrivenTransformProperties.Anchors |
-                (axis == 0 ? DrivenTransformProperties.AnchoredPositionX : DrivenTransformProperties.AnchoredPositionY));
+                (axis == 0
+                    ? DrivenTransformProperties.AnchoredPositionX
+                    : DrivenTransformProperties.AnchoredPositionY));
 
-            rect.SetInsetAndSizeFromParentEdge(axis == 0 ? RectTransform.Edge.Left : RectTransform.Edge.Top, pos, rect.sizeDelta[axis]);
+            rect.SetInsetAndSizeFromParentEdge(axis == 0 ? RectTransform.Edge.Left : RectTransform.Edge.Top, pos,
+                rect.sizeDelta[axis]);
         }
 
         /// <summary>
@@ -252,9 +290,9 @@ namespace UnityEngine.UI
 
             m_Tracker.Add(this, rect,
                 DrivenTransformProperties.Anchors |
-                (axis == 0 ?
-                    (DrivenTransformProperties.AnchoredPositionX | DrivenTransformProperties.SizeDeltaX) :
-                    (DrivenTransformProperties.AnchoredPositionY | DrivenTransformProperties.SizeDeltaY)
+                (axis == 0
+                    ? (DrivenTransformProperties.AnchoredPositionX | DrivenTransformProperties.SizeDeltaX)
+                    : (DrivenTransformProperties.AnchoredPositionY | DrivenTransformProperties.SizeDeltaY)
                 )
             );
 
@@ -317,12 +355,12 @@ namespace UnityEngine.UI
             LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
         }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected override void OnValidate()
         {
             SetDirty();
         }
 
-    #endif
+#endif
     }
 }

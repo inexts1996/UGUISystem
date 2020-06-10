@@ -11,7 +11,8 @@ namespace UnityEngine.UI
     public abstract class BaseVertexEffect
     {
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [Obsolete("Use BaseMeshEffect.ModifyMeshes instead", true)] //We can't upgrade automatically since the signature changed.
+        [Obsolete("Use BaseMeshEffect.ModifyMeshes instead",
+            true)] //We can't upgrade automatically since the signature changed.
         public abstract void ModifyVertices(List<UIVertex> vertices);
     }
 
@@ -48,12 +49,10 @@ namespace UnityEngine.UI
     ///}
     ///</code>
     ///</example>
-
     [ExecuteAlways]
     public abstract class BaseMeshEffect : UIBehaviour, IMeshModifier
     {
-        [NonSerialized]
-        private Graphic m_Graphic;
+        [NonSerialized] private Graphic m_Graphic;
 
         /// <summary>
         /// The graphic component that the Mesh Effect will aplly to.

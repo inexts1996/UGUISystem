@@ -18,15 +18,14 @@ namespace UnityEngine.UI
     /// </remarks>
     public class Mask : UIBehaviour, ICanvasRaycastFilter, IMaterialModifier
     {
-        [NonSerialized]
-        private RectTransform m_RectTransform;
+        [NonSerialized] private RectTransform m_RectTransform;
+
         public RectTransform rectTransform
         {
             get { return m_RectTransform ?? (m_RectTransform = GetComponent<RectTransform>()); }
         }
 
-        [SerializeField]
-        private bool m_ShowMaskGraphic = true;
+        [SerializeField] private bool m_ShowMaskGraphic = true;
 
         /// <summary>
         /// Show the graphic that is associated with the Mask render area.
@@ -45,8 +44,7 @@ namespace UnityEngine.UI
             }
         }
 
-        [NonSerialized]
-        private Graphic m_Graphic;
+        [NonSerialized] private Graphic m_Graphic;
 
         /// <summary>
         /// The graphic associated with the Mask.
@@ -56,19 +54,23 @@ namespace UnityEngine.UI
             get { return m_Graphic ?? (m_Graphic = GetComponent<Graphic>()); }
         }
 
-        [NonSerialized]
-        private Material m_MaskMaterial;
+        [NonSerialized] private Material m_MaskMaterial;
 
-        [NonSerialized]
-        private Material m_UnmaskMaterial;
+        [NonSerialized] private Material m_UnmaskMaterial;
 
         protected Mask()
-        {}
+        {
+        }
 
-        public virtual bool MaskEnabled() { return IsActive() && graphic != null; }
+        public virtual bool MaskEnabled()
+        {
+            return IsActive() && graphic != null;
+        }
 
         [Obsolete("Not used anymore.")]
-        public virtual void OnSiblingGraphicEnabledDisabled() {}
+        public virtual void OnSiblingGraphicEnabledDisabled()
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -148,7 +150,8 @@ namespace UnityEngine.UI
             // we want to destroy what is there
             if (desiredStencilBit == 1)
             {
-                var maskMaterial = StencilMaterial.Add(baseMaterial, 1, StencilOp.Replace, CompareFunction.Always, m_ShowMaskGraphic ? ColorWriteMask.All : 0);
+                var maskMaterial = StencilMaterial.Add(baseMaterial, 1, StencilOp.Replace, CompareFunction.Always,
+                    m_ShowMaskGraphic ? ColorWriteMask.All : 0);
                 StencilMaterial.Remove(m_MaskMaterial);
                 m_MaskMaterial = maskMaterial;
 
@@ -162,12 +165,15 @@ namespace UnityEngine.UI
             }
 
             //otherwise we need to be a bit smarter and set some read / write masks
-            var maskMaterial2 = StencilMaterial.Add(baseMaterial, desiredStencilBit | (desiredStencilBit - 1), StencilOp.Replace, CompareFunction.Equal, m_ShowMaskGraphic ? ColorWriteMask.All : 0, desiredStencilBit - 1, desiredStencilBit | (desiredStencilBit - 1));
+            var maskMaterial2 = StencilMaterial.Add(baseMaterial, desiredStencilBit | (desiredStencilBit - 1),
+                StencilOp.Replace, CompareFunction.Equal, m_ShowMaskGraphic ? ColorWriteMask.All : 0,
+                desiredStencilBit - 1, desiredStencilBit | (desiredStencilBit - 1));
             StencilMaterial.Remove(m_MaskMaterial);
             m_MaskMaterial = maskMaterial2;
 
             graphic.canvasRenderer.hasPopInstruction = true;
-            var unmaskMaterial2 = StencilMaterial.Add(baseMaterial, desiredStencilBit - 1, StencilOp.Replace, CompareFunction.Equal, 0, desiredStencilBit - 1, desiredStencilBit | (desiredStencilBit - 1));
+            var unmaskMaterial2 = StencilMaterial.Add(baseMaterial, desiredStencilBit - 1, StencilOp.Replace,
+                CompareFunction.Equal, 0, desiredStencilBit - 1, desiredStencilBit | (desiredStencilBit - 1));
             StencilMaterial.Remove(m_UnmaskMaterial);
             m_UnmaskMaterial = unmaskMaterial2;
             graphic.canvasRenderer.popMaterialCount = 1;

@@ -45,6 +45,7 @@ namespace UnityEditor.UI
                 rightAlignedLabel.alignment = TextAnchor.MiddleRight;
             }
         }
+
         private static Styles s_Styles;
 
         protected virtual void OnEnable()
@@ -78,7 +79,9 @@ namespace UnityEditor.UI
                     allAreRoot = false;
                     break;
                 }
-                if (showWorld && canvas.renderMode != RenderMode.WorldSpace || !showWorld && canvas.renderMode == RenderMode.WorldSpace)
+
+                if (showWorld && canvas.renderMode != RenderMode.WorldSpace ||
+                    !showWorld && canvas.renderMode == RenderMode.WorldSpace)
                 {
                     showWorldDiffers = true;
                     break;
@@ -98,13 +101,14 @@ namespace UnityEditor.UI
             {
                 if (showWorld || showWorldDiffers)
                 {
-                    EditorGUILayout.Popup(s_Styles.uiScaleModeContent.text, 0, new[] { "World" });
+                    EditorGUILayout.Popup(s_Styles.uiScaleModeContent.text, 0, new[] {"World"});
                 }
                 else
                 {
                     EditorGUILayout.PropertyField(m_UiScaleMode, s_Styles.uiScaleModeContent);
                 }
             }
+
             EditorGUI.showMixedValue = false;
 
             if (!showWorldDiffers && !(!showWorld && m_UiScaleMode.hasMultipleDifferentValues))
@@ -117,23 +121,26 @@ namespace UnityEditor.UI
                     EditorGUILayout.PropertyField(m_DynamicPixelsPerUnit);
                 }
                 // Constant pixel size
-                else if (m_UiScaleMode.enumValueIndex == (int)CanvasScaler.ScaleMode.ConstantPixelSize)
+                else if (m_UiScaleMode.enumValueIndex == (int) CanvasScaler.ScaleMode.ConstantPixelSize)
                 {
                     EditorGUILayout.PropertyField(m_ScaleFactor);
                 }
                 // Scale with screen size
-                else if (m_UiScaleMode.enumValueIndex == (int)CanvasScaler.ScaleMode.ScaleWithScreenSize)
+                else if (m_UiScaleMode.enumValueIndex == (int) CanvasScaler.ScaleMode.ScaleWithScreenSize)
                 {
                     EditorGUILayout.PropertyField(m_ReferenceResolution);
                     EditorGUILayout.PropertyField(m_ScreenMatchMode);
-                    if (m_ScreenMatchMode.enumValueIndex == (int)CanvasScaler.ScreenMatchMode.MatchWidthOrHeight && !m_ScreenMatchMode.hasMultipleDifferentValues)
+                    if (m_ScreenMatchMode.enumValueIndex == (int) CanvasScaler.ScreenMatchMode.MatchWidthOrHeight &&
+                        !m_ScreenMatchMode.hasMultipleDifferentValues)
                     {
-                        Rect r = EditorGUILayout.GetControlRect(true, EditorGUIUtility.singleLineHeight + kSliderEndpointLabelsHeight);
-                        DualLabeledSlider(r, m_MatchWidthOrHeight, s_Styles.matchContent, s_Styles.widthContent, s_Styles.heightContent);
+                        Rect r = EditorGUILayout.GetControlRect(true,
+                            EditorGUIUtility.singleLineHeight + kSliderEndpointLabelsHeight);
+                        DualLabeledSlider(r, m_MatchWidthOrHeight, s_Styles.matchContent, s_Styles.widthContent,
+                            s_Styles.heightContent);
                     }
                 }
                 // Constant physical size
-                else if (m_UiScaleMode.enumValueIndex == (int)CanvasScaler.ScaleMode.ConstantPhysicalSize)
+                else if (m_UiScaleMode.enumValueIndex == (int) CanvasScaler.ScaleMode.ConstantPhysicalSize)
                 {
                     EditorGUILayout.PropertyField(m_PhysicalUnit);
                     EditorGUILayout.PropertyField(m_FallbackScreenDPI);
@@ -146,7 +153,8 @@ namespace UnityEditor.UI
             serializedObject.ApplyModifiedProperties();
         }
 
-        private static void DualLabeledSlider(Rect position, SerializedProperty property, GUIContent mainLabel, GUIContent labelLeft, GUIContent labelRight)
+        private static void DualLabeledSlider(Rect position, SerializedProperty property, GUIContent mainLabel,
+            GUIContent labelLeft, GUIContent labelRight)
         {
             position.height = EditorGUIUtility.singleLineHeight;
             Rect pos = position;

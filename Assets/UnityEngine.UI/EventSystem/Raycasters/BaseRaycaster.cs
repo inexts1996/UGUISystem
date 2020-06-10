@@ -49,9 +49,9 @@ namespace UnityEngine.EventSystems
         public override string ToString()
         {
             return "Name: " + gameObject + "\n" +
-                "eventCamera: " + eventCamera + "\n" +
-                "sortOrderPriority: " + sortOrderPriority + "\n" +
-                "renderOrderPriority: " + renderOrderPriority;
+                   "eventCamera: " + eventCamera + "\n" +
+                   "sortOrderPriority: " + sortOrderPriority + "\n" +
+                   "renderOrderPriority: " + renderOrderPriority;
         }
 
         protected override void OnEnable()

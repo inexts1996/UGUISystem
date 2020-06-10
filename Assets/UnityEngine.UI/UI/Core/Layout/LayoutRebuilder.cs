@@ -9,6 +9,7 @@ namespace UnityEngine.UI
     public class LayoutRebuilder : ICanvasElement
     {
         private RectTransform m_ToRebuild;
+
         //There are a few of reasons we need to cache the Hash fromt he transform:
         //  - This is a ValueType (struct) and .Net calculates Hash from the Value Type fields.
         //  - The key of a Dictionary should have a constant Hash value.
@@ -16,7 +17,7 @@ namespace UnityEngine.UI
         // We use this struct with the IndexedSet container, which uses a dictionary as part of it's implementation
         // So this struct gets used as a key to a dictionary, so we need to guarantee a constant Hash value.
         private int m_CachedHashFromTransform;
-        
+
         // 17/5 2020 Image 源码学习
         //layoutRebuilder的对象池,内部使用的是栈的方式实现的
         //存放LayoutRebuilder的对象，创建之后不进行销毁
@@ -47,7 +48,10 @@ namespace UnityEngine.UI
             MarkLayoutForRebuild(driven);
         }
 
-        public Transform transform { get { return m_ToRebuild; }}
+        public Transform transform
+        {
+            get { return m_ToRebuild; }
+        }
 
         /// <summary>
         /// Has the native representation of this LayoutRebuilder been destroyed?
@@ -64,7 +68,7 @@ namespace UnityEngine.UI
         /// <param name="components"></param>
         static void StripDisabledBehavioursFromList(List<Component> components)
         {
-            components.RemoveAll(e => e is Behaviour && !((Behaviour)e).isActiveAndEnabled);
+            components.RemoveAll(e => e is Behaviour && !((Behaviour) e).isActiveAndEnabled);
         }
 
         /// <summary>
@@ -160,7 +164,7 @@ namespace UnityEngine.UI
             // If there are no controllers on this rect we can skip this entire sub-tree
             // We don't need to consider controllers on children deeper in the sub-tree either,
             // since they will be their own roots.
-            if (components.Count > 0  || rect.GetComponent(typeof(ILayoutGroup)))
+            if (components.Count > 0 || rect.GetComponent(typeof(ILayoutGroup)))
             {
                 // Layout calculations needs to executed bottom up with children being done before their parents,
                 // because the parent calculated sizes rely on the sizes of the children.
@@ -179,7 +183,6 @@ namespace UnityEngine.UI
         /// Mark the given RectTransform as needing it's layout to be recalculated during the next layout pass.
         /// </summary>
         /// <param name="rect">Rect to rebuild.</param>
-        
         /// 17/5 2020 Image源码学习
         /// 将物体加入layout重新build池中
         /// 这个方法只是针对两种类型的gameObject进行更新
@@ -203,11 +206,11 @@ namespace UnityEngine.UI
                 //获取当前父物体上所有继承自ILayoutGroup的组件列表
                 //ScrollRect、GridLayoutGroup、VerticalLayoutGroup、HorizontalLayoutGroup
                 parent.GetComponents(typeof(ILayoutGroup), comps);
-                
+
                 for (int i = 0; i < comps.Count; ++i)
                 {
                     var cur = comps[i];
-                    if (cur != null && cur is Behaviour && ((Behaviour)cur).isActiveAndEnabled)
+                    if (cur != null && cur is Behaviour && ((Behaviour) cur).isActiveAndEnabled)
                     {
                         //找到并且处于激活状态直接返回，validLayoutGroup设为true，保留当前物体
                         validLayoutGroup = true;
@@ -215,6 +218,7 @@ namespace UnityEngine.UI
                         break;
                     }
                 }
+
                 //继续向上查找，直到找到最顶层包含继承自ILayoutGroup组件的root，进行统一的布局
                 parent = parent.parent as RectTransform;
             }
@@ -250,7 +254,7 @@ namespace UnityEngine.UI
             for (int i = 0; i < comps.Count; ++i)
             {
                 var cur = comps[i];
-                if (cur != null && cur is Behaviour && ((Behaviour)cur).isActiveAndEnabled)
+                if (cur != null && cur is Behaviour && ((Behaviour) cur).isActiveAndEnabled)
                 {
                     return true;
                 }
@@ -286,7 +290,8 @@ namespace UnityEngine.UI
         }
 
         public void GraphicUpdateComplete()
-        {}
+        {
+        }
 
         public override int GetHashCode()
         {

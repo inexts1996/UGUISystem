@@ -24,14 +24,17 @@ namespace UnityEngine.UI
             /// Perform no raycasts.
             /// </summary>
             None = 0,
+
             /// <summary>
             /// Perform a 2D raycast check to check for blocking 2D elements
             /// </summary>
             TwoD = 1,
+
             /// <summary>
             /// Perform a 3D raycast check to check for blocking 3D elements
             /// </summary>
             ThreeD = 2,
+
             /// <summary>
             /// Perform a 2D and a 3D raycasts to check for blocking 2D and 3D elements.
             /// </summary>
@@ -74,27 +77,34 @@ namespace UnityEngine.UI
             }
         }
 
-        [FormerlySerializedAs("ignoreReversedGraphics")]
-        [SerializeField]
+        [FormerlySerializedAs("ignoreReversedGraphics")] [SerializeField]
         private bool m_IgnoreReversedGraphics = true;
-        [FormerlySerializedAs("blockingObjects")]
-        [SerializeField]
+
+        [FormerlySerializedAs("blockingObjects")] [SerializeField]
         private BlockingObjects m_BlockingObjects = BlockingObjects.None;
 
-        public bool ignoreReversedGraphics { get {return m_IgnoreReversedGraphics; } set { m_IgnoreReversedGraphics = value; } }
+        public bool ignoreReversedGraphics
+        {
+            get { return m_IgnoreReversedGraphics; }
+            set { m_IgnoreReversedGraphics = value; }
+        }
 
         /// <summary>
         /// Type of objects that will be check for to determine if they are blocking block graphic raycasts.
         /// </summary>
-        public BlockingObjects blockingObjects { get {return m_BlockingObjects; } set { m_BlockingObjects = value; } }
+        public BlockingObjects blockingObjects
+        {
+            get { return m_BlockingObjects; }
+            set { m_BlockingObjects = value; }
+        }
 
-        [SerializeField]
-        protected LayerMask m_BlockingMask = kNoEventMaskSet;
+        [SerializeField] protected LayerMask m_BlockingMask = kNoEventMaskSet;
 
         private Canvas m_Canvas;
 
         protected GraphicRaycaster()
-        {}
+        {
+        }
 
         private Canvas canvas
         {
@@ -137,7 +147,7 @@ namespace UnityEngine.UI
             {
                 // We support multiple display and display identification based on event position.
 
-                int eventDisplayIndex = (int)eventPosition.z;
+                int eventDisplayIndex = (int) eventPosition.z;
 
                 // Discard events that are not part of this display so the user does not interact with multiple displays at once.
                 if (eventDisplayIndex != displayIndex)
@@ -166,6 +176,7 @@ namespace UnityEngine.UI
                     w = Display.displays[displayIndex].systemWidth;
                     h = Display.displays[displayIndex].systemHeight;
                 }
+
                 pos = new Vector2(eventPosition.x / w, eventPosition.y / h);
             }
             else
@@ -191,14 +202,16 @@ namespace UnityEngine.UI
                     float projectionDirection = ray.direction.z;
                     distanceToClipPlane = Mathf.Approximately(0.0f, projectionDirection)
                         ? Mathf.Infinity
-                        : Mathf.Abs((currentEventCamera.farClipPlane - currentEventCamera.nearClipPlane) / projectionDirection);
+                        : Mathf.Abs((currentEventCamera.farClipPlane - currentEventCamera.nearClipPlane) /
+                                    projectionDirection);
                 }
 
                 if (blockingObjects == BlockingObjects.ThreeD || blockingObjects == BlockingObjects.All)
                 {
                     if (ReflectionMethodsCache.Singleton.raycast3D != null)
                     {
-                        var hits = ReflectionMethodsCache.Singleton.raycast3DAll(ray, distanceToClipPlane, (int)m_BlockingMask);
+                        var hits = ReflectionMethodsCache.Singleton.raycast3DAll(ray, distanceToClipPlane,
+                            (int) m_BlockingMask);
                         if (hits.Length > 0)
                             hitDistance = hits[0].distance;
                     }
@@ -208,7 +221,8 @@ namespace UnityEngine.UI
                 {
                     if (ReflectionMethodsCache.Singleton.raycast2D != null)
                     {
-                        var hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane, (int)m_BlockingMask);
+                        var hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane,
+                            (int) m_BlockingMask);
                         if (hits.Length > 0)
                             hitDistance = hits[0].distance;
                     }
@@ -252,7 +266,8 @@ namespace UnityEngine.UI
                         Transform trans = go.transform;
                         Vector3 transForward = trans.forward;
                         // http://geomalgorithms.com/a06-_intersect-2.html
-                        distance = (Vector3.Dot(transForward, trans.position - ray.origin) / Vector3.Dot(transForward, ray.direction));
+                        distance = (Vector3.Dot(transForward, trans.position - ray.origin) /
+                                    Vector3.Dot(transForward, ray.direction));
 
                         // Check to see if the go is behind the camera.
                         if (distance < 0)
@@ -290,7 +305,8 @@ namespace UnityEngine.UI
         {
             get
             {
-                if (canvas.renderMode == RenderMode.ScreenSpaceOverlay || (canvas.renderMode == RenderMode.ScreenSpaceCamera && canvas.worldCamera == null))
+                if (canvas.renderMode == RenderMode.ScreenSpaceOverlay ||
+                    (canvas.renderMode == RenderMode.ScreenSpaceCamera && canvas.worldCamera == null))
                     return null;
 
                 return canvas.worldCamera != null ? canvas.worldCamera : Camera.main;
@@ -301,7 +317,9 @@ namespace UnityEngine.UI
         /// Perform a raycast into the screen and collect all graphics underneath it.
         /// </summary>
         [NonSerialized] static readonly List<Graphic> s_SortedGraphics = new List<Graphic>();
-        private static void Raycast(Canvas canvas, Camera eventCamera, Vector2 pointerPosition, IList<Graphic> foundGraphics, List<Graphic> results)
+
+        private static void Raycast(Canvas canvas, Camera eventCamera, Vector2 pointerPosition,
+            IList<Graphic> foundGraphics, List<Graphic> results)
         {
             // Debug.Log("ttt" + pointerPoision + ":::" + camera);
             // Necessary for the event system
@@ -314,10 +332,12 @@ namespace UnityEngine.UI
                 if (graphic.depth == -1 || !graphic.raycastTarget || graphic.canvasRenderer.cull)
                     continue;
 
-                if (!RectTransformUtility.RectangleContainsScreenPoint(graphic.rectTransform, pointerPosition, eventCamera))
+                if (!RectTransformUtility.RectangleContainsScreenPoint(graphic.rectTransform, pointerPosition,
+                    eventCamera))
                     continue;
 
-                if (eventCamera != null && eventCamera.WorldToScreenPoint(graphic.rectTransform.position).z > eventCamera.farClipPlane)
+                if (eventCamera != null && eventCamera.WorldToScreenPoint(graphic.rectTransform.position).z >
+                    eventCamera.farClipPlane)
                     continue;
 
                 if (graphic.Raycast(pointerPosition, eventCamera))

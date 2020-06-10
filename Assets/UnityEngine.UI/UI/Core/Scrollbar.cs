@@ -15,7 +15,8 @@ namespace UnityEngine.UI
     /// The anchors of the handle RectTransforms are driven by the Scrollbar. The handle can be a direct child of the GameObject with the Scrollbar, or intermediary RectTransforms can be placed in between for additional control.
     /// When a change to the scrollbar value occurs, a callback is sent to any registered listeners of onValueChanged.
     /// </remarks>
-    public class Scrollbar : Selectable, IBeginDragHandler, IDragHandler, IInitializePotentialDragHandler, ICanvasElement
+    public class Scrollbar : Selectable, IBeginDragHandler, IDragHandler, IInitializePotentialDragHandler,
+        ICanvasElement
     {
         /// <summary>
         /// Setting that indicates one of four directions the scrollbar will travel.
@@ -47,31 +48,48 @@ namespace UnityEngine.UI
         /// <summary>
         /// UnityEvent callback for when a scrollbar is scrolled.
         /// </summary>
-        public class ScrollEvent : UnityEvent<float> {}
+        public class ScrollEvent : UnityEvent<float>
+        {
+        }
 
-        [SerializeField]
-        private RectTransform m_HandleRect;
+        [SerializeField] private RectTransform m_HandleRect;
 
         /// <summary>
         /// The RectTransform to use for the handle.
         /// </summary>
-        public RectTransform handleRect { get { return m_HandleRect; } set { if (SetPropertyUtility.SetClass(ref m_HandleRect, value)) { UpdateCachedReferences(); UpdateVisuals(); } } }
+        public RectTransform handleRect
+        {
+            get { return m_HandleRect; }
+            set
+            {
+                if (SetPropertyUtility.SetClass(ref m_HandleRect, value))
+                {
+                    UpdateCachedReferences();
+                    UpdateVisuals();
+                }
+            }
+        }
 
         // Direction of movement.
-        [SerializeField]
-        private Direction m_Direction = Direction.LeftToRight;
+        [SerializeField] private Direction m_Direction = Direction.LeftToRight;
 
         /// <summary>
         /// The direction of the scrollbar from minimum to maximum value.
         /// </summary>
-        public Direction direction { get { return m_Direction; } set { if (SetPropertyUtility.SetStruct(ref m_Direction, value)) UpdateVisuals(); } }
+        public Direction direction
+        {
+            get { return m_Direction; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_Direction, value)) UpdateVisuals();
+            }
+        }
 
         protected Scrollbar()
-        {}
+        {
+        }
 
-        [Range(0f, 1f)]
-        [SerializeField]
-        private float m_Value;
+        [Range(0f, 1f)] [SerializeField] private float m_Value;
 
         /// <summary>
         /// The current value of the scrollbar, between 0 and 1.
@@ -85,34 +103,42 @@ namespace UnityEngine.UI
                     val = Mathf.Round(val * (m_NumberOfSteps - 1)) / (m_NumberOfSteps - 1);
                 return val;
             }
-            set
-            {
-                Set(value);
-            }
+            set { Set(value); }
         }
 
-        [Range(0f, 1f)]
-        [SerializeField]
-        private float m_Size = 0.2f;
+        [Range(0f, 1f)] [SerializeField] private float m_Size = 0.2f;
 
         /// <summary>
         /// The size of the scrollbar handle where 1 means it fills the entire scrollbar.
         /// </summary>
-        public float size { get { return m_Size; } set { if (SetPropertyUtility.SetStruct(ref m_Size, Mathf.Clamp01(value))) UpdateVisuals(); } }
+        public float size
+        {
+            get { return m_Size; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_Size, Mathf.Clamp01(value))) UpdateVisuals();
+            }
+        }
 
-        [Range(0, 11)]
-        [SerializeField]
-        private int m_NumberOfSteps = 0;
+        [Range(0, 11)] [SerializeField] private int m_NumberOfSteps = 0;
 
         /// <summary>
         /// The number of steps to use for the value. A value of 0 disables use of steps.
         /// </summary>
-        public int numberOfSteps { get { return m_NumberOfSteps; } set { if (SetPropertyUtility.SetStruct(ref m_NumberOfSteps, value)) { Set(m_Value); UpdateVisuals(); } } }
+        public int numberOfSteps
+        {
+            get { return m_NumberOfSteps; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_NumberOfSteps, value))
+                {
+                    Set(m_Value);
+                    UpdateVisuals();
+                }
+            }
+        }
 
-        [Space(6)]
-
-        [SerializeField]
-        private ScrollEvent m_OnValueChanged = new ScrollEvent();
+        [Space(6)] [SerializeField] private ScrollEvent m_OnValueChanged = new ScrollEvent();
 
         /// <summary>
         /// Handling for when the scrollbar value is changed.
@@ -120,7 +146,11 @@ namespace UnityEngine.UI
         /// <remarks>
         /// Allow for delegate-based subscriptions for faster events than 'eventReceiver', and allowing for multiple receivers.
         /// </remarks>
-        public ScrollEvent onValueChanged { get { return m_OnValueChanged; } set { m_OnValueChanged = value; } }
+        public ScrollEvent onValueChanged
+        {
+            get { return m_OnValueChanged; }
+            set { m_OnValueChanged = value; }
+        }
 
         // Private fields
 
@@ -130,7 +160,10 @@ namespace UnityEngine.UI
         private Vector2 m_Offset = Vector2.zero;
 
         // Size of each step.
-        float stepSize { get { return (m_NumberOfSteps > 1) ? 1f / (m_NumberOfSteps - 1) : 0.1f; } }
+        float stepSize
+        {
+            get { return (m_NumberOfSteps > 1) ? 1f / (m_NumberOfSteps - 1) : 0.1f; }
+        }
 
         private DrivenRectTransformTracker m_Tracker;
         private Coroutine m_PointerDownRepeat;
@@ -170,13 +203,15 @@ namespace UnityEngine.UI
         /// See ICanvasElement.LayoutComplete.
         /// </summary>
         public virtual void LayoutComplete()
-        {}
+        {
+        }
 
         /// <summary>
         /// See ICanvasElement.GraphicUpdateComplete.
         /// </summary>
         public virtual void GraphicUpdateComplete()
-        {}
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -242,8 +277,20 @@ namespace UnityEngine.UI
             Vertical = 1
         }
 
-        Axis axis { get { return (m_Direction == Direction.LeftToRight || m_Direction == Direction.RightToLeft) ? Axis.Horizontal : Axis.Vertical; } }
-        bool reverseValue { get { return m_Direction == Direction.RightToLeft || m_Direction == Direction.TopToBottom; } }
+        Axis axis
+        {
+            get
+            {
+                return (m_Direction == Direction.LeftToRight || m_Direction == Direction.RightToLeft)
+                    ? Axis.Horizontal
+                    : Axis.Vertical;
+            }
+        }
+
+        bool reverseValue
+        {
+            get { return m_Direction == Direction.RightToLeft || m_Direction == Direction.TopToBottom; }
+        }
 
         // Force-update the scroll bar. Useful if you've changed the properties and want it to update visually.
         private void UpdateVisuals()
@@ -263,13 +310,13 @@ namespace UnityEngine.UI
                 float movement = value * (1 - size);
                 if (reverseValue)
                 {
-                    anchorMin[(int)axis] = 1 - movement - size;
-                    anchorMax[(int)axis] = 1 - movement;
+                    anchorMin[(int) axis] = 1 - movement - size;
+                    anchorMax[(int) axis] = 1 - movement;
                 }
                 else
                 {
-                    anchorMin[(int)axis] = movement;
-                    anchorMax[(int)axis] = movement + size;
+                    anchorMin[(int) axis] = movement;
+                    anchorMax[(int) axis] = movement + size;
                 }
 
                 m_HandleRect.anchorMin = anchorMin;
@@ -287,11 +334,13 @@ namespace UnityEngine.UI
                 return;
 
             Vector2 localCursor;
-            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(m_ContainerRect, eventData.position, eventData.pressEventCamera, out localCursor))
+            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(m_ContainerRect, eventData.position,
+                eventData.pressEventCamera, out localCursor))
                 return;
 
             Vector2 handleCenterRelativeToContainerCorner = localCursor - m_Offset - m_ContainerRect.rect.position;
-            Vector2 handleCorner = handleCenterRelativeToContainerCorner - (m_HandleRect.rect.size - m_HandleRect.sizeDelta) * 0.5f;
+            Vector2 handleCorner = handleCenterRelativeToContainerCorner -
+                                   (m_HandleRect.rect.size - m_HandleRect.sizeDelta) * 0.5f;
 
             float parentSize = axis == 0 ? m_ContainerRect.rect.width : m_ContainerRect.rect.height;
             float remainingSize = parentSize * (1 - size);
@@ -334,10 +383,12 @@ namespace UnityEngine.UI
                 return;
 
             m_Offset = Vector2.zero;
-            if (RectTransformUtility.RectangleContainsScreenPoint(m_HandleRect, eventData.position, eventData.enterEventCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(m_HandleRect, eventData.position,
+                eventData.enterEventCamera))
             {
                 Vector2 localMousePos;
-                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(m_HandleRect, eventData.position, eventData.pressEventCamera, out localMousePos))
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(m_HandleRect, eventData.position,
+                    eventData.pressEventCamera, out localMousePos))
                     m_Offset = localMousePos - m_HandleRect.rect.center;
             }
         }
@@ -374,10 +425,12 @@ namespace UnityEngine.UI
         {
             while (isPointerDownAndNotDragging)
             {
-                if (!RectTransformUtility.RectangleContainsScreenPoint(m_HandleRect, eventData.position, eventData.enterEventCamera))
+                if (!RectTransformUtility.RectangleContainsScreenPoint(m_HandleRect, eventData.position,
+                    eventData.enterEventCamera))
                 {
                     Vector2 localMousePos;
-                    if (RectTransformUtility.ScreenPointToLocalPointInRectangle(m_HandleRect, eventData.position, eventData.pressEventCamera, out localMousePos))
+                    if (RectTransformUtility.ScreenPointToLocalPointInRectangle(m_HandleRect, eventData.position,
+                        eventData.pressEventCamera, out localMousePos))
                     {
                         var axisCoordinate = axis == 0 ? localMousePos.x : localMousePos.y;
                         if (axisCoordinate < 0)
@@ -386,8 +439,10 @@ namespace UnityEngine.UI
                             value += size;
                     }
                 }
+
                 yield return new WaitForEndOfFrame();
             }
+
             StopCoroutine(m_PointerDownRepeat);
         }
 
@@ -506,7 +561,7 @@ namespace UnityEngine.UI
                 RectTransformUtility.FlipLayoutAxes(transform as RectTransform, true, true);
 
             if (reverseValue != oldReverse)
-                RectTransformUtility.FlipLayoutOnAxis(transform as RectTransform, (int)axis, true, true);
+                RectTransformUtility.FlipLayoutOnAxis(transform as RectTransform, (int) axis, true, true);
         }
     }
 }

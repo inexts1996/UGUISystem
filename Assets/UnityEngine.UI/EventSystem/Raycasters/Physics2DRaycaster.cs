@@ -16,7 +16,8 @@ namespace UnityEngine.EventSystems
         RaycastHit2D[] m_Hits;
 
         protected Physics2DRaycaster()
-        {}
+        {
+        }
 
         /// <summary>
         /// Raycast against 2D elements in the scene.
@@ -37,7 +38,8 @@ namespace UnityEngine.EventSystems
                 if (ReflectionMethodsCache.Singleton.getRayIntersectionAll == null)
                     return;
 
-                m_Hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane, finalEventMask);
+                m_Hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane,
+                    finalEventMask);
                 hitCount = m_Hits.Length;
             }
             else
@@ -51,7 +53,8 @@ namespace UnityEngine.EventSystems
                     m_LastMaxRayIntersections = m_MaxRayIntersections;
                 }
 
-                hitCount = ReflectionMethodsCache.Singleton.getRayIntersectionAllNonAlloc(ray, m_Hits, distanceToClipPlane, finalEventMask);
+                hitCount = ReflectionMethodsCache.Singleton.getRayIntersectionAllNonAlloc(ray, m_Hits,
+                    distanceToClipPlane, finalEventMask);
             }
 
             if (hitCount != 0)
@@ -69,7 +72,7 @@ namespace UnityEngine.EventSystems
                         worldNormal = m_Hits[b].normal,
                         screenPosition = eventData.position,
                         index = resultAppendList.Count,
-                        sortingLayer =  sr != null ? sr.sortingLayerID : 0,
+                        sortingLayer = sr != null ? sr.sortingLayerID : 0,
                         sortingOrder = sr != null ? sr.sortingOrder : 0
                     };
                     resultAppendList.Add(result);

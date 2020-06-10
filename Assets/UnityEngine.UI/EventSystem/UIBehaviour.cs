@@ -3,22 +3,29 @@ namespace UnityEngine.EventSystems
     /// <summary>
     /// Base behaviour that has protected implementations of Unity lifecycle functions.
     /// </summary>
+    /// 3/6 2020 Image源码学习
+    /// UI行为的抽象类
     public abstract class UIBehaviour : MonoBehaviour
     {
         protected virtual void Awake()
-        {}
+        {
+        }
 
         protected virtual void OnEnable()
-        {}
+        {
+        }
 
         protected virtual void Start()
-        {}
+        {
+        }
 
         protected virtual void OnDisable()
-        {}
+        {
+        }
 
         protected virtual void OnDestroy()
-        {}
+        {
+        }
 
         /// <summary>
         /// Returns true if the GameObject and the Component are active.
@@ -30,34 +37,42 @@ namespace UnityEngine.EventSystems
 
 #if UNITY_EDITOR
         protected virtual void OnValidate()
-        {}
+        {
+        }
 
         protected virtual void Reset()
-        {}
+        {
+        }
 #endif
         /// <summary>
         /// This callback is called if an associated RectTransform has its dimensions changed. The call is also made to all child rect transforms, even if the child transform itself doesn't change - as it could have, depending on its anchoring.
         /// </summary>
         protected virtual void OnRectTransformDimensionsChange()
-        {}
+        {
+        }
 
         protected virtual void OnBeforeTransformParentChanged()
-        {}
+        {
+        }
 
         protected virtual void OnTransformParentChanged()
-        {}
+        {
+        }
 
         protected virtual void OnDidApplyAnimationProperties()
-        {}
+        {
+        }
 
         protected virtual void OnCanvasGroupChanged()
-        {}
+        {
+        }
 
         /// <summary>
         /// Called when the state of the parent Canvas is changed.
         /// </summary>
         protected virtual void OnCanvasHierarchyChanged()
-        {}
+        {
+        }
 
         /// <summary>
         /// Returns true if the native representation of the behaviour has been destroyed.

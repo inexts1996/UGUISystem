@@ -49,6 +49,7 @@ namespace UnityEngine.EventSystems
                 m_PointerData.Add(id, data);
                 return true;
             }
+
             return false;
         }
 
@@ -101,6 +102,7 @@ namespace UnityEngine.EventSystems
                 pointerData.pointerCurrentRaycast = raycast;
                 m_RaycastResultCache.Clear();
             }
+
             return pointerData;
         }
 
@@ -163,6 +165,7 @@ namespace UnityEngine.EventSystems
                     if (m_TrackedButtons[i].eventData.PressedThisFrame())
                         return true;
                 }
+
                 return false;
             }
 
@@ -173,6 +176,7 @@ namespace UnityEngine.EventSystems
                     if (m_TrackedButtons[i].eventData.ReleasedThisFrame())
                         return true;
                 }
+
                 return false;
             }
 
@@ -190,13 +194,15 @@ namespace UnityEngine.EventSystems
 
                 if (tracked == null)
                 {
-                    tracked = new ButtonState { button = button, eventData = new MouseButtonEventData() };
+                    tracked = new ButtonState {button = button, eventData = new MouseButtonEventData()};
                     m_TrackedButtons.Add(tracked);
                 }
+
                 return tracked;
             }
 
-            public void SetButtonState(PointerEventData.InputButton button, PointerEventData.FramePressState stateForMouseButton, PointerEventData data)
+            public void SetButtonState(PointerEventData.InputButton button,
+                PointerEventData.FramePressState stateForMouseButton, PointerEventData data)
             {
                 var toModify = GetButtonState(button);
                 toModify.eventData.buttonState = stateForMouseButton;
@@ -224,7 +230,8 @@ namespace UnityEngine.EventSystems
             /// </summary>
             public bool PressedThisFrame()
             {
-                return buttonState == PointerEventData.FramePressState.Pressed || buttonState == PointerEventData.FramePressState.PressedAndReleased;
+                return buttonState == PointerEventData.FramePressState.Pressed ||
+                       buttonState == PointerEventData.FramePressState.PressedAndReleased;
             }
 
             /// <summary>
@@ -232,7 +239,8 @@ namespace UnityEngine.EventSystems
             /// </summary>
             public bool ReleasedThisFrame()
             {
-                return buttonState == PointerEventData.FramePressState.Released || buttonState == PointerEventData.FramePressState.PressedAndReleased;
+                return buttonState == PointerEventData.FramePressState.Released ||
+                       buttonState == PointerEventData.FramePressState.PressedAndReleased;
             }
         }
 
@@ -272,6 +280,7 @@ namespace UnityEngine.EventSystems
                 leftData.delta = pos - leftData.position;
                 leftData.position = pos;
             }
+
             leftData.scrollDelta = input.mouseScrollDelta;
             leftData.button = PointerEventData.InputButton.Left;
             eventSystem.RaycastAll(leftData, m_RaycastResultCache);
@@ -307,7 +316,8 @@ namespace UnityEngine.EventSystems
             return data;
         }
 
-        private static bool ShouldStartDrag(Vector2 pressPos, Vector2 currentPos, float threshold, bool useDragThreshold)
+        private static bool ShouldStartDrag(Vector2 pressPos, Vector2 currentPos, float threshold,
+            bool useDragThreshold)
         {
             if (!useDragThreshold)
                 return true;
@@ -320,7 +330,9 @@ namespace UnityEngine.EventSystems
         /// </summary>
         protected virtual void ProcessMove(PointerEventData pointerEvent)
         {
-            var targetGO = (Cursor.lockState == CursorLockMode.Locked ? null : pointerEvent.pointerCurrentRaycast.gameObject);
+            var targetGO = (Cursor.lockState == CursorLockMode.Locked
+                ? null
+                : pointerEvent.pointerCurrentRaycast.gameObject);
             HandlePointerExitAndEnter(pointerEvent, targetGO);
         }
 
@@ -335,7 +347,8 @@ namespace UnityEngine.EventSystems
                 return;
 
             if (!pointerEvent.dragging
-                && ShouldStartDrag(pointerEvent.pressPosition, pointerEvent.position, eventSystem.pixelDragThreshold, pointerEvent.useDragThreshold))
+                && ShouldStartDrag(pointerEvent.pressPosition, pointerEvent.position, eventSystem.pixelDragThreshold,
+                    pointerEvent.useDragThreshold))
             {
                 ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.beginDragHandler);
                 pointerEvent.dragging = true;
@@ -354,6 +367,7 @@ namespace UnityEngine.EventSystems
                     pointerEvent.pointerPress = null;
                     pointerEvent.rawPointerPress = null;
                 }
+
                 ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.dragHandler);
             }
         }
@@ -394,6 +408,7 @@ namespace UnityEngine.EventSystems
                 sb.AppendLine("<B>Pointer:</b> " + pointer.Key);
                 sb.AppendLine(pointer.Value.ToString());
             }
+
             return sb.ToString();
         }
 

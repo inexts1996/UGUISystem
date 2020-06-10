@@ -12,12 +12,12 @@ namespace UnityEngine.UI
     /// Keep in mind though that this will create an extra draw call with each RawImage present, so it's
     /// best to use it only for backgrounds or temporary visible graphics.
     /// </remarks>
-
     [AddComponentMenu("UI/Raw Image", 12)]
     public class RawImage : MaskableGraphic
     {
-        [FormerlySerializedAs("m_Tex")]
-        [SerializeField] Texture m_Texture;
+        [FormerlySerializedAs("m_Tex")] [SerializeField]
+        Texture m_Texture;
+
         [SerializeField] Rect m_UVRect = new Rect(0f, 0f, 1f, 1f);
 
         protected RawImage()
@@ -38,6 +38,7 @@ namespace UnityEngine.UI
                     {
                         return material.mainTexture;
                     }
+
                     return s_WhiteTexture;
                 }
 
@@ -78,10 +79,7 @@ namespace UnityEngine.UI
         /// </example>
         public Texture texture
         {
-            get
-            {
-                return m_Texture;
-            }
+            get { return m_Texture; }
             set
             {
                 if (m_Texture == value)
@@ -98,10 +96,7 @@ namespace UnityEngine.UI
         /// </summary>
         public Rect uvRect
         {
-            get
-            {
-                return m_UVRect;
-            }
+            get { return m_UVRect; }
             set
             {
                 if (m_UVRect == value)
@@ -141,10 +136,14 @@ namespace UnityEngine.UI
                 var scaleY = tex.height * tex.texelSize.y;
                 {
                     var color32 = color;
-                    vh.AddVert(new Vector3(v.x, v.y), color32, new Vector2(m_UVRect.xMin * scaleX, m_UVRect.yMin * scaleY));
-                    vh.AddVert(new Vector3(v.x, v.w), color32, new Vector2(m_UVRect.xMin * scaleX, m_UVRect.yMax * scaleY));
-                    vh.AddVert(new Vector3(v.z, v.w), color32, new Vector2(m_UVRect.xMax * scaleX, m_UVRect.yMax * scaleY));
-                    vh.AddVert(new Vector3(v.z, v.y), color32, new Vector2(m_UVRect.xMax * scaleX, m_UVRect.yMin * scaleY));
+                    vh.AddVert(new Vector3(v.x, v.y), color32,
+                        new Vector2(m_UVRect.xMin * scaleX, m_UVRect.yMin * scaleY));
+                    vh.AddVert(new Vector3(v.x, v.w), color32,
+                        new Vector2(m_UVRect.xMin * scaleX, m_UVRect.yMax * scaleY));
+                    vh.AddVert(new Vector3(v.z, v.w), color32,
+                        new Vector2(m_UVRect.xMax * scaleX, m_UVRect.yMax * scaleY));
+                    vh.AddVert(new Vector3(v.z, v.y), color32,
+                        new Vector2(m_UVRect.xMax * scaleX, m_UVRect.yMin * scaleY));
 
                     vh.AddTriangle(0, 1, 2);
                     vh.AddTriangle(2, 3, 0);

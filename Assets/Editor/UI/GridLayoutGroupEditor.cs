@@ -50,6 +50,7 @@ namespace UnityEditor.UI
                 EditorGUILayout.PropertyField(m_ConstraintCount, true);
                 EditorGUI.indentLevel--;
             }
+
             serializedObject.ApplyModifiedProperties();
         }
     }

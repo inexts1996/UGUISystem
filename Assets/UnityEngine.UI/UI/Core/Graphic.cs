@@ -75,14 +75,13 @@ namespace UnityEngine.UI
     /// }
     /// </code>
     /// </example>
-    
     ///note by inexts 11/5 2020 23:46
     /// 学习 image源码
     /// 类
     /// 所有图形的抽象类。所有的UI元素都继承自graphic
     public abstract class Graphic
         : UIBehaviour,
-          ICanvasElement
+            ICanvasElement
     {
         static protected Material s_DefaultUI = null;
         static protected Texture2D s_WhiteTexture = null;
@@ -102,8 +101,8 @@ namespace UnityEngine.UI
         }
 
         // Cached and saved values
-        [FormerlySerializedAs("m_Mat")]
-        [SerializeField] protected Material m_Material;
+        [FormerlySerializedAs("m_Mat")] [SerializeField]
+        protected Material m_Material;
 
         [SerializeField] private Color m_Color = Color.white;
 
@@ -150,19 +149,32 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        
         /// note by inexts 11/5 2020 23:43
         /// 学习 image源码
         /// 属性
         /// 作用：获取当前色值；改变当前色值，并设置顶点dirty，重新绘制图形
-        public virtual Color color { get { return m_Color; } set { if (SetPropertyUtility.SetColor(ref m_Color, value)) SetVerticesDirty(); } }
+        /// 所以一些图片文字等显示的UI改变颜色，都是通过这个属性来的
+        public virtual Color color
+        {
+            get { return m_Color; }
+            set
+            {
+                if (SetPropertyUtility.SetColor(ref m_Color, value)) SetVerticesDirty();
+            }
+        }
 
         [SerializeField] private bool m_RaycastTarget = true;
 
         /// <summary>
         /// Should this graphic be considered a target for raycasting?
         /// </summary>
-        public virtual bool raycastTarget { get { return m_RaycastTarget; } set { m_RaycastTarget = value; } }
+        /// 3/6 2020 Image 源码学习
+        /// 设置显示UI元素的raycsatTarget属性，用来判断是否进行射线检测的
+        public virtual bool raycastTarget
+        {
+            get { return m_RaycastTarget; }
+            set { m_RaycastTarget = value; }
+        }
 
         [NonSerialized] private RectTransform m_RectTransform;
         [NonSerialized] private CanvasRenderer m_CanvasRenderer;
@@ -179,8 +191,7 @@ namespace UnityEngine.UI
         [NonSerialized] private static readonly VertexHelper s_VertexHelper = new VertexHelper();
 
         // Tween controls for the Graphic
-        [NonSerialized]
-        private readonly TweenRunner<ColorTween> m_ColorTweenRunner;
+        [NonSerialized] private readonly TweenRunner<ColorTween> m_ColorTweenRunner;
 
         protected bool useLegacyMeshGeneration { get; set; }
 
@@ -198,6 +209,8 @@ namespace UnityEngine.UI
         /// Set all properties of the Graphic dirty and needing rebuilt.
         /// Dirties Layout, Vertices, and Materials.
         /// </summary>
+        /// 3/6 2020 Image 源码学习
+        /// 对图形所有的属性进行脏处理设置
         public virtual void SetAllDirty()
         {
             SetLayoutDirty();
@@ -229,6 +242,8 @@ namespace UnityEngine.UI
         /// <remarks>
         /// Send a OnDirtyVertsCallback notification if any elements are registered. See RegisterDirtyVerticesCallback
         /// </remarks>
+        /// 3/6 2020 Imagey源码学习
+        /// 设置顶点的脏处理,进行图形的更新
         public virtual void SetVerticesDirty()
         {
             if (!IsActive())
@@ -247,6 +262,8 @@ namespace UnityEngine.UI
         /// <remarks>
         /// Send a OnDirtyMaterialCallback notification if any elements are registered. See RegisterDirtyMaterialCallback
         /// </remarks>
+        /// 3/6 2020 Imagey源码学习
+        /// 设置材质的脏处理，材质改变也会重新对图形进行build
         public virtual void SetMaterialDirty()
         {
             if (!IsActive())
@@ -259,11 +276,17 @@ namespace UnityEngine.UI
                 m_OnDirtyMaterialCallback();
         }
 
+        /// <summary>
+        /// 8/6 2020 Graphic源码学习
+        /// 当rectTransform大小发生改变时进行操作
+        /// </summary>
         protected override void OnRectTransformDimensionsChange()
         {
             if (gameObject.activeInHierarchy)
             {
                 // prevent double dirtying...
+                //如果正在进行layout的rebuild，就只对顶点进行脏处理操作
+                //否则对顶点和layout都进行脏处理操作
                 if (CanvasUpdateRegistry.IsRebuildingLayout())
                     SetVerticesDirty();
                 else
@@ -274,6 +297,10 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 8/6 2020 Graphic源码学习
+        /// 在父物体transform发生改变之前做的操作
+        /// </summary>
         protected override void OnBeforeTransformParentChanged()
         {
             GraphicRegistry.UnregisterGraphicForCanvas(canvas, this);
@@ -310,7 +337,10 @@ namespace UnityEngine.UI
         ///
         /// This value is used to determine draw and event ordering.
         /// </example>
-        public int depth { get { return canvasRenderer.absoluteDepth; } }
+        public int depth
+        {
+            get { return canvasRenderer.absoluteDepth; }
+        }
 
         /// <summary>
         /// The RectTransform component used by the Graphic. Cached for speed.
@@ -325,6 +355,7 @@ namespace UnityEngine.UI
                 {
                     m_RectTransform = GetComponent<RectTransform>();
                 }
+
                 return m_RectTransform;
             }
         }
@@ -363,6 +394,7 @@ namespace UnityEngine.UI
             }
             else
                 m_Canvas = null;
+
             ListPool<Canvas>.Release(list);
         }
 
@@ -379,6 +411,7 @@ namespace UnityEngine.UI
                 {
                     m_CanvasRenderer = GetComponent<CanvasRenderer>();
                 }
+
                 return m_CanvasRenderer;
             }
         }
@@ -396,10 +429,7 @@ namespace UnityEngine.UI
         /// </summary>
         public virtual Material material
         {
-            get
-            {
-                return (m_Material != null) ? m_Material : defaultMaterial;
-            }
+            get { return (m_Material != null) ? m_Material : defaultMaterial; }
             set
             {
                 if (m_Material == value)
@@ -443,10 +473,7 @@ namespace UnityEngine.UI
         /// </remarks>
         public virtual Texture mainTexture
         {
-            get
-            {
-                return s_WhiteTexture;
-            }
+            get { return s_WhiteTexture; }
         }
 
         /// <summary>
@@ -545,20 +572,24 @@ namespace UnityEngine.UI
                         UpdateGeometry();
                         m_VertsDirty = false;
                     }
+
                     if (m_MaterialDirty)
                     {
                         UpdateMaterial();
                         m_MaterialDirty = false;
                     }
+
                     break;
             }
         }
 
         public virtual void LayoutComplete()
-        {}
+        {
+        }
 
         public virtual void GraphicUpdateComplete()
-        {}
+        {
+        }
 
         /// <summary>
         /// Call to update the Material of the graphic onto the CanvasRenderer.
@@ -595,7 +626,7 @@ namespace UnityEngine.UI
             GetComponents(typeof(IMeshModifier), components);
 
             for (var i = 0; i < components.Count; i++)
-                ((IMeshModifier)components[i]).ModifyMesh(s_VertexHelper);
+                ((IMeshModifier) components[i]).ModifyMesh(s_VertexHelper);
 
             ListPool<Component>.Release(components);
 
@@ -622,7 +653,7 @@ namespace UnityEngine.UI
             for (var i = 0; i < components.Count; i++)
             {
 #pragma warning disable 618
-                ((IMeshModifier)components[i]).ModifyMesh(workerMesh);
+                ((IMeshModifier) components[i]).ModifyMesh(workerMesh);
 #pragma warning restore 618
             }
 
@@ -640,12 +671,16 @@ namespace UnityEngine.UI
                     s_Mesh.name = "Shared UI Mesh";
                     s_Mesh.hideFlags = HideFlags.HideAndDontSave;
                 }
+
                 return s_Mesh;
             }
         }
+
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [Obsolete("Use OnPopulateMesh instead.", true)]
-        protected virtual void OnFillVBO(System.Collections.Generic.List<UIVertex> vbo) {}
+        protected virtual void OnFillVBO(System.Collections.Generic.List<UIVertex> vbo)
+        {
+        }
 
         [Obsolete("Use OnPopulateMesh(VertexHelper vh) instead.", false)]
         /// <summary>
@@ -700,7 +735,8 @@ namespace UnityEngine.UI
             {
                 if (mb == null)
                     continue;
-                var methodInfo = mb.GetType().GetMethod("OnValidate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                var methodInfo = mb.GetType().GetMethod("OnValidate",
+                    BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
                 if (methodInfo != null)
                     methodInfo.Invoke(mb, null);
             }
@@ -723,7 +759,9 @@ namespace UnityEngine.UI
         /// <summary>
         /// Make the Graphic have the native size of its content.
         /// </summary>
-        public virtual void SetNativeSize() {}
+        public virtual void SetNativeSize()
+        {
+        }
 
         /// <summary>
         /// When a GraphicRaycaster is raycasting into the scene it does two things. First it filters the elements using their RectTransform rect. Then it uses this Raycast function to determine the elements hit by the raycast.
@@ -780,8 +818,10 @@ namespace UnityEngine.UI
                         return false;
                     }
                 }
+
                 t = continueTraversal ? t.parent : null;
             }
+
             ListPool<Component>.Release(components);
             return true;
         }
@@ -805,7 +845,8 @@ namespace UnityEngine.UI
         ///</remarks>
         public Vector2 PixelAdjustPoint(Vector2 point)
         {
-            if (!canvas || canvas.renderMode == RenderMode.WorldSpace || canvas.scaleFactor == 0.0f || !canvas.pixelPerfect)
+            if (!canvas || canvas.renderMode == RenderMode.WorldSpace || canvas.scaleFactor == 0.0f ||
+                !canvas.pixelPerfect)
                 return point;
             else
             {
@@ -822,7 +863,8 @@ namespace UnityEngine.UI
         /// <returns>A Pixel perfect Rect.</returns>
         public Rect GetPixelAdjustedRect()
         {
-            if (!canvas || canvas.renderMode == RenderMode.WorldSpace || canvas.scaleFactor == 0.0f || !canvas.pixelPerfect)
+            if (!canvas || canvas.renderMode == RenderMode.WorldSpace || canvas.scaleFactor == 0.0f ||
+                !canvas.pixelPerfect)
                 return rectTransform.rect;
             else
                 return RectTransformUtility.PixelAdjustRect(rectTransform, canvas);
@@ -848,7 +890,8 @@ namespace UnityEngine.UI
         ///<param name="ignoreTimeScale">Should ignore Time.scale?</param>
         ///<param name="useAlpha">Should also Tween the alpha channel?</param>
         /// <param name="useRGB">Should the color or the alpha be used to tween</param>
-        public virtual void CrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha, bool useRGB)
+        public virtual void CrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha,
+            bool useRGB)
         {
             if (canvasRenderer == null || (!useRGB && !useAlpha))
                 return;
@@ -860,11 +903,12 @@ namespace UnityEngine.UI
                 return;
             }
 
-            ColorTween.ColorTweenMode mode = (useRGB && useAlpha ?
-                ColorTween.ColorTweenMode.All :
-                (useRGB ? ColorTween.ColorTweenMode.RGB : ColorTween.ColorTweenMode.Alpha));
+            ColorTween.ColorTweenMode mode = (useRGB && useAlpha
+                ? ColorTween.ColorTweenMode.All
+                : (useRGB ? ColorTween.ColorTweenMode.RGB : ColorTween.ColorTweenMode.Alpha));
 
-            var colorTween = new ColorTween {duration = duration, startColor = canvasRenderer.GetColor(), targetColor = targetColor};
+            var colorTween = new ColorTween
+                {duration = duration, startColor = canvasRenderer.GetColor(), targetColor = targetColor};
             colorTween.AddOnChangedCallback(canvasRenderer.SetColor);
             colorTween.ignoreTimeScale = ignoreTimeScale;
             colorTween.tweenMode = mode;

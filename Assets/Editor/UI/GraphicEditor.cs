@@ -9,7 +9,6 @@ namespace UnityEditor.UI
     /// Editor class used to edit UI Graphics.
     /// Extend this class to write your own graphic editor.
     /// </summary>
-
     [CustomEditor(typeof(MaskableGraphic), false)]
     [CanEditMultipleObjects]
     public class GraphicEditor : Editor
@@ -30,7 +29,8 @@ namespace UnityEditor.UI
 
         protected virtual void OnEnable()
         {
-            m_CorrectButtonContent = EditorGUIUtility.TrTextContent("Set Native Size", "Sets the size to match the content.");
+            m_CorrectButtonContent =
+                EditorGUIUtility.TrTextContent("Set Native Size", "Sets the size to match the content.");
 
             m_Script = serializedObject.FindProperty("m_Script");
             m_Color = serializedObject.FindProperty("m_Color");
@@ -85,6 +85,7 @@ namespace UnityEditor.UI
                 }
                 EditorGUILayout.EndHorizontal();
             }
+
             EditorGUILayout.EndFadeGroup();
         }
 

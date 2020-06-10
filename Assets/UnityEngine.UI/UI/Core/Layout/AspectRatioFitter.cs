@@ -20,18 +20,22 @@ namespace UnityEngine.UI
             /// The aspect ratio is not enforced
             /// </summary>
             None,
+
             /// <summary>
             /// Changes the height of the rectangle to match the aspect ratio.
             /// </summary>
             WidthControlsHeight,
+
             /// <summary>
             /// Changes the width of the rectangle to match the aspect ratio.
             /// </summary>
             HeightControlsWidth,
+
             /// <summary>
             /// Sizes the rectangle such that it's fully contained within the parent rectangle.
             /// </summary>
             FitInParent,
+
             /// <summary>
             /// Sizes the rectangle such that the parent rectangle is fully contained within.
             /// </summary>
@@ -43,17 +47,30 @@ namespace UnityEngine.UI
         /// <summary>
         /// The mode to use to enforce the aspect ratio.
         /// </summary>
-        public AspectMode aspectMode { get { return m_AspectMode; } set { if (SetPropertyUtility.SetStruct(ref m_AspectMode, value)) SetDirty(); } }
+        public AspectMode aspectMode
+        {
+            get { return m_AspectMode; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_AspectMode, value)) SetDirty();
+            }
+        }
 
         [SerializeField] private float m_AspectRatio = 1;
 
         /// <summary>
         /// The aspect ratio to enforce. This means width divided by height.
         /// </summary>
-        public float aspectRatio { get { return m_AspectRatio; } set { if (SetPropertyUtility.SetStruct(ref m_AspectRatio, value)) SetDirty(); } }
+        public float aspectRatio
+        {
+            get { return m_AspectRatio; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_AspectRatio, value)) SetDirty();
+            }
+        }
 
-        [System.NonSerialized]
-        private RectTransform m_Rect;
+        [System.NonSerialized] private RectTransform m_Rect;
 
         // This "delayed" mechanism is required for case 1014834.
         private bool m_DelayedSetDirty = false;
@@ -70,7 +87,9 @@ namespace UnityEngine.UI
 
         private DrivenRectTransformTracker m_Tracker;
 
-        protected AspectRatioFitter() {}
+        protected AspectRatioFitter()
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -119,7 +138,8 @@ namespace UnityEngine.UI
                 case AspectMode.None:
                 {
                     if (!Application.isPlaying)
-                        m_AspectRatio = Mathf.Clamp(rectTransform.rect.width / rectTransform.rect.height, 0.001f, 1000f);
+                        m_AspectRatio = Mathf.Clamp(rectTransform.rect.width / rectTransform.rect.height, 0.001f,
+                            1000f);
 
                     break;
                 }
@@ -127,13 +147,15 @@ namespace UnityEngine.UI
                 case AspectMode.HeightControlsWidth:
                 {
                     m_Tracker.Add(this, rectTransform, DrivenTransformProperties.SizeDeltaX);
-                    rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, rectTransform.rect.height * m_AspectRatio);
+                    rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
+                        rectTransform.rect.height * m_AspectRatio);
                     break;
                 }
                 case AspectMode.WidthControlsHeight:
                 {
                     m_Tracker.Add(this, rectTransform, DrivenTransformProperties.SizeDeltaY);
-                    rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rectTransform.rect.width / m_AspectRatio);
+                    rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,
+                        rectTransform.rect.width / m_AspectRatio);
                     break;
                 }
                 case AspectMode.FitInParent:
@@ -159,6 +181,7 @@ namespace UnityEngine.UI
                     {
                         sizeDelta.x = GetSizeDeltaToProduceSize(parentSize.y * aspectRatio, 0);
                     }
+
                     rectTransform.sizeDelta = sizeDelta;
 
                     break;
@@ -182,12 +205,16 @@ namespace UnityEngine.UI
         /// <summary>
         /// Method called by the layout system. Has no effect
         /// </summary>
-        public virtual void SetLayoutHorizontal() {}
+        public virtual void SetLayoutHorizontal()
+        {
+        }
 
         /// <summary>
         /// Method called by the layout system. Has no effect
         /// </summary>
-        public virtual void SetLayoutVertical() {}
+        public virtual void SetLayoutVertical()
+        {
+        }
 
         /// <summary>
         /// Mark the AspectRatioFitter as dirty.
@@ -197,13 +224,13 @@ namespace UnityEngine.UI
             UpdateRect();
         }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected override void OnValidate()
         {
             m_AspectRatio = Mathf.Clamp(m_AspectRatio, 0.001f, 1000f);
             m_DelayedSetDirty = true;
         }
 
-    #endif
+#endif
     }
 }

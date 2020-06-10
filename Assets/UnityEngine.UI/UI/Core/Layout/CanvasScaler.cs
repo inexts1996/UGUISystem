@@ -30,43 +30,59 @@ namespace UnityEngine.UI
             /// Using the Constant Pixel Size mode, positions and sizes of UI elements are specified in pixels on the screen.
             /// </summary>
             ConstantPixelSize,
+
             /// <summary>
             /// Using the Scale With Screen Size mode, positions and sizes can be specified according to the pixels of a specified reference resolution.
             /// If the current screen resolution is larger than the reference resolution, the Canvas will keep having only the resolution of the reference resolution, but will scale up in order to fit the screen. If the current screen resolution is smaller than the reference resolution, the Canvas will similarly be scaled down to fit.
             /// </summary>
             ScaleWithScreenSize,
+
             /// <summary>
             /// Using the Constant Physical Size mode, positions and sizes of UI elements are specified in physical units, such as millimeters, points, or picas.
             /// </summary>
             ConstantPhysicalSize
         }
 
-        [Tooltip("Determines how UI elements in the Canvas are scaled.")]
-        [SerializeField] private ScaleMode m_UiScaleMode = ScaleMode.ConstantPixelSize;
+        [Tooltip("Determines how UI elements in the Canvas are scaled.")] [SerializeField]
+        private ScaleMode m_UiScaleMode = ScaleMode.ConstantPixelSize;
 
         ///<summary>
         ///Determines how UI elements in the Canvas are scaled.
         ///</summary>
-        public ScaleMode uiScaleMode { get { return m_UiScaleMode; } set { m_UiScaleMode = value; } }
+        public ScaleMode uiScaleMode
+        {
+            get { return m_UiScaleMode; }
+            set { m_UiScaleMode = value; }
+        }
 
-        [Tooltip("If a sprite has this 'Pixels Per Unit' setting, then one pixel in the sprite will cover one unit in the UI.")]
-        [SerializeField] protected float m_ReferencePixelsPerUnit = 100;
+        [Tooltip(
+            "If a sprite has this 'Pixels Per Unit' setting, then one pixel in the sprite will cover one unit in the UI.")]
+        [SerializeField]
+        protected float m_ReferencePixelsPerUnit = 100;
 
         /// <summary>
         /// If a sprite has this 'Pixels Per Unit' setting, then one pixel in the sprite will cover one unit in the UI.
         /// </summary>
-        public float referencePixelsPerUnit { get { return m_ReferencePixelsPerUnit; } set { m_ReferencePixelsPerUnit = value; } }
+        public float referencePixelsPerUnit
+        {
+            get { return m_ReferencePixelsPerUnit; }
+            set { m_ReferencePixelsPerUnit = value; }
+        }
 
 
         // Constant Pixel Size settings
 
-        [Tooltip("Scales all UI elements in the Canvas by this factor.")]
-        [SerializeField] protected float m_ScaleFactor = 1;
+        [Tooltip("Scales all UI elements in the Canvas by this factor.")] [SerializeField]
+        protected float m_ScaleFactor = 1;
 
         /// <summary>
         /// Scales all UI elements in the Canvas by this factor.
         /// </summary>
-        public float scaleFactor { get { return m_ScaleFactor; } set { m_ScaleFactor = Mathf.Max(0.01f, value); } }
+        public float scaleFactor
+        {
+            get { return m_ScaleFactor; }
+            set { m_ScaleFactor = Mathf.Max(0.01f, value); }
+        }
 
 
         /// <summary>
@@ -78,18 +94,22 @@ namespace UnityEngine.UI
             /// Scale the canvas area with the width as reference, the height as reference, or something in between.
             /// </summary>
             MatchWidthOrHeight = 0,
+
             /// <summary>
             /// Expand the canvas area either horizontally or vertically, so the size of the canvas will never be smaller than the reference.
             /// </summary>
             Expand = 1,
+
             /// <summary>
             /// Crop the canvas area either horizontally or vertically, so the size of the canvas will never be larger than the reference.
             /// </summary>
             Shrink = 2
         }
 
-        [Tooltip("The resolution the UI layout is designed for. If the screen resolution is larger, the UI will be scaled up, and if it's smaller, the UI will be scaled down. This is done in accordance with the Screen Match Mode.")]
-        [SerializeField] protected Vector2 m_ReferenceResolution = new Vector2(800, 600);
+        [Tooltip(
+            "The resolution the UI layout is designed for. If the screen resolution is larger, the UI will be scaled up, and if it's smaller, the UI will be scaled down. This is done in accordance with the Screen Match Mode.")]
+        [SerializeField]
+        protected Vector2 m_ReferenceResolution = new Vector2(800, 600);
 
         /// <summary>
         /// The resolution the UI layout is designed for.
@@ -99,31 +119,38 @@ namespace UnityEngine.UI
         /// </remarks>
         public Vector2 referenceResolution
         {
-            get
-            {
-                return m_ReferenceResolution;
-            }
+            get { return m_ReferenceResolution; }
             set
             {
                 m_ReferenceResolution = value;
 
                 const float k_MinimumResolution = 0.00001f;
 
-                if (m_ReferenceResolution.x > -k_MinimumResolution && m_ReferenceResolution.x < k_MinimumResolution) m_ReferenceResolution.x = k_MinimumResolution * Mathf.Sign(m_ReferenceResolution.x);
-                if (m_ReferenceResolution.y > -k_MinimumResolution && m_ReferenceResolution.y < k_MinimumResolution) m_ReferenceResolution.y = k_MinimumResolution * Mathf.Sign(m_ReferenceResolution.y);
+                if (m_ReferenceResolution.x > -k_MinimumResolution && m_ReferenceResolution.x < k_MinimumResolution)
+                    m_ReferenceResolution.x = k_MinimumResolution * Mathf.Sign(m_ReferenceResolution.x);
+                if (m_ReferenceResolution.y > -k_MinimumResolution && m_ReferenceResolution.y < k_MinimumResolution)
+                    m_ReferenceResolution.y = k_MinimumResolution * Mathf.Sign(m_ReferenceResolution.y);
             }
         }
 
-        [Tooltip("A mode used to scale the canvas area if the aspect ratio of the current resolution doesn't fit the reference resolution.")]
-        [SerializeField] protected ScreenMatchMode m_ScreenMatchMode = ScreenMatchMode.MatchWidthOrHeight;
+        [Tooltip(
+            "A mode used to scale the canvas area if the aspect ratio of the current resolution doesn't fit the reference resolution.")]
+        [SerializeField]
+        protected ScreenMatchMode m_ScreenMatchMode = ScreenMatchMode.MatchWidthOrHeight;
+
         /// <summary>
         /// A mode used to scale the canvas area if the aspect ratio of the current resolution doesn't fit the reference resolution.
         /// </summary>
-        public ScreenMatchMode screenMatchMode { get { return m_ScreenMatchMode; } set { m_ScreenMatchMode = value; } }
+        public ScreenMatchMode screenMatchMode
+        {
+            get { return m_ScreenMatchMode; }
+            set { m_ScreenMatchMode = value; }
+        }
 
         [Tooltip("Determines if the scaling is using the width or height as reference, or a mix in between.")]
         [Range(0, 1)]
-        [SerializeField] protected float m_MatchWidthOrHeight = 0;
+        [SerializeField]
+        protected float m_MatchWidthOrHeight = 0;
 
         /// <summary>
         /// Setting to scale the Canvas to match the width or height of the reference resolution, or a combination.
@@ -143,7 +170,11 @@ namespace UnityEngine.UI
         ///
         /// The logic works the same for all values. The average between the horizontal and vertical scale factor is a weighted average based on the matchWidthOrHeight value.
         /// </remarks>
-        public float matchWidthOrHeight { get { return m_MatchWidthOrHeight; } set { m_MatchWidthOrHeight = value; } }
+        public float matchWidthOrHeight
+        {
+            get { return m_MatchWidthOrHeight; }
+            set { m_MatchWidthOrHeight = value; }
+        }
 
         // The log base doesn't have any influence on the results whatsoever, as long as the same base is used everywhere.
         private const float kLogBase = 2;
@@ -158,20 +189,24 @@ namespace UnityEngine.UI
             /// A centimeter is 1/100 of a meter
             /// </summary>
             Centimeters,
+
             /// <summary>
             /// Use millimeters.
             /// A millimeter is 1/10 of a centimeter, and 1/1000 of a meter.
             /// </summary>
             Millimeters,
+
             /// <summary>
             /// Use inches.
             /// </summary>
             Inches,
+
             /// <summary>
             /// Use points.
             /// One point is 1/12 of a pica, and 1/72 of an inch.
             /// </summary>
             Points,
+
             /// <summary>
             /// Use picas.
             /// One pica is 1/6 of an inch.
@@ -179,50 +214,70 @@ namespace UnityEngine.UI
             Picas
         }
 
-        [Tooltip("The physical unit to specify positions and sizes in.")]
-        [SerializeField] protected Unit m_PhysicalUnit = Unit.Points;
+        [Tooltip("The physical unit to specify positions and sizes in.")] [SerializeField]
+        protected Unit m_PhysicalUnit = Unit.Points;
 
         /// <summary>
         /// The physical unit to specify positions and sizes in.
         /// </summary>
-        public Unit physicalUnit { get { return m_PhysicalUnit; } set { m_PhysicalUnit = value; } }
+        public Unit physicalUnit
+        {
+            get { return m_PhysicalUnit; }
+            set { m_PhysicalUnit = value; }
+        }
 
-        [Tooltip("The DPI to assume if the screen DPI is not known.")]
-        [SerializeField] protected float m_FallbackScreenDPI = 96;
+        [Tooltip("The DPI to assume if the screen DPI is not known.")] [SerializeField]
+        protected float m_FallbackScreenDPI = 96;
 
         /// <summary>
         /// The DPI to assume if the screen DPI is not known.
         /// </summary>
-        public float fallbackScreenDPI { get { return m_FallbackScreenDPI; } set { m_FallbackScreenDPI = value; } }
+        public float fallbackScreenDPI
+        {
+            get { return m_FallbackScreenDPI; }
+            set { m_FallbackScreenDPI = value; }
+        }
 
-        [Tooltip("The pixels per inch to use for sprites that have a 'Pixels Per Unit' setting that matches the 'Reference Pixels Per Unit' setting.")]
-        [SerializeField] protected float m_DefaultSpriteDPI = 96;
+        [Tooltip(
+            "The pixels per inch to use for sprites that have a 'Pixels Per Unit' setting that matches the 'Reference Pixels Per Unit' setting.")]
+        [SerializeField]
+        protected float m_DefaultSpriteDPI = 96;
 
         /// <summary>
         /// The pixels per inch to use for sprites that have a 'Pixels Per Unit' setting that matches the 'Reference Pixels Per Unit' setting.
         /// </summary>
-        public float defaultSpriteDPI { get { return m_DefaultSpriteDPI; } set { m_DefaultSpriteDPI = Mathf.Max(1, value); } }
+        public float defaultSpriteDPI
+        {
+            get { return m_DefaultSpriteDPI; }
+            set { m_DefaultSpriteDPI = Mathf.Max(1, value); }
+        }
 
 
         // World Canvas settings
 
         [Tooltip("The amount of pixels per unit to use for dynamically created bitmaps in the UI, such as Text.")]
-        [SerializeField] protected float m_DynamicPixelsPerUnit = 1;
+        [SerializeField]
+        protected float m_DynamicPixelsPerUnit = 1;
 
         /// <summary>
         /// The amount of pixels per unit to use for dynamically created bitmaps in the UI, such as Text.
         /// </summary>
-        public float dynamicPixelsPerUnit { get { return m_DynamicPixelsPerUnit; } set { m_DynamicPixelsPerUnit = value; } }
+        public float dynamicPixelsPerUnit
+        {
+            get { return m_DynamicPixelsPerUnit; }
+            set { m_DynamicPixelsPerUnit = value; }
+        }
 
 
         // General variables
 
         private Canvas m_Canvas;
-        [System.NonSerialized]
-        private float m_PrevReferencePixelsPerUnit = 100;
+        [System.NonSerialized] private float m_PrevReferencePixelsPerUnit = 100;
 
 
-        protected CanvasScaler() {}
+        protected CanvasScaler()
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -259,9 +314,15 @@ namespace UnityEngine.UI
 
             switch (m_UiScaleMode)
             {
-                case ScaleMode.ConstantPixelSize: HandleConstantPixelSize(); break;
-                case ScaleMode.ScaleWithScreenSize: HandleScaleWithScreenSize(); break;
-                case ScaleMode.ConstantPhysicalSize: HandleConstantPhysicalSize(); break;
+                case ScaleMode.ConstantPixelSize:
+                    HandleConstantPixelSize();
+                    break;
+                case ScaleMode.ScaleWithScreenSize:
+                    HandleScaleWithScreenSize();
+                    break;
+                case ScaleMode.ConstantPhysicalSize:
+                    HandleConstantPhysicalSize();
+                    break;
             }
         }
 
@@ -319,12 +380,14 @@ namespace UnityEngine.UI
                 }
                 case ScreenMatchMode.Expand:
                 {
-                    scaleFactor = Mathf.Min(screenSize.x / m_ReferenceResolution.x, screenSize.y / m_ReferenceResolution.y);
+                    scaleFactor = Mathf.Min(screenSize.x / m_ReferenceResolution.x,
+                        screenSize.y / m_ReferenceResolution.y);
                     break;
                 }
                 case ScreenMatchMode.Shrink:
                 {
-                    scaleFactor = Mathf.Max(screenSize.x / m_ReferenceResolution.x, screenSize.y / m_ReferenceResolution.y);
+                    scaleFactor = Mathf.Max(screenSize.x / m_ReferenceResolution.x,
+                        screenSize.y / m_ReferenceResolution.y);
                     break;
                 }
             }
@@ -343,11 +406,21 @@ namespace UnityEngine.UI
             float targetDPI = 1;
             switch (m_PhysicalUnit)
             {
-                case Unit.Centimeters: targetDPI = 2.54f; break;
-                case Unit.Millimeters: targetDPI = 25.4f; break;
-                case Unit.Inches:      targetDPI =     1; break;
-                case Unit.Points:      targetDPI =    72; break;
-                case Unit.Picas:       targetDPI =     6; break;
+                case Unit.Centimeters:
+                    targetDPI = 2.54f;
+                    break;
+                case Unit.Millimeters:
+                    targetDPI = 25.4f;
+                    break;
+                case Unit.Inches:
+                    targetDPI = 1;
+                    break;
+                case Unit.Points:
+                    targetDPI = 72;
+                    break;
+                case Unit.Picas:
+                    targetDPI = 6;
+                    break;
             }
 
             SetScaleFactor(dpi / targetDPI);

@@ -9,7 +9,6 @@ namespace UnityEngine.UI
     /// <summary>
     /// Image is a textured element in the UI hierarchy.
     /// </summary>
-
     [AddComponentMenu("UI/Image", 11)]
     /// <summary>
     ///   Displays a Sprite inside the UI System.
@@ -229,8 +228,8 @@ namespace UnityEngine.UI
 
         static protected Material s_ETC1DefaultUI = null;
 
-        [FormerlySerializedAs("m_Frame")]
-        [SerializeField] private Sprite m_Sprite;
+        [FormerlySerializedAs("m_Frame")] [SerializeField]
+        private Sprite m_Sprite;
 
         /// <summary>
         /// The sprite that is used to render this image.
@@ -269,7 +268,6 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        
         /// 13/5 2020 Image 源码学习
         /// 设置Image的sprite
         public Sprite sprite
@@ -285,8 +283,7 @@ namespace UnityEngine.UI
             }
         }
 
-        [NonSerialized]
-        private Sprite m_OverrideSprite;
+        [NonSerialized] private Sprite m_OverrideSprite;
 
         /// <summary>
         /// Set an override sprite to be used for rendering.
@@ -353,7 +350,10 @@ namespace UnityEngine.UI
             }
         }
 
-        private Sprite activeSprite { get { return m_OverrideSprite != null ? m_OverrideSprite : sprite; } }
+        private Sprite activeSprite
+        {
+            get { return m_OverrideSprite != null ? m_OverrideSprite : sprite; }
+        }
 
         /// How the Image is drawn.
         [SerializeField] private Type m_Type = Type.Simple;
@@ -368,10 +368,25 @@ namespace UnityEngine.UI
         /// - A tiled image with sections of the sprite repeated.
         /// - As a partial image, useful for wipes, fades, timers, status bars etc.
         /// </remarks>
-        public Type type { get { return m_Type; } set { if (SetPropertyUtility.SetStruct(ref m_Type, value)) SetVerticesDirty(); } }
+        public Type type
+        {
+            get { return m_Type; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_Type, value)) SetVerticesDirty();
+            }
+        }
 
         [SerializeField] private bool m_PreserveAspect = false;
-        public bool preserveAspect { get { return m_PreserveAspect; } set { if (SetPropertyUtility.SetStruct(ref m_PreserveAspect, value)) SetVerticesDirty(); } }
+
+        public bool preserveAspect
+        {
+            get { return m_PreserveAspect; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_PreserveAspect, value)) SetVerticesDirty();
+            }
+        }
 
         [SerializeField] private bool m_FillCenter = true;
 
@@ -399,15 +414,33 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public bool fillCenter { get { return m_FillCenter; } set { if (SetPropertyUtility.SetStruct(ref m_FillCenter, value)) SetVerticesDirty(); } }
+        public bool fillCenter
+        {
+            get { return m_FillCenter; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_FillCenter, value)) SetVerticesDirty();
+            }
+        }
 
         /// Filling method for filled sprites.
         [SerializeField] private FillMethod m_FillMethod = FillMethod.Radial360;
-        public FillMethod fillMethod { get { return m_FillMethod; } set { if (SetPropertyUtility.SetStruct(ref m_FillMethod, value)) { SetVerticesDirty(); m_FillOrigin = 0; } } }
+
+        public FillMethod fillMethod
+        {
+            get { return m_FillMethod; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_FillMethod, value))
+                {
+                    SetVerticesDirty();
+                    m_FillOrigin = 0;
+                }
+            }
+        }
 
         /// Amount of the Image shown. 0-1 range with 0 being nothing shown, and 1 being the full Image.
-        [Range(0, 1)]
-        [SerializeField] private float m_FillAmount = 1.0f;
+        [Range(0, 1)] [SerializeField] private float m_FillAmount = 1.0f;
 
         /// <summary>
         /// Amount of the Image shown when the Image.type is set to Image.Type.Filled.
@@ -439,7 +472,14 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public float fillAmount { get { return m_FillAmount; } set { if (SetPropertyUtility.SetStruct(ref m_FillAmount, Mathf.Clamp01(value))) SetVerticesDirty(); } }
+        public float fillAmount
+        {
+            get { return m_FillAmount; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_FillAmount, Mathf.Clamp01(value))) SetVerticesDirty();
+            }
+        }
 
         /// Whether the Image should be filled clockwise (true) or counter-clockwise (false).
         [SerializeField] private bool m_FillClockwise = true;
@@ -476,7 +516,14 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public bool fillClockwise { get { return m_FillClockwise; } set { if (SetPropertyUtility.SetStruct(ref m_FillClockwise, value)) SetVerticesDirty(); } }
+        public bool fillClockwise
+        {
+            get { return m_FillClockwise; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_FillClockwise, value)) SetVerticesDirty();
+            }
+        }
 
         /// Controls the origin point of the Fill process. Value means different things with each fill method.
         [SerializeField] private int m_FillOrigin;
@@ -527,7 +574,14 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public int fillOrigin { get { return m_FillOrigin; } set { if (SetPropertyUtility.SetStruct(ref m_FillOrigin, value)) SetVerticesDirty(); } }
+        public int fillOrigin
+        {
+            get { return m_FillOrigin; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_FillOrigin, value)) SetVerticesDirty();
+            }
+        }
 
         // Not serialized until we support read-enabled sprites better.
         private float m_AlphaHitTestMinimumThreshold = 0;
@@ -535,13 +589,18 @@ namespace UnityEngine.UI
         // Whether this is being tracked for Atlas Binding.
         private bool m_Tracked = false;
 
-        [Obsolete("eventAlphaThreshold has been deprecated. Use eventMinimumAlphaThreshold instead (UnityUpgradable) -> alphaHitTestMinimumThreshold")]
+        [Obsolete(
+            "eventAlphaThreshold has been deprecated. Use eventMinimumAlphaThreshold instead (UnityUpgradable) -> alphaHitTestMinimumThreshold")]
 
         /// <summary>
         /// Obsolete. You should use UI.Image.alphaHitTestMinimumThreshold instead.
         /// The alpha threshold specifies the minimum alpha a pixel must have for the event to considered a "hit" on the Image.
         /// </summary>
-        public float eventAlphaThreshold { get { return 1 - alphaHitTestMinimumThreshold; } set { alphaHitTestMinimumThreshold = 1 - value; } }
+        public float eventAlphaThreshold
+        {
+            get { return 1 - alphaHitTestMinimumThreshold; }
+            set { alphaHitTestMinimumThreshold = 1 - value; }
+        }
 
         /// <summary>
         /// The alpha threshold specifies the minimum alpha a pixel must have for the event to considered a "hit" on the Image.
@@ -569,7 +628,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public float alphaHitTestMinimumThreshold { get { return m_AlphaHitTestMinimumThreshold; } set { m_AlphaHitTestMinimumThreshold = value; } }
+        public float alphaHitTestMinimumThreshold
+        {
+            get { return m_AlphaHitTestMinimumThreshold; }
+            set { m_AlphaHitTestMinimumThreshold = value; }
+        }
 
         /// Controls whether or not to use the generated mesh from the sprite importer.
         [SerializeField] private bool m_UseSpriteMesh;
@@ -581,7 +644,14 @@ namespace UnityEngine.UI
         /// When this property is set to false, the UI Image uses a simple quad. When set to true, the UI Image uses the sprite mesh generated by the [[TextureImporter]]. You should set this to true if you want to use a tightly fitted sprite mesh based on the alpha values in your image.
         /// Note: If the texture importer's SpriteMeshType property is set to SpriteMeshType.FullRect, it will only generate a quad, and not a tightly fitted sprite mesh, which means this UI image will be drawn using a quad regardless of the value of this property. Therefore, when enabling this property to use a tightly fitted sprite mesh, you must also ensure the texture importer's SpriteMeshType property is set to Tight.
         /// </remarks>
-        public bool useSpriteMesh { get { return m_UseSpriteMesh; } set { if (SetPropertyUtility.SetStruct(ref m_UseSpriteMesh, value)) SetVerticesDirty(); } }
+        public bool useSpriteMesh
+        {
+            get { return m_UseSpriteMesh; }
+            set
+            {
+                if (SetPropertyUtility.SetStruct(ref m_UseSpriteMesh, value)) SetVerticesDirty();
+            }
+        }
 
 
         protected Image()
@@ -619,6 +689,7 @@ namespace UnityEngine.UI
                     {
                         return material.mainTexture;
                     }
+
                     return s_WhiteTexture;
                 }
 
@@ -639,6 +710,7 @@ namespace UnityEngine.UI
                     Vector4 v = activeSprite.border;
                     return v.sqrMagnitude > 0f;
                 }
+
                 return false;
             }
         }
@@ -672,7 +744,6 @@ namespace UnityEngine.UI
                 if (Application.isPlaying && activeSprite && activeSprite.associatedAlphaSplitTexture != null)
                     return defaultETC1GraphicMaterial;
 #else
-
                 if (activeSprite && activeSprite.associatedAlphaSplitTexture != null)
                     return defaultETC1GraphicMaterial;
 #endif
@@ -680,16 +751,15 @@ namespace UnityEngine.UI
                 return defaultMaterial;
             }
 
-            set
-            {
-                base.material = value;
-            }
+            set { base.material = value; }
         }
 
         /// <summary>
         /// See ISerializationCallbackReceiver.
         /// </summary>
-        public virtual void OnBeforeSerialize() {}
+        public virtual void OnBeforeSerialize()
+        {
+        }
 
         /// <summary>
         /// See ISerializationCallbackReceiver.
@@ -731,7 +801,9 @@ namespace UnityEngine.UI
         private Vector4 GetDrawingDimensions(bool shouldPreserveAspect)
         {
             var padding = activeSprite == null ? Vector4.zero : Sprites.DataUtility.GetPadding(activeSprite);
-            var size = activeSprite == null ? Vector2.zero : new Vector2(activeSprite.rect.width, activeSprite.rect.height);
+            var size = activeSprite == null
+                ? Vector2.zero
+                : new Vector2(activeSprite.rect.width, activeSprite.rect.height);
 
             Rect r = GetPixelAdjustedRect();
             // Debug.Log(string.Format("r:{2}, size:{0}, padding:{1}", size, padding, r));
@@ -835,7 +907,6 @@ namespace UnityEngine.UI
         /// <summary>
         /// Update the renderer's material.
         /// </summary>
-
         protected override void UpdateMaterial()
         {
             base.UpdateMaterial();
@@ -902,7 +973,10 @@ namespace UnityEngine.UI
             Vector2[] uvs = activeSprite.uv;
             for (int i = 0; i < vertices.Length; ++i)
             {
-                vh.AddVert(new Vector3((vertices[i].x / spriteBoundSize.x) * drawingSize.x - drawOffset.x, (vertices[i].y / spriteBoundSize.y) * drawingSize.y - drawOffset.y), color32, new Vector2(uvs[i].x, uvs[i].y));
+                vh.AddVert(
+                    new Vector3((vertices[i].x / spriteBoundSize.x) * drawingSize.x - drawOffset.x,
+                        (vertices[i].y / spriteBoundSize.y) * drawingSize.y - drawOffset.y), color32,
+                    new Vector2(uvs[i].x, uvs[i].y));
             }
 
             UInt16[] triangles = activeSprite.triangles;
@@ -915,8 +989,8 @@ namespace UnityEngine.UI
         /// <summary>
         /// Generate vertices for a 9-sliced Image.
         /// </summary>
-
         static readonly Vector2[] s_VertScratch = new Vector2[4];
+
         static readonly Vector2[] s_UVScratch = new Vector2[4];
 
         private void GenerateSlicedSprite(VertexHelper toFill)
@@ -995,7 +1069,6 @@ namespace UnityEngine.UI
         /// <summary>
         /// Generate vertices for a tiled Image.
         /// </summary>
-
         void GenerateTiledSprite(VertexHelper toFill)
         {
             Vector4 outer, inner, border;
@@ -1040,7 +1113,8 @@ namespace UnityEngine.UI
             if (tileHeight <= 0)
                 tileHeight = yMax - yMin;
 
-            if (activeSprite != null && (hasBorder || activeSprite.packed || activeSprite.texture.wrapMode != TextureWrapMode.Repeat))
+            if (activeSprite != null && (hasBorder || activeSprite.packed ||
+                                         activeSprite.texture.wrapMode != TextureWrapMode.Repeat))
             {
                 // Sprite has border, or is not in repeat mode, or cannot be repeated because of packing.
                 // We cannot use texture tiling so we will generate a mesh of quads to tile the texture.
@@ -1052,8 +1126,8 @@ namespace UnityEngine.UI
                 long nTilesH = 0;
                 if (m_FillCenter)
                 {
-                    nTilesW = (long)Math.Ceiling((xMax - xMin) / tileWidth);
-                    nTilesH = (long)Math.Ceiling((yMax - yMin) / tileHeight);
+                    nTilesW = (long) Math.Ceiling((xMax - xMin) / tileWidth);
+                    nTilesH = (long) Math.Ceiling((yMax - yMin) / tileHeight);
 
                     double nVertices = 0;
                     if (hasBorder)
@@ -1067,7 +1141,10 @@ namespace UnityEngine.UI
 
                     if (nVertices > 65000.0)
                     {
-                        Debug.LogError("Too many sprite tiles on Image \"" + name + "\". The tile size will be increased. To remove the limit on the number of tiles, convert the Sprite to an Advanced texture, remove the borders, clear the Packing tag and set the Wrap mode to Repeat.", this);
+                        Debug.LogError(
+                            "Too many sprite tiles on Image \"" + name +
+                            "\". The tile size will be increased. To remove the limit on the number of tiles, convert the Sprite to an Advanced texture, remove the borders, clear the Packing tag and set the Wrap mode to Repeat.",
+                            this);
 
                         double maxTiles = 65000.0 / 4.0; // Max number of vertices is 65000; 4 vertices per tile.
                         double imageRatio;
@@ -1077,7 +1154,7 @@ namespace UnityEngine.UI
                         }
                         else
                         {
-                            imageRatio = (double)nTilesW / nTilesH;
+                            imageRatio = (double) nTilesW / nTilesH;
                         }
 
                         double targetTilesW = Math.Sqrt(maxTiles / imageRatio);
@@ -1088,8 +1165,8 @@ namespace UnityEngine.UI
                             targetTilesH -= 2;
                         }
 
-                        nTilesW = (long)Math.Floor(targetTilesW);
-                        nTilesH = (long)Math.Floor(targetTilesH);
+                        nTilesW = (long) Math.Floor(targetTilesW);
+                        nTilesH = (long) Math.Floor(targetTilesH);
                         tileWidth = (xMax - xMin) / nTilesW;
                         tileHeight = (yMax - yMin) / nTilesH;
                     }
@@ -1099,20 +1176,24 @@ namespace UnityEngine.UI
                     if (hasBorder)
                     {
                         // Texture on the border is repeated only in one direction.
-                        nTilesW = (long)Math.Ceiling((xMax - xMin) / tileWidth);
-                        nTilesH = (long)Math.Ceiling((yMax - yMin) / tileHeight);
-                        double nVertices = (nTilesH + nTilesW + 2.0 /*corners*/) * 2.0 /*sides*/ * 4.0 /*vertices per tile*/;
+                        nTilesW = (long) Math.Ceiling((xMax - xMin) / tileWidth);
+                        nTilesH = (long) Math.Ceiling((yMax - yMin) / tileHeight);
+                        double nVertices =
+                            (nTilesH + nTilesW + 2.0 /*corners*/) * 2.0 /*sides*/ * 4.0 /*vertices per tile*/;
                         if (nVertices > 65000.0)
                         {
-                            Debug.LogError("Too many sprite tiles on Image \"" + name + "\". The tile size will be increased. To remove the limit on the number of tiles, convert the Sprite to an Advanced texture, remove the borders, clear the Packing tag and set the Wrap mode to Repeat.", this);
+                            Debug.LogError(
+                                "Too many sprite tiles on Image \"" + name +
+                                "\". The tile size will be increased. To remove the limit on the number of tiles, convert the Sprite to an Advanced texture, remove the borders, clear the Packing tag and set the Wrap mode to Repeat.",
+                                this);
 
                             double maxTiles = 65000.0 / 4.0; // Max number of vertices is 65000; 4 vertices per tile.
-                            double imageRatio = (double)nTilesW / nTilesH;
+                            double imageRatio = (double) nTilesW / nTilesH;
                             double targetTilesW = (maxTiles - 4 /*corners*/) / (2 * (1.0 + imageRatio));
                             double targetTilesH = targetTilesW * imageRatio;
 
-                            nTilesW = (long)Math.Floor(targetTilesW);
-                            nTilesH = (long)Math.Floor(targetTilesH);
+                            nTilesW = (long) Math.Floor(targetTilesW);
+                            nTilesH = (long) Math.Floor(targetTilesH);
                             tileWidth = (xMax - xMin) / nTilesW;
                             tileHeight = (yMax - yMin) / nTilesH;
                         }
@@ -1135,6 +1216,7 @@ namespace UnityEngine.UI
                             clipped.y = uvMin.y + (uvMax.y - uvMin.y) * (yMax - y1) / (y2 - y1);
                             y2 = yMax;
                         }
+
                         clipped.x = uvMax.x;
                         for (long i = 0; i < nTilesW; i++)
                         {
@@ -1145,10 +1227,13 @@ namespace UnityEngine.UI
                                 clipped.x = uvMin.x + (uvMax.x - uvMin.x) * (xMax - x1) / (x2 - x1);
                                 x2 = xMax;
                             }
-                            AddQuad(toFill, new Vector2(x1, y1) + rect.position, new Vector2(x2, y2) + rect.position, color, uvMin, clipped);
+
+                            AddQuad(toFill, new Vector2(x1, y1) + rect.position, new Vector2(x2, y2) + rect.position,
+                                color, uvMin, clipped);
                         }
                     }
                 }
+
                 if (hasBorder)
                 {
                     clipped = uvMax;
@@ -1161,6 +1246,7 @@ namespace UnityEngine.UI
                             clipped.y = uvMin.y + (uvMax.y - uvMin.y) * (yMax - y1) / (y2 - y1);
                             y2 = yMax;
                         }
+
                         AddQuad(toFill,
                             new Vector2(0, y1) + rect.position,
                             new Vector2(xMin, y2) + rect.position,
@@ -1186,6 +1272,7 @@ namespace UnityEngine.UI
                             clipped.x = uvMin.x + (uvMax.x - uvMin.x) * (xMax - x1) / (x2 - x1);
                             x2 = xMax;
                         }
+
                         AddQuad(toFill,
                             new Vector2(x1, 0) + rect.position,
                             new Vector2(x2, yMin) + rect.position,
@@ -1234,7 +1321,8 @@ namespace UnityEngine.UI
 
                 if (m_FillCenter)
                 {
-                    AddQuad(toFill, new Vector2(xMin, yMin) + rect.position, new Vector2(xMax, yMax) + rect.position, color, Vector2.Scale(uvMin, uvScale), Vector2.Scale(uvMax, uvScale));
+                    AddQuad(toFill, new Vector2(xMin, yMin) + rect.position, new Vector2(xMax, yMax) + rect.position,
+                        color, Vector2.Scale(uvMin, uvScale), Vector2.Scale(uvMax, uvScale));
                 }
             }
         }
@@ -1250,7 +1338,8 @@ namespace UnityEngine.UI
             vertexHelper.AddTriangle(startIndex + 2, startIndex + 3, startIndex);
         }
 
-        static void AddQuad(VertexHelper vertexHelper, Vector2 posMin, Vector2 posMax, Color32 color, Vector2 uvMin, Vector2 uvMax)
+        static void AddQuad(VertexHelper vertexHelper, Vector2 posMin, Vector2 posMax, Color32 color, Vector2 uvMin,
+            Vector2 uvMax)
         {
             int startIndex = vertexHelper.currentVertCount;
 
@@ -1292,15 +1381,17 @@ namespace UnityEngine.UI
                     border[axis + 2] *= borderScaleRatio;
                 }
             }
+
             return border;
         }
 
         /// <summary>
         /// Generate vertices for a filled Image.
         /// </summary>
-
         static readonly Vector3[] s_Xy = new Vector3[4];
+
         static readonly Vector3[] s_Uv = new Vector3[4];
+
         void GenerateFilledSprite(VertexHelper toFill, bool preserveAspect)
         {
             toFill.Clear();
@@ -1431,7 +1522,8 @@ namespace UnityEngine.UI
 
                             float val = m_FillClockwise ? fillAmount * 2f - side : m_FillAmount * 2f - (1 - side);
 
-                            if (RadialCut(s_Xy, s_Uv, Mathf.Clamp01(val), m_FillClockwise, ((side + m_FillOrigin + 3) % 4)))
+                            if (RadialCut(s_Xy, s_Uv, Mathf.Clamp01(val), m_FillClockwise,
+                                ((side + m_FillOrigin + 3) % 4)))
                             {
                                 AddQuad(toFill, s_Xy, color, s_Uv);
                             }
@@ -1485,9 +1577,9 @@ namespace UnityEngine.UI
                             s_Uv[2].y = s_Uv[1].y;
                             s_Uv[3].y = s_Uv[0].y;
 
-                            float val = m_FillClockwise ?
-                                m_FillAmount * 4f - ((corner + m_FillOrigin) % 4) :
-                                m_FillAmount * 4f - (3 - ((corner + m_FillOrigin) % 4));
+                            float val = m_FillClockwise
+                                ? m_FillAmount * 4f - ((corner + m_FillOrigin) % 4)
+                                : m_FillAmount * 4f - (3 - ((corner + m_FillOrigin) % 4));
 
                             if (RadialCut(s_Xy, s_Uv, Mathf.Clamp01(val), m_FillClockwise, ((corner + 2) % 4)))
                                 AddQuad(toFill, s_Xy, color, s_Uv);
@@ -1504,7 +1596,6 @@ namespace UnityEngine.UI
         /// <summary>
         /// Adjust the specified quad, making it be radially filled instead.
         /// </summary>
-
         static bool RadialCut(Vector3[] xy, Vector3[] uv, float fill, bool invert, int corner)
         {
             // Nothing to fill
@@ -1533,7 +1624,6 @@ namespace UnityEngine.UI
         /// <summary>
         /// Adjust the specified quad, making it be radially filled instead.
         /// </summary>
-
         static void RadialCut(Vector3[] xy, float cos, float sin, bool invert, int corner)
         {
             int i0 = corner;
@@ -1612,17 +1702,24 @@ namespace UnityEngine.UI
         /// <summary>
         /// See ILayoutElement.CalculateLayoutInputHorizontal.
         /// </summary>
-        public virtual void CalculateLayoutInputHorizontal() {}
+        public virtual void CalculateLayoutInputHorizontal()
+        {
+        }
 
         /// <summary>
         /// See ILayoutElement.CalculateLayoutInputVertical.
         /// </summary>
-        public virtual void CalculateLayoutInputVertical() {}
+        public virtual void CalculateLayoutInputVertical()
+        {
+        }
 
         /// <summary>
         /// See ILayoutElement.minWidth.
         /// </summary>
-        public virtual float minWidth { get { return 0; } }
+        public virtual float minWidth
+        {
+            get { return 0; }
+        }
 
         /// <summary>
         /// If there is a sprite being rendered returns the size of that sprite.
@@ -1643,12 +1740,18 @@ namespace UnityEngine.UI
         /// <summary>
         /// See ILayoutElement.flexibleWidth.
         /// </summary>
-        public virtual float flexibleWidth { get { return -1; } }
+        public virtual float flexibleWidth
+        {
+            get { return -1; }
+        }
 
         /// <summary>
         /// See ILayoutElement.minHeight.
         /// </summary>
-        public virtual float minHeight { get { return 0; } }
+        public virtual float minHeight
+        {
+            get { return 0; }
+        }
 
         /// <summary>
         /// If there is a sprite being rendered returns the size of that sprite.
@@ -1669,12 +1772,18 @@ namespace UnityEngine.UI
         /// <summary>
         /// See ILayoutElement.flexibleHeight.
         /// </summary>
-        public virtual float flexibleHeight { get { return -1; } }
+        public virtual float flexibleHeight
+        {
+            get { return -1; }
+        }
 
         /// <summary>
         /// See ILayoutElement.layoutPriority.
         /// </summary>
-        public virtual int layoutPriority { get { return 0; } }
+        public virtual int layoutPriority
+        {
+            get { return 0; }
+        }
 
         /// <summary>
         /// Calculate if the ray location for this image is a valid hit location. Takes into account a Alpha test threshold.
@@ -1695,7 +1804,8 @@ namespace UnityEngine.UI
                 return true;
 
             Vector2 local;
-            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, eventCamera, out local))
+            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, eventCamera,
+                out local))
                 return false;
 
             Rect rect = GetPixelAdjustedRect();
@@ -1720,7 +1830,9 @@ namespace UnityEngine.UI
             }
             catch (UnityException e)
             {
-                Debug.LogError("Using alphaHitTestMinimumThreshold greater than 0 on Image whose sprite texture cannot be read. " + e.Message + " Also make sure to disable sprite packing for this sprite.", this);
+                Debug.LogError(
+                    "Using alphaHitTestMinimumThreshold greater than 0 on Image whose sprite texture cannot be read. " +
+                    e.Message + " Also make sure to disable sprite packing for this sprite.", this);
                 return true;
             }
         }

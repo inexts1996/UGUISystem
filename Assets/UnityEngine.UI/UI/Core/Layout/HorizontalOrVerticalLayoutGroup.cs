@@ -10,21 +10,33 @@ namespace UnityEngine.UI
         /// <summary>
         /// The spacing to use between layout elements in the layout group.
         /// </summary>
-        public float spacing { get { return m_Spacing; } set { SetProperty(ref m_Spacing, value); } }
+        public float spacing
+        {
+            get { return m_Spacing; }
+            set { SetProperty(ref m_Spacing, value); }
+        }
 
         [SerializeField] protected bool m_ChildForceExpandWidth = true;
 
         /// <summary>
         /// Whether to force the children to expand to fill additional available horizontal space.
         /// </summary>
-        public bool childForceExpandWidth { get { return m_ChildForceExpandWidth; } set { SetProperty(ref m_ChildForceExpandWidth, value); } }
+        public bool childForceExpandWidth
+        {
+            get { return m_ChildForceExpandWidth; }
+            set { SetProperty(ref m_ChildForceExpandWidth, value); }
+        }
 
         [SerializeField] protected bool m_ChildForceExpandHeight = true;
 
         /// <summary>
         /// Whether to force the children to expand to fill additional available vertical space.
         /// </summary>
-        public bool childForceExpandHeight { get { return m_ChildForceExpandHeight; } set { SetProperty(ref m_ChildForceExpandHeight, value); } }
+        public bool childForceExpandHeight
+        {
+            get { return m_ChildForceExpandHeight; }
+            set { SetProperty(ref m_ChildForceExpandHeight, value); }
+        }
 
         [SerializeField] protected bool m_ChildControlWidth = true;
 
@@ -36,7 +48,11 @@ namespace UnityEngine.UI
         ///
         /// If set to true, the widths of the children are automatically driven by the layout group according to their respective minimum, preferred, and flexible widths.This is useful if the widths of the children should change depending on how much space is available.In this case the width of each child cannot be set manually in the RectTransform, but the minimum, preferred and flexible width for each child can be controlled by adding a LayoutElement component to it.
         /// </remarks>
-        public bool childControlWidth { get { return m_ChildControlWidth; } set { SetProperty(ref m_ChildControlWidth, value); } }
+        public bool childControlWidth
+        {
+            get { return m_ChildControlWidth; }
+            set { SetProperty(ref m_ChildControlWidth, value); }
+        }
 
         [SerializeField] protected bool m_ChildControlHeight = true;
 
@@ -48,7 +64,11 @@ namespace UnityEngine.UI
         ///
         /// If set to true, the heights of the children are automatically driven by the layout group according to their respective minimum, preferred, and flexible heights.This is useful if the heights of the children should change depending on how much space is available.In this case the height of each child cannot be set manually in the RectTransform, but the minimum, preferred and flexible height for each child can be controlled by adding a LayoutElement component to it.
         /// </remarks>
-        public bool childControlHeight { get { return m_ChildControlHeight; } set { SetProperty(ref m_ChildControlHeight, value); } }
+        public bool childControlHeight
+        {
+            get { return m_ChildControlHeight; }
+            set { SetProperty(ref m_ChildControlHeight, value); }
+        }
 
 
         /// <summary>
@@ -94,6 +114,7 @@ namespace UnityEngine.UI
                 totalMin -= spacing;
                 totalPreferred -= spacing;
             }
+
             totalPreferred = Mathf.Max(totalMin, totalPreferred);
             SetLayoutInputForAxis(totalMin, totalPreferred, totalFlexible, axis);
         }
@@ -137,11 +158,13 @@ namespace UnityEngine.UI
             {
                 float pos = (axis == 0 ? padding.left : padding.top);
                 if (GetTotalFlexibleSize(axis) == 0 && GetTotalPreferredSize(axis) < size)
-                    pos = GetStartOffset(axis, GetTotalPreferredSize(axis) - (axis == 0 ? padding.horizontal : padding.vertical));
+                    pos = GetStartOffset(axis,
+                        GetTotalPreferredSize(axis) - (axis == 0 ? padding.horizontal : padding.vertical));
 
                 float minMaxLerp = 0;
                 if (GetTotalMinSize(axis) != GetTotalPreferredSize(axis))
-                    minMaxLerp = Mathf.Clamp01((size - GetTotalMinSize(axis)) / (GetTotalPreferredSize(axis) - GetTotalMinSize(axis)));
+                    minMaxLerp = Mathf.Clamp01((size - GetTotalMinSize(axis)) /
+                                               (GetTotalPreferredSize(axis) - GetTotalMinSize(axis)));
 
                 float itemFlexibleMultiplier = 0;
                 if (size > GetTotalPreferredSize(axis))
@@ -167,6 +190,7 @@ namespace UnityEngine.UI
                         float offsetInCell = (childSize - child.sizeDelta[axis]) * alignmentOnAxis;
                         SetChildAlongAxis(child, axis, pos + offsetInCell);
                     }
+
                     pos += childSize + spacing;
                 }
             }

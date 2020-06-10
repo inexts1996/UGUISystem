@@ -9,14 +9,11 @@ namespace UnityEngine.UI
     /// </summary>
     public abstract class MaskableGraphic : Graphic, IClippable, IMaskable, IMaterialModifier
     {
-        [NonSerialized]
-        protected bool m_ShouldRecalculateStencil = true;
+        [NonSerialized] protected bool m_ShouldRecalculateStencil = true;
 
-        [NonSerialized]
-        protected Material m_MaskMaterial;
+        [NonSerialized] protected Material m_MaskMaterial;
 
-        [NonSerialized]
-        private RectMask2D m_ParentMask;
+        [NonSerialized] private RectMask2D m_ParentMask;
 
         // m_Maskable is whether this graphic is allowed to be masked or not. It has the matching public property maskable.
         // The default for m_Maskable is true, so graphics under a mask are masked out of the box.
@@ -24,8 +21,7 @@ namespace UnityEngine.UI
         // m_IncludeForMasking is whether we actually consider this graphic for masking or not - this is an implementation detail.
         // m_IncludeForMasking should only be true if m_Maskable is true AND a parent of the graphic has an IMask component.
         // Things would still work correctly if m_IncludeForMasking was always true when m_Maskable is, but performance would suffer.
-        [NonSerialized]
-        private bool m_Maskable = true;
+        [NonSerialized] private bool m_Maskable = true;
 
         [NonSerialized]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -33,11 +29,12 @@ namespace UnityEngine.UI
         protected bool m_IncludeForMasking = false;
 
         [Serializable]
-        public class CullStateChangedEvent : UnityEvent<bool> {}
+        public class CullStateChangedEvent : UnityEvent<bool>
+        {
+        }
 
         // Event delegates triggered on click.
-        [SerializeField]
-        private CullStateChangedEvent m_OnCullStateChanged = new CullStateChangedEvent();
+        [SerializeField] private CullStateChangedEvent m_OnCullStateChanged = new CullStateChangedEvent();
 
         /// <summary>
         /// Callback issued when culling changes.
@@ -72,8 +69,7 @@ namespace UnityEngine.UI
         [Obsolete("Not used anymore", true)]
         protected bool m_ShouldRecalculate = true;
 
-        [NonSerialized]
-        protected int m_StencilValue;
+        [NonSerialized] protected int m_StencilValue;
 
         /// <summary>
         /// See IMaterialModifier.GetModifiedMaterial
@@ -95,11 +91,13 @@ namespace UnityEngine.UI
             Mask maskComponent = GetComponent<Mask>();
             if (m_StencilValue > 0 && (maskComponent == null || !maskComponent.IsActive()))
             {
-                var maskMat = StencilMaterial.Add(toUse, (1 << m_StencilValue) - 1, StencilOp.Keep, CompareFunction.Equal, ColorWriteMask.All, (1 << m_StencilValue) - 1, 0);
+                var maskMat = StencilMaterial.Add(toUse, (1 << m_StencilValue) - 1, StencilOp.Keep,
+                    CompareFunction.Equal, ColorWriteMask.All, (1 << m_StencilValue) - 1, 0);
                 StencilMaterial.Remove(m_MaskMaterial);
                 m_MaskMaterial = maskMat;
                 toUse = m_MaskMaterial;
             }
+
             return toUse;
         }
 
@@ -187,7 +185,9 @@ namespace UnityEngine.UI
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [Obsolete("Not used anymore.", true)]
-        public virtual void ParentMaskStateChanged() {}
+        public virtual void ParentMaskStateChanged()
+        {
+        }
 
         protected override void OnCanvasHierarchyChanged()
         {
@@ -202,6 +202,7 @@ namespace UnityEngine.UI
         }
 
         readonly Vector3[] m_Corners = new Vector3[4];
+
         private Rect rootCanvasRect
         {
             get
@@ -215,7 +216,8 @@ namespace UnityEngine.UI
                         m_Corners[i] = mat.MultiplyPoint(m_Corners[i]);
                 }
 
-                return new Rect(m_Corners[0].x, m_Corners[0].y, m_Corners[2].x - m_Corners[0].x, m_Corners[2].y - m_Corners[0].y);
+                return new Rect(m_Corners[0].x, m_Corners[0].y, m_Corners[2].x - m_Corners[0].x,
+                    m_Corners[2].y - m_Corners[0].y);
             }
         }
 

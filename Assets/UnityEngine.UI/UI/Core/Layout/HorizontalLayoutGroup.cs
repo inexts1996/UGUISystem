@@ -7,7 +7,8 @@ namespace UnityEngine.UI
     public class HorizontalLayoutGroup : HorizontalOrVerticalLayoutGroup
     {
         protected HorizontalLayoutGroup()
-        {}
+        {
+        }
 
         /// <summary>
         /// Called by the layout system. Also see ILayoutElement

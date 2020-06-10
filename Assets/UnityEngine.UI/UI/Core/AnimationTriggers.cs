@@ -6,26 +6,21 @@ namespace UnityEngine.UI
     [Serializable]
     public class AnimationTriggers
     {
-        private const string kDefaultNormalAnimName      = "Normal";
+        private const string kDefaultNormalAnimName = "Normal";
         private const string kDefaultSelectedAnimName = "Highlighted";
-        private const string kDefaultPressedAnimName     = "Pressed";
-        private const string kDefaultDisabledAnimName    = "Disabled";
+        private const string kDefaultPressedAnimName = "Pressed";
+        private const string kDefaultDisabledAnimName = "Disabled";
 
-        [FormerlySerializedAs("normalTrigger")]
-        [SerializeField]
-        private string m_NormalTrigger    = kDefaultNormalAnimName;
+        [FormerlySerializedAs("normalTrigger")] [SerializeField]
+        private string m_NormalTrigger = kDefaultNormalAnimName;
 
-        [FormerlySerializedAs("highlightedTrigger")]
-        [FormerlySerializedAs("m_SelectedTrigger")]
-        [SerializeField]
+        [FormerlySerializedAs("highlightedTrigger")] [FormerlySerializedAs("m_SelectedTrigger")] [SerializeField]
         private string m_HighlightedTrigger = kDefaultSelectedAnimName;
 
-        [FormerlySerializedAs("pressedTrigger")]
-        [SerializeField]
+        [FormerlySerializedAs("pressedTrigger")] [SerializeField]
         private string m_PressedTrigger = kDefaultPressedAnimName;
 
-        [FormerlySerializedAs("disabledTrigger")]
-        [SerializeField]
+        [FormerlySerializedAs("disabledTrigger")] [SerializeField]
         private string m_DisabledTrigger = kDefaultDisabledAnimName;
 
         /// <summary>
@@ -49,7 +44,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public string normalTrigger      { get { return m_NormalTrigger; } set { m_NormalTrigger = value; } }
+        public string normalTrigger
+        {
+            get { return m_NormalTrigger; }
+            set { m_NormalTrigger = value; }
+        }
 
         /// <summary>
         /// Trigger to send to animator when entering highlighted state.
@@ -72,7 +71,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public string highlightedTrigger { get { return m_HighlightedTrigger; } set { m_HighlightedTrigger = value; } }
+        public string highlightedTrigger
+        {
+            get { return m_HighlightedTrigger; }
+            set { m_HighlightedTrigger = value; }
+        }
 
         /// <summary>
         /// Trigger to send to animator when entering pressed state.
@@ -96,7 +99,11 @@ namespace UnityEngine.UI
         /// </code>
         /// </example>
 
-        public string pressedTrigger     { get { return m_PressedTrigger; } set { m_PressedTrigger = value; } }
+        public string pressedTrigger
+        {
+            get { return m_PressedTrigger; }
+            set { m_PressedTrigger = value; }
+        }
 
         /// <summary>
         /// Trigger to send to animator when entering disabled state.
@@ -120,6 +127,10 @@ namespace UnityEngine.UI
         /// </code>
         /// </example>
 
-        public string disabledTrigger    { get { return m_DisabledTrigger; } set { m_DisabledTrigger = value; } }
+        public string disabledTrigger
+        {
+            get { return m_DisabledTrigger; }
+            set { m_DisabledTrigger = value; }
+        }
     }
 }

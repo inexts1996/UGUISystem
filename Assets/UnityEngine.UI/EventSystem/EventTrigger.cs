@@ -158,7 +158,8 @@ namespace UnityEngine.EventSystems
         /// UnityEvent class for Triggers.
         /// </summary>
         public class TriggerEvent : UnityEvent<BaseEventData>
-        {}
+        {
+        }
 
         [Serializable]
         /// <summary>
@@ -180,8 +181,7 @@ namespace UnityEngine.EventSystems
             public TriggerEvent callback = new TriggerEvent();
         }
 
-        [FormerlySerializedAs("delegates")]
-        [SerializeField]
+        [FormerlySerializedAs("delegates")] [SerializeField]
         private List<Entry> m_Delegates;
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -189,7 +189,8 @@ namespace UnityEngine.EventSystems
         public List<Entry> delegates;
 
         protected EventTrigger()
-        {}
+        {
+        }
 
         /// <summary>
         /// All the functions registered in this EventTrigger

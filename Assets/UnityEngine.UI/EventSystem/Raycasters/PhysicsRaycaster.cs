@@ -23,20 +23,20 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Layer mask used to filter events. Always combined with the camera's culling mask if a camera is used.
         /// </summary>
-        [SerializeField]
-        protected LayerMask m_EventMask = kNoEventMaskSet;
+        [SerializeField] protected LayerMask m_EventMask = kNoEventMaskSet;
 
         /// <summary>
         /// The max number of intersections allowed. 0 = allocating version anything else is non alloc.
         /// </summary>
-        [SerializeField]
-        protected int m_MaxRayIntersections = 0;
+        [SerializeField] protected int m_MaxRayIntersections = 0;
+
         protected int m_LastMaxRayIntersections = 0;
 
         RaycastHit[] m_Hits;
 
         protected PhysicsRaycaster()
-        {}
+        {
+        }
 
         public override Camera eventCamera
         {
@@ -54,7 +54,7 @@ namespace UnityEngine.EventSystems
         /// </summary>
         public virtual int depth
         {
-            get { return (eventCamera != null) ? (int)eventCamera.depth : 0xFFFFFF; }
+            get { return (eventCamera != null) ? (int) eventCamera.depth : 0xFFFFFF; }
         }
 
         /// <summary>
@@ -133,7 +133,8 @@ namespace UnityEngine.EventSystems
                     m_LastMaxRayIntersections = m_MaxRayIntersections;
                 }
 
-                hitCount = ReflectionMethodsCache.Singleton.getRaycastNonAlloc(ray, m_Hits, distanceToClipPlane, finalEventMask);
+                hitCount = ReflectionMethodsCache.Singleton.getRaycastNonAlloc(ray, m_Hits, distanceToClipPlane,
+                    finalEventMask);
             }
 
             if (hitCount > 1)

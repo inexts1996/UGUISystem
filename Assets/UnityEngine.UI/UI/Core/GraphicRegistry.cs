@@ -5,12 +5,17 @@ namespace UnityEngine.UI
 {
     /// <summary>
     ///   Registry which maps a Graphic to the canvas it belongs to
+    /// 10/6 2020 Graphic学习
+    /// 将一个图形注册到它所属的canvas的map中去
+    /// 这个类的作用主要就是将继承自Graphic类的图形和对应的Canvas进行关联
+    /// 为后续的GraphicRaycaster中射线检测做准备
     /// </summary>
     public class GraphicRegistry
     {
         private static GraphicRegistry s_Instance;
 
-        private readonly Dictionary<Canvas, IndexedSet<Graphic>> m_Graphics = new Dictionary<Canvas, IndexedSet<Graphic>>();
+        private readonly Dictionary<Canvas, IndexedSet<Graphic>> m_Graphics =
+            new Dictionary<Canvas, IndexedSet<Graphic>>();
 
         protected GraphicRegistry()
         {
@@ -97,6 +102,7 @@ namespace UnityEngine.UI
                 return graphics;
 
             return s_EmptyList;
+            
         }
     }
 }

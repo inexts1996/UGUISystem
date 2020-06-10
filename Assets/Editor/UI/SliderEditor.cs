@@ -50,7 +50,7 @@ namespace UnityEditor.UI
                 EditorGUILayout.PropertyField(m_Direction);
                 if (EditorGUI.EndChangeCheck())
                 {
-                    Slider.Direction direction = (Slider.Direction)m_Direction.enumValueIndex;
+                    Slider.Direction direction = (Slider.Direction) m_Direction.enumValueIndex;
                     foreach (var obj in serializedObject.targetObjects)
                     {
                         Slider slider = obj as Slider;
@@ -69,13 +69,17 @@ namespace UnityEditor.UI
                     Slider slider = obj as Slider;
                     Slider.Direction dir = slider.direction;
                     if (dir == Slider.Direction.LeftToRight || dir == Slider.Direction.RightToLeft)
-                        warning = (slider.navigation.mode != Navigation.Mode.Automatic && (slider.FindSelectableOnLeft() != null || slider.FindSelectableOnRight() != null));
+                        warning = (slider.navigation.mode != Navigation.Mode.Automatic &&
+                                   (slider.FindSelectableOnLeft() != null || slider.FindSelectableOnRight() != null));
                     else
-                        warning = (slider.navigation.mode != Navigation.Mode.Automatic && (slider.FindSelectableOnDown() != null || slider.FindSelectableOnUp() != null));
+                        warning = (slider.navigation.mode != Navigation.Mode.Automatic &&
+                                   (slider.FindSelectableOnDown() != null || slider.FindSelectableOnUp() != null));
                 }
 
                 if (warning)
-                    EditorGUILayout.HelpBox("The selected slider direction conflicts with navigation. Not all navigation options may work.", MessageType.Warning);
+                    EditorGUILayout.HelpBox(
+                        "The selected slider direction conflicts with navigation. Not all navigation options may work.",
+                        MessageType.Warning);
 
                 // Draw the event notification options
                 EditorGUILayout.Space();
@@ -83,7 +87,9 @@ namespace UnityEditor.UI
             }
             else
             {
-                EditorGUILayout.HelpBox("Specify a RectTransform for the slider fill or the slider handle or both. Each must have a parent RectTransform that it can slide within.", MessageType.Info);
+                EditorGUILayout.HelpBox(
+                    "Specify a RectTransform for the slider fill or the slider handle or both. Each must have a parent RectTransform that it can slide within.",
+                    MessageType.Info);
             }
 
             serializedObject.ApplyModifiedProperties();

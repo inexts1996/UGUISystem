@@ -6,53 +6,40 @@ namespace UnityEngine.UI
     /// <summary>
     /// Labels reference specific font data used to draw them. This class contains that data.
     /// </summary>
-
     [Serializable]
     /// <summary>
     /// Struct for storing Text generation settings.
     /// </summary>
     public class FontData : ISerializationCallbackReceiver
     {
-        [SerializeField]
-        [FormerlySerializedAs("font")]
+        [SerializeField] [FormerlySerializedAs("font")]
         private Font m_Font;
 
-        [SerializeField]
-        [FormerlySerializedAs("fontSize")]
+        [SerializeField] [FormerlySerializedAs("fontSize")]
         private int m_FontSize;
 
-        [SerializeField]
-        [FormerlySerializedAs("fontStyle")]
+        [SerializeField] [FormerlySerializedAs("fontStyle")]
         private FontStyle m_FontStyle;
 
-        [SerializeField]
-        private bool m_BestFit;
+        [SerializeField] private bool m_BestFit;
 
-        [SerializeField]
-        private int m_MinSize;
+        [SerializeField] private int m_MinSize;
 
-        [SerializeField]
-        private int m_MaxSize;
+        [SerializeField] private int m_MaxSize;
 
-        [SerializeField]
-        [FormerlySerializedAs("alignment")]
+        [SerializeField] [FormerlySerializedAs("alignment")]
         private TextAnchor m_Alignment;
 
-        [SerializeField]
-        private bool m_AlignByGeometry;
+        [SerializeField] private bool m_AlignByGeometry;
 
-        [SerializeField]
-        [FormerlySerializedAs("richText")]
+        [SerializeField] [FormerlySerializedAs("richText")]
         private bool m_RichText;
 
-        [SerializeField]
-        private HorizontalWrapMode m_HorizontalOverflow;
+        [SerializeField] private HorizontalWrapMode m_HorizontalOverflow;
 
-        [SerializeField]
-        private VerticalWrapMode m_VerticalOverflow;
+        [SerializeField] private VerticalWrapMode m_VerticalOverflow;
 
-        [SerializeField]
-        private float m_LineSpacing;
+        [SerializeField] private float m_LineSpacing;
 
         /// <summary>
         /// Get a font data with sensible defaults.
@@ -63,7 +50,7 @@ namespace UnityEngine.UI
             {
                 var fontData = new FontData
                 {
-                    m_FontSize  = 14,
+                    m_FontSize = 14,
                     m_LineSpacing = 1f,
                     m_FontStyle = FontStyle.Normal,
                     m_BestFit = false,
@@ -72,7 +59,7 @@ namespace UnityEngine.UI
                     m_Alignment = TextAnchor.UpperLeft,
                     m_HorizontalOverflow = HorizontalWrapMode.Wrap,
                     m_VerticalOverflow = VerticalWrapMode.Truncate,
-                    m_RichText  = true,
+                    m_RichText = true,
                     m_AlignByGeometry = false
                 };
                 return fontData;
@@ -151,7 +138,7 @@ namespace UnityEngine.UI
         public bool alignByGeometry
         {
             get { return m_AlignByGeometry; }
-            set { m_AlignByGeometry = value;  }
+            set { m_AlignByGeometry = value; }
         }
 
         /// <summary>
@@ -191,7 +178,8 @@ namespace UnityEngine.UI
         }
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
-        {}
+        {
+        }
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {

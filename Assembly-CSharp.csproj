@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChangeImage.cs" />
     <Compile Include="Assets\Scripts\MyPraphic.cs" />
+    <Compile Include="Assets\testGraphic.cs" />
     <Compile Include="Assets\UnityEngine.UI\EventSystem\EventData\AxisEventData.cs" />
     <Compile Include="Assets\UnityEngine.UI\EventSystem\EventData\BaseEventData.cs" />
     <Compile Include="Assets\UnityEngine.UI\EventSystem\EventData\PointerEventData.cs" />
@@ -143,7 +144,7 @@
     <Compile Include="Assets\UnityEngine.UI\UI\Core\VertexModifiers\PositionAsUV1.cs" />
     <Compile Include="Assets\UnityEngine.UI\UI\Core\VertexModifiers\Shadow.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/github/UGUISystem/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>E:/Project/Unity/UGUISystem/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity 2018.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

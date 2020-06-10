@@ -28,51 +28,47 @@ namespace UnityEngine.EventSystems
         {
         }
 
-        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
+        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.",
+            false)]
         public enum InputMode
         {
             Mouse,
             Buttons
         }
 
-        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
+        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.",
+            false)]
         public InputMode inputMode
         {
             get { return InputMode.Mouse; }
         }
 
-        [SerializeField]
-        private string m_HorizontalAxis = "Horizontal";
+        [SerializeField] private string m_HorizontalAxis = "Horizontal";
 
         /// <summary>
         /// Name of the vertical axis for movement (if axis events are used).
         /// </summary>
-        [SerializeField]
-        private string m_VerticalAxis = "Vertical";
+        [SerializeField] private string m_VerticalAxis = "Vertical";
 
         /// <summary>
         /// Name of the submit button.
         /// </summary>
-        [SerializeField]
-        private string m_SubmitButton = "Submit";
+        [SerializeField] private string m_SubmitButton = "Submit";
 
         /// <summary>
         /// Name of the submit button.
         /// </summary>
-        [SerializeField]
-        private string m_CancelButton = "Cancel";
+        [SerializeField] private string m_CancelButton = "Cancel";
 
-        [SerializeField]
-        private float m_InputActionsPerSecond = 10;
+        [SerializeField] private float m_InputActionsPerSecond = 10;
 
-        [SerializeField]
-        private float m_RepeatDelay = 0.5f;
+        [SerializeField] private float m_RepeatDelay = 0.5f;
 
-        [SerializeField]
-        [FormerlySerializedAs("m_AllowActivationOnMobileDevice")]
+        [SerializeField] [FormerlySerializedAs("m_AllowActivationOnMobileDevice")]
         private bool m_ForceModuleActive;
 
-        [Obsolete("allowActivationOnMobileDevice has been deprecated. Use forceModuleActive instead (UnityUpgradable) -> forceModuleActive")]
+        [Obsolete(
+            "allowActivationOnMobileDevice has been deprecated. Use forceModuleActive instead (UnityUpgradable) -> forceModuleActive")]
         public bool allowActivationOnMobileDevice
         {
             get { return m_ForceModuleActive; }
@@ -169,8 +165,10 @@ namespace UnityEngine.EventSystems
         {
             if (!eventSystem.isFocused && ShouldIgnoreEventsOnNoFocus())
             {
-                if (m_InputPointerEvent != null && m_InputPointerEvent.pointerDrag != null && m_InputPointerEvent.dragging)
-                    ExecuteEvents.Execute(m_InputPointerEvent.pointerDrag, m_InputPointerEvent, ExecuteEvents.endDragHandler);
+                if (m_InputPointerEvent != null && m_InputPointerEvent.pointerDrag != null &&
+                    m_InputPointerEvent.dragging)
+                    ExecuteEvents.Execute(m_InputPointerEvent.pointerDrag, m_InputPointerEvent,
+                        ExecuteEvents.endDragHandler);
 
                 m_InputPointerEvent = null;
 
@@ -277,6 +275,7 @@ namespace UnityEngine.EventSystems
                 else
                     RemovePointerData(pointer);
             }
+
             return input.touchCount > 0;
         }
 
@@ -315,7 +314,8 @@ namespace UnityEngine.EventSystems
                 // search for the control that will receive the press
                 // if we can't find a press handler set the press
                 // handler to be what would receive a click.
-                var newPressed = ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.pointerDownHandler);
+                var newPressed =
+                    ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.pointerDownHandler);
 
                 // didnt find a press handler... search for a click handler
                 if (newPressed == null)
@@ -349,7 +349,8 @@ namespace UnityEngine.EventSystems
                 pointerEvent.pointerDrag = ExecuteEvents.GetEventHandler<IDragHandler>(currentOverGo);
 
                 if (pointerEvent.pointerDrag != null)
-                    ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.initializePotentialDrag);
+                    ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent,
+                        ExecuteEvents.initializePotentialDrag);
 
                 m_InputPointerEvent = pointerEvent;
             }
@@ -386,7 +387,8 @@ namespace UnityEngine.EventSystems
                 pointerEvent.pointerDrag = null;
 
                 // send exit events as we need to simulate this on touch up on touch device
-                ExecuteEvents.ExecuteHierarchy(pointerEvent.pointerEnter, pointerEvent, ExecuteEvents.pointerExitHandler);
+                ExecuteEvents.ExecuteHierarchy(pointerEvent.pointerEnter, pointerEvent,
+                    ExecuteEvents.pointerExitHandler);
                 pointerEvent.pointerEnter = null;
 
                 m_InputPointerEvent = pointerEvent;
@@ -424,6 +426,7 @@ namespace UnityEngine.EventSystems
                 if (move.x > 0)
                     move.x = 1f;
             }
+
             if (input.GetButtonDown(m_VerticalAxis))
             {
                 if (move.y < 0)
@@ -431,6 +434,7 @@ namespace UnityEngine.EventSystems
                 if (move.y > 0)
                     move.y = 1f;
             }
+
             return move;
         }
 
@@ -462,6 +466,7 @@ namespace UnityEngine.EventSystems
                 else
                     allow = (time > m_PrevActionTime + 1f / m_InputActionsPerSecond);
             }
+
             if (!allow)
                 return false;
 
@@ -519,7 +524,9 @@ namespace UnityEngine.EventSystems
 
             if (!Mathf.Approximately(leftButtonData.buttonData.scrollDelta.sqrMagnitude, 0.0f))
             {
-                var scrollHandler = ExecuteEvents.GetEventHandler<IScrollHandler>(leftButtonData.buttonData.pointerCurrentRaycast.gameObject);
+                var scrollHandler =
+                    ExecuteEvents.GetEventHandler<IScrollHandler>(leftButtonData.buttonData.pointerCurrentRaycast
+                        .gameObject);
                 ExecuteEvents.ExecuteHierarchy(scrollHandler, leftButtonData.buttonData, ExecuteEvents.scrollHandler);
             }
         }
@@ -557,7 +564,8 @@ namespace UnityEngine.EventSystems
                 // search for the control that will receive the press
                 // if we can't find a press handler set the press
                 // handler to be what would receive a click.
-                var newPressed = ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.pointerDownHandler);
+                var newPressed =
+                    ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.pointerDownHandler);
 
                 // didnt find a press handler... search for a click handler
                 if (newPressed == null)
@@ -591,7 +599,8 @@ namespace UnityEngine.EventSystems
                 pointerEvent.pointerDrag = ExecuteEvents.GetEventHandler<IDragHandler>(currentOverGo);
 
                 if (pointerEvent.pointerDrag != null)
-                    ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.initializePotentialDrag);
+                    ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent,
+                        ExecuteEvents.initializePotentialDrag);
 
                 m_InputPointerEvent = pointerEvent;
             }

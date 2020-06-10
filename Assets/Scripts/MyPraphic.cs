@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MyPraphic : Graphic 
+public class MyPraphic : Graphic
 {
     // Start is called before the first frame update
     protected override void Start()
     {
-       color = Color.black; 
+        color = Color.black;
     }
 }

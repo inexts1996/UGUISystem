@@ -22,7 +22,7 @@ public class ChangeImage : MonoBehaviour
     void Start()
     {
         imgSprite = Resources.Load<Sprite>("Images/2");
-        changeBtn.onClick.AddListener(OnClickChangeBtnHandler); 
+        changeBtn.onClick.AddListener(OnClickChangeBtnHandler);
     }
 
     private void OnClickChangeBtnHandler()
@@ -33,6 +33,5 @@ public class ChangeImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

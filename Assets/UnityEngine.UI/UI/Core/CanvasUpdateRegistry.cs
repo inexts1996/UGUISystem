@@ -13,22 +13,27 @@ namespace UnityEngine.UI
         /// Called before layout.
         /// </summary>
         Prelayout = 0,
+
         /// <summary>
         /// Called for layout.
         /// </summary>
         Layout = 1,
+
         /// <summary>
         /// Called after layout.
         /// </summary>
         PostLayout = 2,
+
         /// <summary>
         /// Called before rendering.
         /// </summary>
         PreRender = 3,
+
         /// <summary>
         /// Called late, before render.
         /// </summary>
         LatePreRender = 4,
+
         /// <summary>
         /// Max enum value. Always last.
         /// </summary>
@@ -40,13 +45,13 @@ namespace UnityEngine.UI
     /// </summary>
     /// 17/5 2020 Image 源码学习
     /// 所有的组件都会直接或者间接的继承ICanvasElement，是UI元素的基类
+    /// 主要是进行UI界面重绘的 
     public interface ICanvasElement
     {
         /// <summary>
         /// Rebuild the element for the given stage.
         /// </summary>
         /// <param name="executing">The current CanvasUpdate stage being rebuild.</param>
-        
         /// 12/5 2020 Image 源码学习
         /// 重新构建方法，每一个元素都会实现。当UI发生改变的时候进行绘制
         void Rebuild(CanvasUpdate executing);
@@ -116,7 +121,8 @@ namespace UnityEngine.UI
 
             var isUnityObject = element is Object;
             if (isUnityObject)
-                valid = (element as Object) != null; //Here we make use of the overloaded UnityEngine.Object == null, that checks if the native object is alive.
+                valid = (element as Object) !=
+                        null; //Here we make use of the overloaded UnityEngine.Object == null, that checks if the native object is alive.
 
             return valid;
         }
@@ -169,6 +175,7 @@ namespace UnityEngine.UI
         // 18/5 2020 Image 源码学习
         // ?? 没搞懂是升序还是降序
         private static readonly Comparison<ICanvasElement> s_SortLayoutFunction = SortLayoutList;
+
         private void PerformUpdate()
         {
             UISystemProfilerApi.BeginSample(UISystemProfilerApi.SampleType.Layout);
@@ -180,11 +187,10 @@ namespace UnityEngine.UI
             m_PerformingLayoutUpdate = true;
 
             m_LayoutRebuildQueue.Sort(s_SortLayoutFunction);
-            for (int i = 0; i <= (int)CanvasUpdate.PostLayout; i++)
+            for (int i = 0; i <= (int) CanvasUpdate.PostLayout; i++)
             {
                 for (int j = 0; j < m_LayoutRebuildQueue.Count; j++)
                 {
-                    
                     // 18/5 2020 Image源码学习
                     //从队列中取得一个element
                     var rebuild = instance.m_LayoutRebuildQueue[j];
@@ -193,7 +199,7 @@ namespace UnityEngine.UI
                         // 18/5 2020 Image源码学习
                         //element可用的情况下进行rebuild,这里调用基本上是layoutRebuilder中的rebuild方法
                         if (ObjectValidForUpdate(rebuild))
-                            rebuild.Rebuild((CanvasUpdate)i);
+                            rebuild.Rebuild((CanvasUpdate) i);
                     }
                     catch (Exception e)
                     {
@@ -219,7 +225,7 @@ namespace UnityEngine.UI
             // 18/5 2020 Image源码学习
             //Graphic rebuild同layout rebuild，只不过没有裁剪操作
             m_PerformingGraphicUpdate = true;
-            for (var i = (int)CanvasUpdate.PreRender; i < (int)CanvasUpdate.MaxUpdateValue; i++)
+            for (var i = (int) CanvasUpdate.PreRender; i < (int) CanvasUpdate.MaxUpdateValue; i++)
             {
                 for (var k = 0; k < instance.m_GraphicRebuildQueue.Count; k++)
                 {
@@ -227,7 +233,7 @@ namespace UnityEngine.UI
                     {
                         var element = instance.m_GraphicRebuildQueue[k];
                         if (ObjectValidForUpdate(element))
-                            element.Rebuild((CanvasUpdate)i);
+                            element.Rebuild((CanvasUpdate) i);
                     }
                     catch (Exception e)
                     {
@@ -256,6 +262,7 @@ namespace UnityEngine.UI
                 count++;
                 parent = parent.parent;
             }
+
             return count;
         }
 
@@ -340,7 +347,9 @@ namespace UnityEngine.UI
         {
             if (m_PerformingGraphicUpdate)
             {
-                Debug.LogError(string.Format("Trying to add {0} for graphic rebuild while we are already inside a graphic rebuild loop. This is not supported.", element));
+                Debug.LogError(string.Format(
+                    "Trying to add {0} for graphic rebuild while we are already inside a graphic rebuild loop. This is not supported.",
+                    element));
                 return false;
             }
 
@@ -363,7 +372,9 @@ namespace UnityEngine.UI
             //layout rebuild过程中不可以移除，必须执行完毕后才可以移除
             if (m_PerformingLayoutUpdate)
             {
-                Debug.LogError(string.Format("Trying to remove {0} from rebuild list while we are already inside a rebuild loop. This is not supported.", element));
+                Debug.LogError(string.Format(
+                    "Trying to remove {0} from rebuild list while we are already inside a rebuild loop. This is not supported.",
+                    element));
                 return;
             }
 
@@ -375,9 +386,12 @@ namespace UnityEngine.UI
         {
             if (m_PerformingGraphicUpdate)
             {
-                Debug.LogError(string.Format("Trying to remove {0} from rebuild list while we are already inside a rebuild loop. This is not supported.", element));
+                Debug.LogError(string.Format(
+                    "Trying to remove {0} from rebuild list while we are already inside a rebuild loop. This is not supported.",
+                    element));
                 return;
             }
+
             element.GraphicUpdateComplete();
             instance.m_GraphicRebuildQueue.Remove(element);
         }

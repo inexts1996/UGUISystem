@@ -57,7 +57,7 @@ namespace UnityEditor.UI
                     EditorGUI.PropertyField(drawRect, selectOnRight);
                     drawRect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 }
-                break;
+                    break;
             }
 
             --EditorGUI.indentLevel;
@@ -65,7 +65,7 @@ namespace UnityEditor.UI
 
         static Navigation.Mode GetNavigationMode(SerializedProperty navigation)
         {
-            return (Navigation.Mode)navigation.enumValueIndex;
+            return (Navigation.Mode) navigation.enumValueIndex;
         }
 
         public override float GetPropertyHeight(SerializedProperty prop, GUIContent label)
@@ -79,7 +79,8 @@ namespace UnityEditor.UI
             switch (navMode)
             {
                 case Navigation.Mode.None: return EditorGUIUtility.singleLineHeight;
-                case Navigation.Mode.Explicit: return 5 * EditorGUIUtility.singleLineHeight + 5 * EditorGUIUtility.standardVerticalSpacing;
+                case Navigation.Mode.Explicit:
+                    return 5 * EditorGUIUtility.singleLineHeight + 5 * EditorGUIUtility.standardVerticalSpacing;
                 default: return EditorGUIUtility.singleLineHeight + 1 * EditorGUIUtility.standardVerticalSpacing;
             }
         }

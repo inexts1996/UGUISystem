@@ -54,7 +54,8 @@ namespace UnityEngine.UI
         private bool m_ListsInitalized = false;
 
         public VertexHelper()
-        {}
+        {
+        }
 
         public VertexHelper(Mesh m)
         {
@@ -284,7 +285,8 @@ namespace UnityEngine.UI
             int startIndex = currentVertCount;
 
             for (int i = 0; i < 4; i++)
-                AddVert(verts[i].position, verts[i].color, verts[i].uv0, verts[i].uv1, verts[i].normal, verts[i].tangent);
+                AddVert(verts[i].position, verts[i].color, verts[i].uv0, verts[i].uv1, verts[i].normal,
+                    verts[i].tangent);
 
             AddTriangle(startIndex, startIndex + 1, startIndex + 2);
             AddTriangle(startIndex + 2, startIndex + 3, startIndex);
@@ -301,7 +303,8 @@ namespace UnityEngine.UI
 
             if (verts != null)
             {
-                CanvasRenderer.AddUIVertexStream(verts, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S, m_Normals, m_Tangents);
+                CanvasRenderer.AddUIVertexStream(verts, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S,
+                    m_Normals, m_Tangents);
             }
 
             if (indices != null)
@@ -321,7 +324,8 @@ namespace UnityEngine.UI
 
             InitializeListIfRequired();
 
-            CanvasRenderer.SplitUIVertexStreams(verts, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S, m_Normals, m_Tangents, m_Indices);
+            CanvasRenderer.SplitUIVertexStreams(verts, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S, m_Normals,
+                m_Tangents, m_Indices);
         }
 
         /// <summary>
@@ -334,7 +338,8 @@ namespace UnityEngine.UI
 
             InitializeListIfRequired();
 
-            CanvasRenderer.CreateUIVertexStream(stream, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S, m_Normals, m_Tangents, m_Indices);
+            CanvasRenderer.CreateUIVertexStream(stream, m_Positions, m_Colors, m_Uv0S, m_Uv1S, m_Uv2S, m_Uv3S,
+                m_Normals, m_Tangents, m_Indices);
         }
     }
 }

@@ -8,7 +8,11 @@ namespace UnityEngine.UI
     {
         // Object pool to avoid allocations.
         private static readonly ObjectPool<List<T>> s_ListPool = new ObjectPool<List<T>>(null, Clear);
-        static void Clear(List<T> l) { l.Clear(); }
+
+        static void Clear(List<T> l)
+        {
+            l.Clear();
+        }
 
         public static List<T> Get()
         {

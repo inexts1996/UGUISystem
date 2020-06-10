@@ -16,6 +16,7 @@ namespace UnityEngine.UI
     {
         [Obsolete("use IMeshModifier.ModifyMesh (VertexHelper verts) instead", false)]
         void ModifyMesh(Mesh mesh);
+
         void ModifyMesh(VertexHelper verts);
     }
 }

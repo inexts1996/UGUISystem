@@ -25,6 +25,7 @@ namespace UnityEngine.UI
                 if (toNotify != null)
                     toNotify.RecalculateClipping();
             }
+
             ListPool<Component>.Release(components);
         }
 
@@ -45,6 +46,7 @@ namespace UnityEngine.UI
                 if (toNotify != null)
                     toNotify.RecalculateMasking();
             }
+
             ListPool<Component>.Release(components);
         }
 
@@ -67,6 +69,7 @@ namespace UnityEngine.UI
                 if (canvas.overrideSorting)
                     break;
             }
+
             ListPool<Canvas>.Release(canvasList);
 
             return canvas != null ? canvas.transform : null;
@@ -103,6 +106,7 @@ namespace UnityEngine.UI
 
                 t = t.parent;
             }
+
             ListPool<Mask>.Release(components);
             return depth;
         }
@@ -155,20 +159,24 @@ namespace UnityEngine.UI
                         componentToReturn = null;
                         continue;
                     }
+
                     if (!componentToReturn.isActiveAndEnabled)
                     {
                         componentToReturn = null;
                         continue;
                     }
+
                     clippable.rectTransform.GetComponentsInParent(false, canvasComponents);
                     for (int i = canvasComponents.Count - 1; i >= 0; i--)
                     {
-                        if (!IsDescendantOrSelf(canvasComponents[i].transform, componentToReturn.transform) && canvasComponents[i].overrideSorting)
+                        if (!IsDescendantOrSelf(canvasComponents[i].transform, componentToReturn.transform) &&
+                            canvasComponents[i].overrideSorting)
                         {
                             componentToReturn = null;
                             break;
                         }
                     }
+
                     break;
                 }
             }
@@ -202,12 +210,14 @@ namespace UnityEngine.UI
                     bool shouldAdd = true;
                     for (int j = canvasComponents.Count - 1; j >= 0; j--)
                     {
-                        if (!IsDescendantOrSelf(canvasComponents[j].transform, rectMaskComponents[i].transform) && canvasComponents[j].overrideSorting)
+                        if (!IsDescendantOrSelf(canvasComponents[j].transform, rectMaskComponents[i].transform) &&
+                            canvasComponents[j].overrideSorting)
                         {
                             shouldAdd = false;
                             break;
                         }
                     }
+
                     if (shouldAdd)
                         masks.Add(rectMaskComponents[i]);
                 }

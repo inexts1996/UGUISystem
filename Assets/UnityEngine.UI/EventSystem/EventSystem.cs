@@ -20,7 +20,7 @@ namespace UnityEngine.EventSystems
 
         private BaseInputModule m_CurrentInputModule;
 
-        private  static List<EventSystem> m_EventSystems = new List<EventSystem>();
+        private static List<EventSystem> m_EventSystems = new List<EventSystem>();
 
         /// <summary>
         /// Return the current EventSystem.
@@ -40,12 +40,10 @@ namespace UnityEngine.EventSystems
             }
         }
 
-        [SerializeField]
-        [FormerlySerializedAs("m_Selected")]
+        [SerializeField] [FormerlySerializedAs("m_Selected")]
         private GameObject m_FirstSelected;
 
-        [SerializeField]
-        private bool m_sendNavigationEvents = true;
+        [SerializeField] private bool m_sendNavigationEvents = true;
 
         /// <summary>
         /// Should the EventSystem allow navigation events (move / submit / cancel).
@@ -56,8 +54,7 @@ namespace UnityEngine.EventSystems
             set { m_sendNavigationEvents = value; }
         }
 
-        [SerializeField]
-        private int m_DragThreshold = 10;
+        [SerializeField] private int m_DragThreshold = 10;
 
         /// <summary>
         /// The soft area for dragging in pixels.
@@ -115,7 +112,8 @@ namespace UnityEngine.EventSystems
         }
 
         protected EventSystem()
-        {}
+        {
+        }
 
         /// <summary>
         /// Recalculate the internal list of BaseInputModules.
@@ -151,7 +149,7 @@ namespace UnityEngine.EventSystems
         {
             if (m_SelectionGuard)
             {
-                Debug.LogError("Attempting to select " + selected +  "while already selecting an object.");
+                Debug.LogError("Attempting to select " + selected + "while already selecting an object.");
                 return;
             }
 
@@ -170,6 +168,7 @@ namespace UnityEngine.EventSystems
         }
 
         private BaseEventData m_DummyData;
+
         private BaseEventData baseEventDataCache
         {
             get
@@ -354,6 +353,7 @@ namespace UnityEngine.EventSystems
                         ChangeEventModule(module);
                         changedModule = true;
                     }
+
                     break;
                 }
             }

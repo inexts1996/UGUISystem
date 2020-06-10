@@ -29,12 +29,16 @@ namespace UnityEngine.UI
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [Obsolete("Use Material.Add instead.", true)]
-        public static Material Add(Material baseMat, int stencilID) { return null; }
+        public static Material Add(Material baseMat, int stencilID)
+        {
+            return null;
+        }
 
         /// <summary>
         /// Add a new material using the specified base and stencil ID.
         /// </summary>
-        public static Material Add(Material baseMat, int stencilID, StencilOp operation, CompareFunction compareFunction, ColorWriteMask colorWriteMask)
+        public static Material Add(Material baseMat, int stencilID, StencilOp operation,
+            CompareFunction compareFunction, ColorWriteMask colorWriteMask)
         {
             return Add(baseMat, stencilID, operation, compareFunction, colorWriteMask, 255, 255);
         }
@@ -42,7 +46,8 @@ namespace UnityEngine.UI
         /// <summary>
         /// Add a new material using the specified base and stencil ID.
         /// </summary>
-        public static Material Add(Material baseMat, int stencilID, StencilOp operation, CompareFunction compareFunction, ColorWriteMask colorWriteMask, int readMask, int writeMask)
+        public static Material Add(Material baseMat, int stencilID, StencilOp operation,
+            CompareFunction compareFunction, ColorWriteMask colorWriteMask, int readMask, int writeMask)
         {
             if ((stencilID <= 0 && colorWriteMask == ColorWriteMask.All) || baseMat == null)
                 return baseMat;
@@ -52,26 +57,31 @@ namespace UnityEngine.UI
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _Stencil property", baseMat);
                 return baseMat;
             }
+
             if (!baseMat.HasProperty("_StencilOp"))
             {
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _StencilOp property", baseMat);
                 return baseMat;
             }
+
             if (!baseMat.HasProperty("_StencilComp"))
             {
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _StencilComp property", baseMat);
                 return baseMat;
             }
+
             if (!baseMat.HasProperty("_StencilReadMask"))
             {
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _StencilReadMask property", baseMat);
                 return baseMat;
             }
+
             if (!baseMat.HasProperty("_StencilWriteMask"))
             {
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _StencilWriteMask property", baseMat);
                 return baseMat;
             }
+
             if (!baseMat.HasProperty("_ColorMask"))
             {
                 Debug.LogWarning("Material " + baseMat.name + " doesn't have _ColorMask property", baseMat);
@@ -108,14 +118,17 @@ namespace UnityEngine.UI
             newEnt.colorMask = colorWriteMask;
             newEnt.useAlphaClip = operation != StencilOp.Keep && writeMask > 0;
 
-            newEnt.customMat.name = string.Format("Stencil Id:{0}, Op:{1}, Comp:{2}, WriteMask:{3}, ReadMask:{4}, ColorMask:{5} AlphaClip:{6} ({7})", stencilID, operation, compareFunction, writeMask, readMask, colorWriteMask, newEnt.useAlphaClip, baseMat.name);
+            newEnt.customMat.name = string.Format(
+                "Stencil Id:{0}, Op:{1}, Comp:{2}, WriteMask:{3}, ReadMask:{4}, ColorMask:{5} AlphaClip:{6} ({7})",
+                stencilID, operation, compareFunction, writeMask, readMask, colorWriteMask, newEnt.useAlphaClip,
+                baseMat.name);
 
             newEnt.customMat.SetInt("_Stencil", stencilID);
-            newEnt.customMat.SetInt("_StencilOp", (int)operation);
-            newEnt.customMat.SetInt("_StencilComp", (int)compareFunction);
+            newEnt.customMat.SetInt("_StencilOp", (int) operation);
+            newEnt.customMat.SetInt("_StencilComp", (int) compareFunction);
             newEnt.customMat.SetInt("_StencilReadMask", readMask);
             newEnt.customMat.SetInt("_StencilWriteMask", writeMask);
-            newEnt.customMat.SetInt("_ColorMask", (int)colorWriteMask);
+            newEnt.customMat.SetInt("_ColorMask", (int) colorWriteMask);
 
             // left for backwards compatability
             if (newEnt.customMat.HasProperty("_UseAlphaClip"))
@@ -151,6 +164,7 @@ namespace UnityEngine.UI
                     ent.baseMat = null;
                     m_List.RemoveAt(i);
                 }
+
                 return;
             }
         }
@@ -164,6 +178,7 @@ namespace UnityEngine.UI
                 Misc.DestroyImmediate(ent.customMat);
                 ent.baseMat = null;
             }
+
             m_List.Clear();
         }
     }

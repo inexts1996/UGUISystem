@@ -21,19 +21,34 @@ namespace UnityEngine.UI
     {
         protected internal class DropdownItem : MonoBehaviour, IPointerEnterHandler, ICancelHandler
         {
-            [SerializeField]
-            private Text m_Text;
-            [SerializeField]
-            private Image m_Image;
-            [SerializeField]
-            private RectTransform m_RectTransform;
-            [SerializeField]
-            private Toggle m_Toggle;
+            [SerializeField] private Text m_Text;
+            [SerializeField] private Image m_Image;
+            [SerializeField] private RectTransform m_RectTransform;
+            [SerializeField] private Toggle m_Toggle;
 
-            public Text          text          { get { return m_Text;          } set { m_Text = value;           } }
-            public Image         image         { get { return m_Image;         } set { m_Image = value;          } }
-            public RectTransform rectTransform { get { return m_RectTransform; } set { m_RectTransform = value;  } }
-            public Toggle        toggle        { get { return m_Toggle;        } set { m_Toggle = value;         } }
+            public Text text
+            {
+                get { return m_Text; }
+                set { m_Text = value; }
+            }
+
+            public Image image
+            {
+                get { return m_Image; }
+                set { m_Image = value; }
+            }
+
+            public RectTransform rectTransform
+            {
+                get { return m_RectTransform; }
+                set { m_RectTransform = value; }
+            }
+
+            public Toggle toggle
+            {
+                get { return m_Toggle; }
+                set { m_Toggle = value; }
+            }
 
             public virtual void OnPointerEnter(PointerEventData eventData)
             {
@@ -54,20 +69,26 @@ namespace UnityEngine.UI
         /// </summary>
         public class OptionData
         {
-            [SerializeField]
-            private string m_Text;
-            [SerializeField]
-            private Sprite m_Image;
+            [SerializeField] private string m_Text;
+            [SerializeField] private Sprite m_Image;
 
             /// <summary>
             /// The text associated with the option.
             /// </summary>
-            public string text  { get { return m_Text; }  set { m_Text = value;  } }
+            public string text
+            {
+                get { return m_Text; }
+                set { m_Text = value; }
+            }
 
             /// <summary>
             /// The image associated with the option.
             /// </summary>
-            public Sprite image { get { return m_Image; } set { m_Image = value; } }
+            public Sprite image
+            {
+                get { return m_Image; }
+                set { m_Image = value; }
+            }
 
             public OptionData()
             {
@@ -104,13 +125,16 @@ namespace UnityEngine.UI
         /// </remarks>
         public class OptionDataList
         {
-            [SerializeField]
-            private List<OptionData> m_Options;
+            [SerializeField] private List<OptionData> m_Options;
 
             /// <summary>
             /// The list of options for the dropdown list.
             /// </summary>
-            public List<OptionData> options { get { return m_Options; } set { m_Options = value; } }
+            public List<OptionData> options
+            {
+                get { return m_Options; }
+                set { m_Options = value; }
+            }
 
 
             public OptionDataList()
@@ -123,56 +147,88 @@ namespace UnityEngine.UI
         /// <summary>
         /// UnityEvent callback for when a dropdown current option is changed.
         /// </summary>
-        public class DropdownEvent : UnityEvent<int> {}
+        public class DropdownEvent : UnityEvent<int>
+        {
+        }
 
         // Template used to create the dropdown.
-        [SerializeField]
-        private RectTransform m_Template;
+        [SerializeField] private RectTransform m_Template;
 
         /// <summary>
         /// The Rect Transform of the template for the dropdown list.
         /// </summary>
-        public RectTransform template { get { return m_Template; } set { m_Template = value; RefreshShownValue(); } }
+        public RectTransform template
+        {
+            get { return m_Template; }
+            set
+            {
+                m_Template = value;
+                RefreshShownValue();
+            }
+        }
 
         // Text to be used as a caption for the current value. It's not required, but it's kept here for convenience.
-        [SerializeField]
-        private Text m_CaptionText;
+        [SerializeField] private Text m_CaptionText;
 
         /// <summary>
         /// The Text component to hold the text of the currently selected option.
         /// </summary>
-        public Text captionText { get { return m_CaptionText; } set { m_CaptionText = value; RefreshShownValue(); } }
+        public Text captionText
+        {
+            get { return m_CaptionText; }
+            set
+            {
+                m_CaptionText = value;
+                RefreshShownValue();
+            }
+        }
 
-        [SerializeField]
-        private Image m_CaptionImage;
+        [SerializeField] private Image m_CaptionImage;
 
         /// <summary>
         /// The Image component to hold the image of the currently selected option.
         /// </summary>
-        public Image captionImage { get { return m_CaptionImage; } set { m_CaptionImage = value; RefreshShownValue(); } }
+        public Image captionImage
+        {
+            get { return m_CaptionImage; }
+            set
+            {
+                m_CaptionImage = value;
+                RefreshShownValue();
+            }
+        }
 
-        [Space]
-
-        [SerializeField]
-        private Text m_ItemText;
+        [Space] [SerializeField] private Text m_ItemText;
 
         /// <summary>
         /// The Text component to hold the text of the item.
         /// </summary>
-        public Text itemText { get { return m_ItemText; } set { m_ItemText = value; RefreshShownValue(); } }
+        public Text itemText
+        {
+            get { return m_ItemText; }
+            set
+            {
+                m_ItemText = value;
+                RefreshShownValue();
+            }
+        }
 
-        [SerializeField]
-        private Image m_ItemImage;
+        [SerializeField] private Image m_ItemImage;
 
         /// <summary>
         /// The Image component to hold the image of the item
         /// </summary>
-        public Image itemImage { get { return m_ItemImage; } set { m_ItemImage = value; RefreshShownValue(); } }
+        public Image itemImage
+        {
+            get { return m_ItemImage; }
+            set
+            {
+                m_ItemImage = value;
+                RefreshShownValue();
+            }
+        }
 
-        [Space]
-
-        [SerializeField]
-        private int m_Value;
+        [Space] [SerializeField] private int m_Value;
 
         [Space]
 
@@ -274,7 +330,11 @@ namespace UnityEngine.UI
         public List<OptionData> options
         {
             get { return m_Options.options; }
-            set { m_Options.options = value; RefreshShownValue(); }
+            set
+            {
+                m_Options.options = value;
+                RefreshShownValue();
+            }
         }
 
         [Space]
@@ -323,7 +383,11 @@ namespace UnityEngine.UI
         /// }
         /// </code>
         /// </example>
-        public DropdownEvent onValueChanged { get { return m_OnValueChanged; } set { m_OnValueChanged = value; } }
+        public DropdownEvent onValueChanged
+        {
+            get { return m_OnValueChanged; }
+            set { m_OnValueChanged = value; }
+        }
 
         private GameObject m_Dropdown;
         private GameObject m_Blocker;
@@ -377,10 +441,7 @@ namespace UnityEngine.UI
         /// </example>
         public int value
         {
-            get
-            {
-                return m_Value;
-            }
+            get { return m_Value; }
             set
             {
                 if (Application.isPlaying && (value == m_Value || options.Count == 0))
@@ -396,14 +457,15 @@ namespace UnityEngine.UI
         }
 
         protected Dropdown()
-        {}
+        {
+        }
 
         protected override void Awake()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (!Application.isPlaying)
                 return;
-            #endif
+#endif
 
             m_AlphaTweenRunner = new TweenRunner<FloatTween>();
             m_AlphaTweenRunner.Init(this);
@@ -549,7 +611,9 @@ namespace UnityEngine.UI
 
             if (!m_Template)
             {
-                Debug.LogError("The dropdown template is not assigned. The template needs to be assigned and must have a child GameObject with a Toggle component serving as the item.", this);
+                Debug.LogError(
+                    "The dropdown template is not assigned. The template needs to be assigned and must have a child GameObject with a Toggle component serving as the item.",
+                    this);
                 return;
             }
 
@@ -561,22 +625,30 @@ namespace UnityEngine.UI
             if (!itemToggle || itemToggle.transform == template)
             {
                 validTemplate = false;
-                Debug.LogError("The dropdown template is not valid. The template must have a child GameObject with a Toggle component serving as the item.", template);
+                Debug.LogError(
+                    "The dropdown template is not valid. The template must have a child GameObject with a Toggle component serving as the item.",
+                    template);
             }
             else if (!(itemToggle.transform.parent is RectTransform))
             {
                 validTemplate = false;
-                Debug.LogError("The dropdown template is not valid. The child GameObject with a Toggle component (the item) must have a RectTransform on its parent.", template);
+                Debug.LogError(
+                    "The dropdown template is not valid. The child GameObject with a Toggle component (the item) must have a RectTransform on its parent.",
+                    template);
             }
             else if (itemText != null && !itemText.transform.IsChildOf(itemToggle.transform))
             {
                 validTemplate = false;
-                Debug.LogError("The dropdown template is not valid. The Item Text must be on the item GameObject or children of it.", template);
+                Debug.LogError(
+                    "The dropdown template is not valid. The Item Text must be on the item GameObject or children of it.",
+                    template);
             }
             else if (itemImage != null && !itemImage.transform.IsChildOf(itemToggle.transform))
             {
                 validTemplate = false;
-                Debug.LogError("The dropdown template is not valid. The Item Image must be on the item GameObject or children of it.", template);
+                Debug.LogError(
+                    "The dropdown template is not valid. The Item Image must be on the item GameObject or children of it.",
+                    template);
             }
 
             if (!validTemplate)
@@ -589,7 +661,7 @@ namespace UnityEngine.UI
             item.text = m_ItemText;
             item.image = m_ItemImage;
             item.toggle = itemToggle;
-            item.rectTransform = (RectTransform)itemToggle.transform;
+            item.rectTransform = (RectTransform) itemToggle.transform;
 
             Canvas popupCanvas = GetOrAddComponent<Canvas>(templateGo);
             popupCanvas.overrideSorting = true;
@@ -695,8 +767,10 @@ namespace UnityEngine.UI
             Rect itemTemplateRect = itemTemplate.rectTransform.rect;
 
             // Calculate the visual offset between the item's edges and the background's edges
-            Vector2 offsetMin = itemTemplateRect.min - dropdownContentRect.min + (Vector2)itemTemplate.rectTransform.localPosition;
-            Vector2 offsetMax = itemTemplateRect.max - dropdownContentRect.max + (Vector2)itemTemplate.rectTransform.localPosition;
+            Vector2 offsetMin = itemTemplateRect.min - dropdownContentRect.min +
+                                (Vector2) itemTemplate.rectTransform.localPosition;
+            Vector2 offsetMax = itemTemplateRect.max - dropdownContentRect.max +
+                                (Vector2) itemTemplate.rectTransform.localPosition;
             Vector2 itemSize = itemTemplateRect.size;
 
             m_Items.Clear();
@@ -733,6 +807,7 @@ namespace UnityEngine.UI
                     prev.navigation = prevNav;
                     item.toggle.navigation = toggleNav;
                 }
+
                 prev = item.toggle;
             }
 
@@ -743,7 +818,8 @@ namespace UnityEngine.UI
 
             float extraSpace = dropdownRectTransform.rect.height - contentRectTransform.rect.height;
             if (extraSpace > 0)
-                dropdownRectTransform.sizeDelta = new Vector2(dropdownRectTransform.sizeDelta.x, dropdownRectTransform.sizeDelta.y - extraSpace);
+                dropdownRectTransform.sizeDelta = new Vector2(dropdownRectTransform.sizeDelta.x,
+                    dropdownRectTransform.sizeDelta.y - extraSpace);
 
             // Invert anchoring and position if dropdown is partially or fully outside of canvas rect.
             // Typically this will have the effect of placing the dropdown above the button instead of below,
@@ -765,6 +841,7 @@ namespace UnityEngine.UI
                         break;
                     }
                 }
+
                 if (outside)
                     RectTransformUtility.FlipLayoutOnAxis(dropdownRectTransform, axis, false, false);
             }
@@ -774,7 +851,8 @@ namespace UnityEngine.UI
                 RectTransform itemRect = m_Items[i].rectTransform;
                 itemRect.anchorMin = new Vector2(itemRect.anchorMin.x, 0);
                 itemRect.anchorMax = new Vector2(itemRect.anchorMax.x, 0);
-                itemRect.anchoredPosition = new Vector2(itemRect.anchoredPosition.x, offsetMin.y + itemSize.y * (m_Items.Count - 1 - i) + itemSize.y * itemRect.pivot.y);
+                itemRect.anchoredPosition = new Vector2(itemRect.anchoredPosition.x,
+                    offsetMin.y + itemSize.y * (m_Items.Count - 1 - i) + itemSize.y * itemRect.pivot.y);
                 itemRect.sizeDelta = new Vector2(itemRect.sizeDelta.x, itemSize.y);
             }
 
@@ -851,7 +929,7 @@ namespace UnityEngine.UI
         /// <returns>The created drop down list gameobject.</returns>
         protected virtual GameObject CreateDropdownList(GameObject template)
         {
-            return (GameObject)Instantiate(template);
+            return (GameObject) Instantiate(template);
         }
 
         /// <summary>
@@ -877,7 +955,7 @@ namespace UnityEngine.UI
         /// <returns>The created dropdown item component</returns>
         protected virtual DropdownItem CreateItem(DropdownItem itemTemplate)
         {
-            return (DropdownItem)Instantiate(itemTemplate);
+            return (DropdownItem) Instantiate(itemTemplate);
         }
 
         /// <summary>
@@ -889,10 +967,12 @@ namespace UnityEngine.UI
         /// </remarks>
         /// <param name="item">The Item to destroy.</param>
         protected virtual void DestroyItem(DropdownItem item)
-        {}
+        {
+        }
 
         // Add a new drop-down list item with the specified values.
-        private DropdownItem AddItem(OptionData data, bool selected, DropdownItem itemTemplate, List<DropdownItem> items)
+        private DropdownItem AddItem(OptionData data, bool selected, DropdownItem itemTemplate,
+            List<DropdownItem> items)
         {
             // Add a new item to the dropdown.
             DropdownItem item = CreateItem(itemTemplate);
@@ -957,6 +1037,7 @@ namespace UnityEngine.UI
                 if (IsActive())
                     StartCoroutine(DelayedDestroyDropdownList(0.15f));
             }
+
             if (m_Blocker != null)
                 DestroyBlocker(m_Blocker);
             m_Blocker = null;
@@ -971,6 +1052,7 @@ namespace UnityEngine.UI
                 if (m_Items[i] != null)
                     DestroyItem(m_Items[i]);
             }
+
             m_Items.Clear();
             if (m_Dropdown != null)
                 DestroyDropdownList(m_Dropdown);

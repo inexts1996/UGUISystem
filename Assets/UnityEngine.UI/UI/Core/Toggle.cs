@@ -37,7 +37,8 @@ namespace UnityEngine.UI
         /// UnityEvent callback for when a toggle is toggled.
         /// </summary>
         public class ToggleEvent : UnityEvent<bool>
-        {}
+        {
+        }
 
         /// <summary>
         /// Transition mode for the toggle.
@@ -49,8 +50,7 @@ namespace UnityEngine.UI
         /// </summary>
         public Graphic graphic;
 
-        [SerializeField]
-        private ToggleGroup m_Group;
+        [SerializeField] private ToggleGroup m_Group;
 
         /// <summary>
         /// Group the toggle belongs to.
@@ -111,12 +111,12 @@ namespace UnityEngine.UI
         public ToggleEvent onValueChanged = new ToggleEvent();
 
         // Whether the toggle is on
-        [Tooltip("Is the toggle currently on or off?")]
-        [SerializeField]
+        [Tooltip("Is the toggle currently on or off?")] [SerializeField]
         private bool m_IsOn;
 
         protected Toggle()
-        {}
+        {
+        }
 
 #if UNITY_EDITOR
         protected override void OnValidate()
@@ -138,10 +138,12 @@ namespace UnityEngine.UI
         }
 
         public virtual void LayoutComplete()
-        {}
+        {
+        }
 
         public virtual void GraphicUpdateComplete()
-        {}
+        {
+        }
 
         protected override void OnEnable()
         {
@@ -237,10 +239,7 @@ namespace UnityEngine.UI
         public bool isOn
         {
             get { return m_IsOn; }
-            set
-            {
-                Set(value);
-            }
+            set { Set(value); }
         }
 
         void Set(bool value)
@@ -289,7 +288,7 @@ namespace UnityEngine.UI
                 graphic.canvasRenderer.SetAlpha(m_IsOn ? 1f : 0f);
             else
 #endif
-            graphic.CrossFadeAlpha(m_IsOn ? 1f : 0f, instant ? 0f : 0.1f, true);
+                graphic.CrossFadeAlpha(m_IsOn ? 1f : 0f, instant ? 0f : 0.1f, true);
         }
 
         /// <summary>

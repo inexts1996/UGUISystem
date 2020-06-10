@@ -34,7 +34,8 @@ namespace UnityEngine.UI
             }
 
             Vector3 point1 = new Vector3(compoundRect.x, compoundRect.y, 0.0f);
-            Vector3 point2 = new Vector3(compoundRect.x + compoundRect.width, compoundRect.y + compoundRect.height, 0.0f);
+            Vector3 point2 = new Vector3(compoundRect.x + compoundRect.width, compoundRect.y + compoundRect.height,
+                0.0f);
             validRect = true;
             return new Rect(point1.x, point1.y, point2.x - point1.x, point2.y - point1.y);
         }

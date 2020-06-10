@@ -96,12 +96,12 @@ namespace UnityEditor.UI
                 {
                     EditorGUI.indentLevel++;
 
-                    if (m_ContentType.enumValueIndex == (int)InputField.ContentType.Standard ||
-                        m_ContentType.enumValueIndex == (int)InputField.ContentType.Autocorrected ||
-                        m_ContentType.enumValueIndex == (int)InputField.ContentType.Custom)
+                    if (m_ContentType.enumValueIndex == (int) InputField.ContentType.Standard ||
+                        m_ContentType.enumValueIndex == (int) InputField.ContentType.Autocorrected ||
+                        m_ContentType.enumValueIndex == (int) InputField.ContentType.Custom)
                         EditorGUILayout.PropertyField(m_LineType);
 
-                    if (m_ContentType.enumValueIndex == (int)InputField.ContentType.Custom)
+                    if (m_ContentType.enumValueIndex == (int) InputField.ContentType.Custom)
                     {
                         EditorGUILayout.PropertyField(m_InputType);
                         EditorGUILayout.PropertyField(m_KeyboardType);
@@ -125,6 +125,7 @@ namespace UnityEditor.UI
                 {
                     EditorGUILayout.PropertyField(m_CaretColor);
                 }
+
                 EditorGUILayout.EndFadeGroup();
 
                 EditorGUILayout.PropertyField(m_SelectionColor);

@@ -34,8 +34,7 @@ namespace UnityEngine.EventSystems
     /// </example>
     public abstract class BaseInputModule : UIBehaviour
     {
-        [NonSerialized]
-        protected List<RaycastResult> m_RaycastResultCache = new List<RaycastResult>();
+        [NonSerialized] protected List<RaycastResult> m_RaycastResultCache = new List<RaycastResult>();
 
         private AxisEventData m_AxisEventData;
 
@@ -123,6 +122,7 @@ namespace UnityEngine.EventSystems
 
                 return candidates[i];
             }
+
             return new RaycastResult();
         }
 
@@ -183,8 +183,10 @@ namespace UnityEngine.EventSystems
                         return t1.gameObject;
                     t2 = t2.parent;
                 }
+
                 t1 = t1.parent;
             }
+
             return null;
         }
 
@@ -199,7 +201,8 @@ namespace UnityEngine.EventSystems
             if (newEnterTarget == null || currentPointerData.pointerEnter == null)
             {
                 for (var i = 0; i < currentPointerData.hovered.Count; ++i)
-                    ExecuteEvents.Execute(currentPointerData.hovered[i], currentPointerData, ExecuteEvents.pointerExitHandler);
+                    ExecuteEvents.Execute(currentPointerData.hovered[i], currentPointerData,
+                        ExecuteEvents.pointerExitHandler);
 
                 currentPointerData.hovered.Clear();
 
@@ -301,19 +304,22 @@ namespace UnityEngine.EventSystems
         /// Called when the module is deactivated. Override this if you want custom code to execute when you deactivate your module.
         /// </summary>
         public virtual void DeactivateModule()
-        {}
+        {
+        }
 
         /// <summary>
         /// Called when the module is activated. Override this if you want custom code to execute when you activate your module.
         /// </summary>
         public virtual void ActivateModule()
-        {}
+        {
+        }
 
         /// <summary>
         /// Update the internal state of the Module.
         /// </summary>
         public virtual void UpdateModule()
-        {}
+        {
+        }
 
         /// <summary>
         /// Check to see if the module is supported. Override this if you have a platform specific module (eg. TouchInputModule that you do not want to activate on standalone.)
