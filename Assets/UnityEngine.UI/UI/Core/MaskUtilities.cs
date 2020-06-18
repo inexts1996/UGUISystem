@@ -117,6 +117,8 @@ namespace UnityEngine.UI
         /// <param name="father">The transform to compare against.</param>
         /// <param name="child">The starting transform to search up the hierarchy.</param>
         /// <returns>Is child equal to father or is a descendant.</returns>
+        /// 18/6 2020 Graphic学习
+        /// 判断child是否等于father或者是father的后裔
         public static bool IsDescendantOrSelf(Transform father, Transform child)
         {
             if (father == null || child == null)
@@ -141,12 +143,16 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="clippable">Clippable to search from.</param>
         /// <returns>The Correct RectMask2D</returns>
+        /// 18/6 2020 Graphic学习
+        /// 查找元素身上的RectMask2D组件，并返回
         public static RectMask2D GetRectMaskForClippable(IClippable clippable)
         {
             List<RectMask2D> rectMaskComponents = ListPool<RectMask2D>.Get();
             List<Canvas> canvasComponents = ListPool<Canvas>.Get();
             RectMask2D componentToReturn = null;
 
+            //查找当前元素以及父级元素身上的所有RectMask2D组件
+            //包括当前activeSelf=false以及enabled=false的元素
             clippable.rectTransform.GetComponentsInParent(false, rectMaskComponents);
 
             if (rectMaskComponents.Count > 0)
@@ -166,9 +172,11 @@ namespace UnityEngine.UI
                         continue;
                     }
 
+                    //查找当前元素所在的Canvas元素
                     clippable.rectTransform.GetComponentsInParent(false, canvasComponents);
                     for (int i = canvasComponents.Count - 1; i >= 0; i--)
                     {
+                        //如果当前元素不是这个Canvas或者Canvas的后裔的话，就把componentToReturn置空
                         if (!IsDescendantOrSelf(canvasComponents[i].transform, componentToReturn.transform) &&
                             canvasComponents[i].overrideSorting)
                         {

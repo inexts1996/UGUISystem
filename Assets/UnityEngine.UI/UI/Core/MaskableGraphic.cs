@@ -6,7 +6,9 @@ namespace UnityEngine.UI
 {
     /// <summary>
     /// A Graphic that is capable of being masked out.
-    /// </summary>
+    /// </summary> 
+    /// 18/6 2020 Graphic学习
+    /// MaskableGraphic是Image、Text以及RawImage的抽象类
     public abstract class MaskableGraphic : Graphic, IClippable, IMaskable, IMaterialModifier
     {
         [NonSerialized] protected bool m_ShouldRecalculateStencil = true;
@@ -132,6 +134,13 @@ namespace UnityEngine.UI
                 canvasRenderer.DisableRectClipping();
         }
 
+        /// <summary>
+        /// 18/6 2020 Graphic学习
+        /// 当继承MaskableGraphic脚本的组件OnEnable时，
+        /// 会调用Graphic的OnEnable方法执行SetAllDirty
+        /// 对图形进行重新Rebuild
+        /// 然后会去更新裁剪的父节点
+        /// </summary>
         protected override void OnEnable()
         {
             base.OnEnable();

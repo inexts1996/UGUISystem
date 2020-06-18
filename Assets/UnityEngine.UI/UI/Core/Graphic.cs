@@ -224,6 +224,8 @@ namespace UnityEngine.UI
         /// <remarks>
         /// Send a OnDirtyLayoutCallback notification if any elements are registered. See RegisterDirtyLayoutCallback
         /// </remarks>
+        /// 15/6 2020 Graphic学习
+        /// 对布局进行脏处理设置
         public virtual void SetLayoutDirty()
         {
             if (!IsActive())
@@ -299,16 +301,24 @@ namespace UnityEngine.UI
 
         /// <summary>
         /// 8/6 2020 Graphic源码学习
-        /// 在父物体transform发生改变之前做的操作
+        /// 在更换父节点之前调用方法
+        /// 之所以在更换父节点的情况下进行Canvas的撤销和注册，主要是防止Canvas间切换父节点的情况
         /// </summary>
         protected override void OnBeforeTransformParentChanged()
         {
+            // Debug.Log("OnBeforeTransformParentChanged");
+            //先撤销组件和canvas的关联
             GraphicRegistry.UnregisterGraphicForCanvas(canvas, this);
             LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
         }
 
+        /// <summary>
+        /// 16/6 2020 Graphic源码学习
+        /// 在更换父节点时调用方法
+        /// </summary>
         protected override void OnTransformParentChanged()
         {
+            // Debug.Log(" OnTransformParentChanged");
             base.OnTransformParentChanged();
 
             m_Canvas = null;
@@ -316,7 +326,9 @@ namespace UnityEngine.UI
             if (!IsActive())
                 return;
 
+            //查找这个物体的canvas
             CacheCanvas();
+            //将canvas和图形组件进行绑定
             GraphicRegistry.RegisterGraphicForCanvas(canvas, this);
             SetAllDirty();
         }
@@ -376,6 +388,10 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 17/6 2020 Graphic学习
+        /// 查找当前物体的Canvas
+        /// </summary>
         private void CacheCanvas()
         {
             var list = ListPool<Canvas>.Get();
@@ -401,6 +417,8 @@ namespace UnityEngine.UI
         /// <summary>
         /// A reference to the CanvasRenderer populated by this Graphic.
         /// </summary>
+        /// 17/6 2020 Graphic学习
+        /// 获取物体上的CanvasRenderer组件
         public CanvasRenderer canvasRenderer
         {
             get
@@ -479,6 +497,8 @@ namespace UnityEngine.UI
         /// <summary>
         /// Mark the Graphic and the canvas as having been changed.
         /// </summary>
+        /// 17/6 2020 Graphic学习
+        /// 组件可用的时调用
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -513,8 +533,14 @@ namespace UnityEngine.UI
             base.OnDisable();
         }
 
+        /// <summary>
+        /// 17/6 2020 Graphic学习
+        /// 主要是Canvas显示隐藏或者canvas控件OnEnable、Disable的时候调用
+        /// 主要是检测Canvas控件的
+        /// </summary>
         protected override void OnCanvasHierarchyChanged()
         {
+            // Debug.Log("OnCanvasHierarchyChanged");
             // Use m_Cavas so we dont auto call CacheCanvas
             Canvas currentCanvas = m_Canvas;
 
@@ -528,11 +554,13 @@ namespace UnityEngine.UI
 
             if (currentCanvas != m_Canvas)
             {
+                //currentCanvas ！= m_Canvas时，说明UI更换了canvas，需要与之前的Canvas解除关联
                 GraphicRegistry.UnregisterGraphicForCanvas(currentCanvas, this);
 
                 // Only register if we are active and enabled as OnCanvasHierarchyChanged can get called
                 // during object destruction and we dont want to register ourself and then become null.
                 if (IsActive())
+                    //如果当前组件还是在激活状态下的话，就将当前UI和新的canvas进行注册绑定
                     GraphicRegistry.RegisterGraphicForCanvas(canvas, this);
             }
         }
@@ -543,6 +571,10 @@ namespace UnityEngine.UI
         /// <remarks>
         /// This can be used to perform operations that were previously skipped because the <c>Graphic</c> was culled.
         /// </remarks>
+        /// 18/6 2020 Graphic学习
+        /// 当Canvasrenderer.cull发生改变的时候，进行更新的方法
+        /// 只有父节点挂载RectMask2D时，当前物体canvasRenderer.cull发生变化
+        /// 这个方法才会执行
         public virtual void OnCullingChanged()
         {
             if (!canvasRenderer.cull && (m_VertsDirty || m_MaterialDirty))
@@ -827,6 +859,10 @@ namespace UnityEngine.UI
         }
 
 #if UNITY_EDITOR
+        /// <summary>
+        /// 在Inspector面板参数变化时调用
+        /// 只在Editor模式下有效果
+        /// </summary>
         protected override void OnValidate()
         {
             base.OnValidate();

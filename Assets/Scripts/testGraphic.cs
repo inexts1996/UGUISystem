@@ -14,6 +14,7 @@ public class testGraphic : MonoBehaviour
         m_MyColor = Color.red;
         //Change the Graphic Color to the new Color
         m_Graphic.color = m_MyColor;
+        Debug.Log($"{gameObject.name}, depth:{m_Graphic.depth}");
     }
 
     // Update is called once per frame

@@ -79,6 +79,12 @@ namespace UnityEngine.UI
         {
         }
 
+        /// <summary>
+        /// 18/6 2020 Graphic学习
+        /// RectMask2D组件在OnEnable时会将挂载此组件的元素
+        /// 注册到ClipperRegistry中去，为后续在CanvasUpdateRegistry中
+        /// 进行cull做准备
+        /// </summary>
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -87,6 +93,12 @@ namespace UnityEngine.UI
             MaskUtilities.Notify2DMaskStateChanged(this);
         }
 
+        /// <summary>
+        /// 18/6 2020 Graphic学习
+        /// 在OnDisable中，会将挂载RectMask2D组件的元素
+        /// 从ClipperRegistry中注销掉，避免在CanvasUpdateRegistry中
+        /// 进行cull裁剪
+        /// </summary>
         protected override void OnDisable()
         {
             // we call base OnDisable first here

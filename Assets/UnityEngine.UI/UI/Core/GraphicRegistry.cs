@@ -48,6 +48,9 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="c">The canvas the graphic will be associated to</param>
         /// <param name="graphic">The graphic in question.</param>
+        /// 11/6 2020 Graphic学习
+        /// 将图形注册和canvas绑定起来，注册到字典中
+        /// 在Graphic中主要就是在组件OnEnable、OnTransfromParentChanged以及 OnCanvasHierarchyChanged 的时候进行与Canvas的绑定
         public static void RegisterGraphicForCanvas(Canvas c, Graphic graphic)
         {
             if (c == null)
@@ -73,6 +76,10 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="c">The canvas that should be associated with the graphic</param>
         /// <param name="graphic">The graphic to remove.</param>
+        /// 11/6 2020 Graphic学习
+        /// 撤销canvas和图形之间的关系
+        /// 撤销与canvas的关联，在Graphic中主要就是在OnDisable、 OnBeforeTransformParentChanged以及 OnCanvasHierarchyChanged时进行
+        /// 组件与Canvas的撤销操作
         public static void UnregisterGraphicForCanvas(Canvas c, Graphic graphic)
         {
             if (c == null)
@@ -95,6 +102,9 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="canvas">The canvas whose Graphics we are looking for</param>
         /// <returns>The list of all Graphics for the given Canvas.</returns>
+        /// 11/6 2020 Graphic学习
+        /// 根据canvas获取其下的图形列表
+        /// 没有的话，返回一个空列表
         public static IList<Graphic> GetGraphicsForCanvas(Canvas canvas)
         {
             IndexedSet<Graphic> graphics;

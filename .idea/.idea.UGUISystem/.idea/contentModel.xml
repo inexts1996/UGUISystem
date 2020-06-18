@@ -53,8 +53,10 @@
         <e p="Scripts" t="Include">
           <e p="ChangeImage.cs" t="Include" />
           <e p="MyPraphic.cs" t="Include" />
+          <e p="TestCanvasRender.cs" t="Include" />
+          <e p="testGraphic.cs" t="Include" />
+          <e p="testMonobehavior.cs" t="Include" />
         </e>
-        <e p="testGraphic.cs" t="Include" />
         <e p="UnityEngine.UI" t="Include">
           <e p="EventSystem" t="Include">
             <e p="EventData" t="Include">

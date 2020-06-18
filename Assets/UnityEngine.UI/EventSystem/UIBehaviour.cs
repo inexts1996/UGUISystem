@@ -36,6 +36,10 @@ namespace UnityEngine.EventSystems
         }
 
 #if UNITY_EDITOR
+        /// <summary>
+        /// 17/6 2020 Graphic学习
+        /// 这个方法是在Editor模式下，修改Inspector面板参数时被调用的
+        /// </summary>
         protected virtual void OnValidate()
         {
         }
