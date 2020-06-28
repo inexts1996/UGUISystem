@@ -200,6 +200,8 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="clipper">Starting clipping object.</param>
         /// <param name="masks">The list of Rect masks</param>
+        /// 19/6 2020 Graphic学习
+        /// 查找当前RectMask2D父级元素中同样带有RectMask2D的元素
         public static void GetRectMasksForClip(RectMask2D clipper, List<RectMask2D> masks)
         {
             masks.Clear();

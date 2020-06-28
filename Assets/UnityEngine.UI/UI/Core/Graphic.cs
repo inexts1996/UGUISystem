@@ -193,6 +193,8 @@ namespace UnityEngine.UI
         // Tween controls for the Graphic
         [NonSerialized] private readonly TweenRunner<ColorTween> m_ColorTweenRunner;
 
+        //22/6 2020 Graphic学习
+        //是否是以旧的mesh系统生成
         protected bool useLegacyMeshGeneration { get; set; }
 
         // Called by Unity prior to deserialization,
@@ -591,6 +593,8 @@ namespace UnityEngine.UI
         /// <remarks>
         /// See CanvasUpdateRegistry for more details on the canvas update cycle.
         /// </remarks>
+        /// 22/6 2020 Graphic学习
+        /// 对元素进行重新build
         public virtual void Rebuild(CanvasUpdate update)
         {
             if (canvasRenderer.cull)
@@ -626,6 +630,10 @@ namespace UnityEngine.UI
         /// <summary>
         /// Call to update the Material of the graphic onto the CanvasRenderer.
         /// </summary>
+        /// 28/6 2020 graphic学习
+        /// 更新canvasRenderer中的材质信息
+        /// 在图形进行重新rebuild的时候，先更改canvasRenderer中材质的更新，
+        /// 然后再去对材质进行脏处理
         protected virtual void UpdateMaterial()
         {
             if (!IsActive())
@@ -639,6 +647,9 @@ namespace UnityEngine.UI
         /// <summary>
         /// Call to update the geometry of the Graphic onto the CanvasRenderer.
         /// </summary>
+        /// 22/6 2020 Graphic学习
+        /// 更新图形几何
+        /// 在图形顶点脏处理之前，先更新图形的mesh信息
         protected virtual void UpdateGeometry()
         {
             if (useLegacyMeshGeneration)
@@ -647,13 +658,19 @@ namespace UnityEngine.UI
                 DoMeshGeneration();
         }
 
+        /// <summary>
+        /// 重新生成mesh
+        /// </summary>
         private void DoMeshGeneration()
         {
             if (rectTransform != null && rectTransform.rect.width >= 0 && rectTransform.rect.height >= 0)
+                //这里会调用具体子类override的方法
                 OnPopulateMesh(s_VertexHelper);
             else
                 s_VertexHelper.Clear(); // clear the vertex helper so invalid graphics dont draw.
 
+            //将顶点列表传入实现了IMeshModifier脚本的组件中去，以便修改mesh
+            //实现了IMeshModifier的组件可以修改Mesh
             var components = ListPool<Component>.Get();
             GetComponents(typeof(IMeshModifier), components);
 
@@ -666,6 +683,10 @@ namespace UnityEngine.UI
             canvasRenderer.SetMesh(workerMesh);
         }
 
+        /// <summary>
+        /// 28/6 2020 Graphic学习
+        /// 生成旧版的mesh
+        /// </summary>
         private void DoLegacyMeshGeneration()
         {
             if (rectTransform != null && rectTransform.rect.width >= 0 && rectTransform.rect.height >= 0)
@@ -735,6 +756,9 @@ namespace UnityEngine.UI
         /// <remarks>
         /// Used by Text, UI.Image, and RawImage for example to generate vertices specific to their use case.
         /// </remarks>
+        /// 22/6 2020 Graphic学习
+        /// Image、rawImage以及text重写了重新构建mesh顶点的方法
+        /// 在对顶点进行脏处理的时候，先更新顶点信息
         protected virtual void OnPopulateMesh(VertexHelper vh)
         {
             var r = GetPixelAdjustedRect();

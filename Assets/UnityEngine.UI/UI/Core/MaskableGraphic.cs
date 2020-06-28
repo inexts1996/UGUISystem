@@ -108,15 +108,22 @@ namespace UnityEngine.UI
         /// </summary>
         public virtual void Cull(Rect clipRect, bool validRect)
         {
+            //判断是否需要进行剔除
             var cull = !validRect || !clipRect.Overlaps(rootCanvasRect, true);
             UpdateCull(cull);
         }
 
+        /// <summary>
+        /// 19/6 2020 Graphic学习
+        /// 当前canvasRenderer.cull的状态发生变化时进行cull更新的处理
+        /// </summary>
+        /// <param name="cull"></param>
         private void UpdateCull(bool cull)
         {
             if (canvasRenderer.cull != cull)
             {
                 canvasRenderer.cull = cull;
+                //性能记录
                 UISystemProfilerApi.AddMarker("MaskableGraphic.cullingChanged", this);
                 m_OnCullStateChanged.Invoke(cull);
                 OnCullingChanged();
@@ -126,9 +133,13 @@ namespace UnityEngine.UI
         /// <summary>
         /// See IClippable.SetClipRect
         /// </summary>
+        /// 19/6 2020 Graphic学习
+        /// 设置当前元素是否需要裁剪，以及裁剪的区域
+        /// 在设置EnableRectClipping时，canvasRenderer.hasRectClipping会被设置为true
         public virtual void SetClipRect(Rect clipRect, bool validRect)
         {
             if (validRect)
+                //设置rect在canvasRenderered时进行裁剪，当rect超出指定的rect时，会进行裁剪，而不进行渲染
                 canvasRenderer.EnableRectClipping(clipRect);
             else
                 canvasRenderer.DisableRectClipping();
@@ -230,6 +241,14 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 19/6 2020 Graphic学习
+        /// 将当前元素与挂载RectMask2D组件的父节点进行关联
+        /// 主要是在当前元素OnEnable、OnDisable以及inspector面板数据发生变化，还有OnTransfromPanentChanded以及OnCanvasHierarchyChanged的时候执行
+        /// 也就是当父节点发生改变时去更新当前元素的裁剪父类
+        /// 先撤销与之前父节点的关联
+        /// 再建立与当前父节点的关联,如果新父节点存在而且挂载有rectMask2D组件的话
+        /// </summary>
         private void UpdateClipParent()
         {
             var newParent = (maskable && IsActive()) ? MaskUtilities.GetRectMaskForClippable(this) : null;

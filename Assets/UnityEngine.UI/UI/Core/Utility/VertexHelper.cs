@@ -36,6 +36,8 @@ namespace UnityEngine.UI
     /// }
     /// </code>
     /// </example>
+    /// 23/6 2020  源码学习
+    /// 用来辅助UI生成mesh的类
     public class VertexHelper : IDisposable
     {
         private List<Vector3> m_Positions;
@@ -72,6 +74,11 @@ namespace UnityEngine.UI
             m_Indices.AddRange(m.GetIndices(0));
         }
 
+        /// <summary>
+        ///  28/6 2020 graphic学习
+        /// 初始化顶点信息列表
+        /// 只初始化一次
+        /// </summary>
         private void InitializeListIfRequired()
         {
             if (!m_ListsInitalized)
@@ -143,6 +150,9 @@ namespace UnityEngine.UI
         /// <summary>
         /// Current number of vertices in the buffer.
         /// </summary>
+        ///  28/6 2020 graphic学习
+        /// 获取当前顶点的个数
+        /// 返回的是顶点的位置个数
         public int currentVertCount
         {
             get { return m_Positions != null ? m_Positions.Count : 0; }
@@ -161,6 +171,8 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="vertex">Vertex to populate</param>
         /// <param name="i">Index to populate.</param>
+        ///  28/6 2020 graphic学习
+        /// 根据下标，获取一个顶点的信息
         public void PopulateUIVertex(ref UIVertex vertex, int i)
         {
             InitializeListIfRequired();
@@ -180,6 +192,8 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="vertex">The vertex to fill</param>
         /// <param name="i">the position in the current list to fill.</param>
+        ///  28/6 2020 graphic学习
+        /// 设置某一个顶点的信息为vertex
         public void SetUIVertex(UIVertex vertex, int i)
         {
             InitializeListIfRequired();
@@ -196,6 +210,8 @@ namespace UnityEngine.UI
 
         /// <summary>
         /// Fill the given mesh with the stream data.
+        ///  28/6 2020 graphic学习
+        /// 主要通过这个方法去将保存的顶点信息填充到mesh中进行使用
         /// </summary>
         public void FillMesh(Mesh mesh)
         {
@@ -203,6 +219,7 @@ namespace UnityEngine.UI
 
             mesh.Clear();
 
+            //mesh的顶点个数上限为65000
             if (m_Positions.Count >= 65000)
                 throw new ArgumentException("Mesh can not have more than 65000 vertices");
 
@@ -215,6 +232,7 @@ namespace UnityEngine.UI
             mesh.SetNormals(m_Normals);
             mesh.SetTangents(m_Tangents);
             mesh.SetTriangles(m_Indices, 0);
+            //重新设置mesh之后，需要重新计算体积边界
             mesh.RecalculateBounds();
         }
 
@@ -227,6 +245,8 @@ namespace UnityEngine.UI
         /// <param name="uv1">UV1 of the vert</param>
         /// <param name="normal">Normal of the vert.</param>
         /// <param name="tangent">Tangent of the vert</param>
+        ///  28/6 2020 graphic学习
+        /// 添加一个顶点信息
         public void AddVert(Vector3 position, Color32 color, Vector2 uv0, Vector2 uv1, Vector3 normal, Vector4 tangent)
         {
             InitializeListIfRequired();
@@ -247,6 +267,8 @@ namespace UnityEngine.UI
         /// <param name="position">Position of the vert</param>
         /// <param name="color">Color of the vert</param>
         /// <param name="uv0">UV of the vert</param>
+        ///  28/6 2020 graphic学习
+        /// 添加顶点信息
         public void AddVert(Vector3 position, Color32 color, Vector2 uv0)
         {
             AddVert(position, color, uv0, Vector2.zero, s_DefaultNormal, s_DefaultTangent);
@@ -256,6 +278,8 @@ namespace UnityEngine.UI
         /// Add a single vertex to the stream.
         /// </summary>
         /// <param name="v">The vertex to add</param>
+        ///  28/6 2020 graphic学习
+        /// 添加一个顶点信息
         public void AddVert(UIVertex v)
         {
             AddVert(v.position, v.color, v.uv0, v.uv1, v.normal, v.tangent);
@@ -267,6 +291,8 @@ namespace UnityEngine.UI
         /// <param name="idx0">index 0</param>
         /// <param name="idx1">index 1</param>
         /// <param name="idx2">index 2</param>
+        ///  28/6 2020 graphic学习
+        /// 添加一个三角形的顶点index到缓存中
         public void AddTriangle(int idx0, int idx1, int idx2)
         {
             InitializeListIfRequired();
@@ -280,6 +306,10 @@ namespace UnityEngine.UI
         /// Add a quad to the stream.
         /// </summary>
         /// <param name="verts">4 Vertices representing the quad.</param>
+        ///  28/6 2020 graphic学习
+        /// 添加四个顶点信息
+        /// 向流中添加一个四边形
+        /// 主要用来绘制一个矩形
         public void AddUIVertexQuad(UIVertex[] verts)
         {
             int startIndex = currentVertCount;
@@ -297,6 +327,9 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="verts">The custom stream of verts to add to the helpers internal data.</param>
         /// <param name="indices">The custom stream of indices to add to the helpers internal data.</param>
+        ///  28/6 2020 graphic学习
+        /// 添加一些自定义的顶点信息及顶点的索引
+        /// 构建一个自定义图案
         public void AddUIVertexStream(List<UIVertex> verts, List<int> indices)
         {
             InitializeListIfRequired();
@@ -317,6 +350,8 @@ namespace UnityEngine.UI
         /// Add a list of triangles to the stream.
         /// </summary>
         /// <param name="verts">Vertices to add. Length should be divisible by 3.</param>
+        ///  28/6 2020 graphic学习
+        /// 添加一些可以构成多个三角形的顶点信息
         public void AddUIVertexTriangleStream(List<UIVertex> verts)
         {
             if (verts == null)
@@ -330,6 +365,8 @@ namespace UnityEngine.UI
 
         /// <summary>
         /// Create a stream of UI vertex (in triangles) from the stream.
+        ///  28/6 2020 graphic学习
+        /// 获取所有顶点的信息
         /// </summary>
         public void GetUIVertexStream(List<UIVertex> stream)
         {

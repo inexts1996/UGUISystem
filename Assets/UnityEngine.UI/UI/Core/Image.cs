@@ -852,6 +852,8 @@ namespace UnityEngine.UI
 
         /// <summary>
         /// Update the UI renderer mesh.
+        /// 22/6 2020 Graphic学习
+        /// 重新构建mesh顶点
         /// </summary>
         protected override void OnPopulateMesh(VertexHelper toFill)
         {

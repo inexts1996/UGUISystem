@@ -39,6 +39,12 @@ namespace UnityEngine.UI
         /// <summary>
         /// Perform the clipping on all registered IClipper
         /// </summary>
+        /// 19/6 2020 Graphic学习
+        /// 在CanvasUpdateRegistry中执行
+        /// 是在布局rebuild之后进行的
+        /// 调用继承自IClipper的RectMask2D的PerformClipping方法
+        /// 进行裁剪的处理
+        /// 都是针对挂有RectMask2D组件的元素，对其子类元素进行统一处理
         public void Cull()
         {
             for (var i = 0; i < m_Clippers.Count; ++i)

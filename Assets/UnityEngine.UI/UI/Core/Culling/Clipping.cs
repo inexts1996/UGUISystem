@@ -14,6 +14,8 @@ namespace UnityEngine.UI
         /// <param name="rectMaskParents">RectMasks to build the overlap rect from.</param>
         /// <param name="validRect">Was there a valid Rect found.</param>
         /// <returns>The final compounded overlapping rect</returns>
+        /// 19/6 2020 Graphic学习
+        /// 查找挂载有RectMask2D组件元素重叠部分的Rect
         public static Rect FindCullAndClipWorldRect(List<RectMask2D> rectMaskParents, out bool validRect)
         {
             if (rectMaskParents.Count == 0)
@@ -22,6 +24,7 @@ namespace UnityEngine.UI
                 return new Rect();
             }
 
+            //逐个查找挂载有RectMask2D重叠部分的rect
             var compoundRect = rectMaskParents[0].canvasRect;
             for (var i = 0; i < rectMaskParents.Count; ++i)
                 compoundRect = RectIntersect(compoundRect, rectMaskParents[i].canvasRect);
@@ -40,6 +43,13 @@ namespace UnityEngine.UI
             return new Rect(point1.x, point1.y, point2.x - point1.x, point2.y - point1.y);
         }
 
+        /// <summary>
+        /// 19/6 2020 Graphic学习
+        /// 返回两个rect重叠部分的rect
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         private static Rect RectIntersect(Rect a, Rect b)
         {
             float xMin = Mathf.Max(a.x, b.x);

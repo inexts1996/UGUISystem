@@ -23,26 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b949c889-7238-4d80-b51f-1d9e01436ea0" name="Default Changelist" comment="学习 image源码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/d54863-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/d54863-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/09339a-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/09339a-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/25/25ee6cfb0d1b1064eb68326a8251a991" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/25/25ee6cfb0d1b1064eb68326a8251a991" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/05/05d209f8480476d46ab995c370f1e0cb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/05/05d209f8480476d46ab995c370f1e0cb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/12/12f9cd5ae4a4d83419f6b8d739412779" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/12/12f9cd5ae4a4d83419f6b8d739412779" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/3b/3b62d923b20b01f459b8076613b45828" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3b/3b62d923b20b01f459b8076613b45828" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/40/404dd09e4ecf80f49b684475c56bf280" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/40/404dd09e4ecf80f49b684475c56bf280" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/59/5903fb968e59f584eb3c6e8e2a7fc604" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/59/5903fb968e59f584eb3c6e8e2a7fc604" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/91/9118a2fa0edcfc34cab4f19b0194430a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/91/9118a2fa0edcfc34cab4f19b0194430a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/a2/a2ac20fe83a67a645940dde22dc73067" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a2/a2ac20fe83a67a645940dde22dc73067" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/a9/a902e41acf0026f4b83cf21d2a514978" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a9/a902e41acf0026f4b83cf21d2a514978" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ae/ae47d4a9eceeb02459a67c9a5079b0fc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ae/ae47d4a9eceeb02459a67c9a5079b0fc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d7/d76e22f83a79f3e4c8e9944209e2200c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d7/d76e22f83a79f3e4c8e9944209e2200c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/GraphicEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/34/27154a18/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/ImageEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/Raycasters/BaseRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRegistry.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,7 +73,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/GridLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ILayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Works/SlgClient/Assets/Scripts/HotfixPro/Services/UI/Module/Hero/HeroControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/HorizontalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -90,23 +85,29 @@
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/CanvasScaler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/UIBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutRebuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/Clipping.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/IClipRegion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/RectangularVertexClipper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ListPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ReflectionMethodsCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ObjectPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/VertexHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/PositionAsUV1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/BaseMeshEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRebuildTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Scrollbar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/35/d5a08bd8/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/Outline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/IMeshModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/PointerInputModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/testMonobehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaterialModifiers/IMaterialModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/testGraphic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EA50B005-27EE-4EC3-B2F2-9C3A328B90FF/77/4c37828f/GameObjectInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/StandaloneInputModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Toggle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -119,7 +120,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChangeImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/InputField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TestCanvasRender.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -132,7 +132,6 @@
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Text.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/SetPropertyUtility.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Image.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/DefaultControls.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/UI/MenuOptions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChangeImage.cs" />
@@ -147,10 +146,14 @@
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRegistry.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/UIBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TestCanvasRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/Clipping.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Image.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/VertexHelper.cs" />
       </list>
     </option>
   </component>
@@ -186,10 +189,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8912">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="8912" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -234,6 +237,9 @@
       <workItem from="1592397912867" duration="2690000" />
       <workItem from="1592481884097" duration="2232000" />
       <workItem from="1592484436316" duration="3918000" />
+      <workItem from="1592568927447" duration="7142000" />
+      <workItem from="1592829609218" duration="2977000" />
+      <workItem from="1593346713055" duration="5613000" />
     </task>
     <task id="LOCAL-00001" summary="学习 image源码">
       <created>1589214454943</created>
@@ -281,54 +287,54 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="656" height="582" key="DebuggerActiveHint/0.0.2560.1440@0.0.2560.1440" timestamp="1592399587272" />
-    <state width="2494" height="520" key="GridCell.Tab.0.bottom" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.0.bottom" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.0.center" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
+    <state width="2494" height="520" key="GridCell.Tab.0.center" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.0.left" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
+    <state width="2494" height="520" key="GridCell.Tab.0.left" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802346" />
     <state width="2511" height="478" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.0.right" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
+    <state width="2494" height="520" key="GridCell.Tab.0.right" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.1.bottom" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
+    <state width="2494" height="520" key="GridCell.Tab.1.bottom" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.1.center" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
+    <state width="2494" height="520" key="GridCell.Tab.1.center" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.1.left" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
+    <state width="2494" height="520" key="GridCell.Tab.1.left" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
-    <state width="2494" height="520" key="GridCell.Tab.1.right" timestamp="1592488356967">
+    <state width="2494" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
+    <state width="2494" height="520" key="GridCell.Tab.1.right" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
     <state width="2511" height="478" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
-    <state width="2494" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
+    <state width="2494" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
     <state width="2494" height="520" key="GridCell.Tab.2.bottom" timestamp="1592488356967">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -397,136 +403,45 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="714" y="384" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1440@0.0.2560.1440" timestamp="1592398669986" />
-    <state x="851" y="388" width="865" height="676" key="find.popup" timestamp="1592485323584">
+    <state x="851" y="388" width="865" height="676" key="find.popup" timestamp="1592574187903">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="638" y="291" width="701" height="534" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590581685250" />
-    <state x="851" y="388" width="865" height="676" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592485323584" />
-    <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup" timestamp="1592484510916">
+    <state x="851" y="388" width="865" height="676" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592574187903" />
+    <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup" timestamp="1592571870487">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="644" y="239" width="672" height="776" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590580209052" />
-    <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592484510916" />
+    <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592571870487" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs</url>
-          <line>253</line>
+          <line>255</line>
           <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" initialLine="253">
             <startOffsets>
-              <option value="8650" />
+              <option value="8705" />
             </startOffsets>
             <endOffsets>
-              <option value="8670" />
+              <option value="8725" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs</url>
-          <line>579</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" initialLine="579">
-            <startOffsets>
-              <option value="19533" />
-            </startOffsets>
-            <endOffsets>
-              <option value="19595" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs</url>
-          <line>145</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" initialLine="136">
-            <startOffsets>
-              <option value="5520" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5536" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs</url>
-          <line>147</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" initialLine="138">
-            <startOffsets>
-              <option value="5596" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5615" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs</url>
-          <line>240</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" initialLine="231">
-            <startOffsets>
-              <option value="8312" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8330" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs</url>
-          <line>55</line>
+          <line>61</line>
           <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs" initialLine="55">
             <startOffsets>
-              <option value="1698" />
+              <option value="1918" />
             </startOffsets>
             <endOffsets>
-              <option value="1712" />
+              <option value="1932" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs</url>
-          <line>204</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" initialLine="192">
-            <startOffsets>
-              <option value="7156" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7284" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs</url>
-          <line>234</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" initialLine="234">
-            <startOffsets>
-              <option value="7975" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8069" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs</url>
-          <line>149</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" initialLine="145">
-            <startOffsets>
-              <option value="5409" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5474" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

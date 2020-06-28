@@ -154,6 +154,10 @@ namespace UnityEngine.UI
             }
         }
 
+        /// <summary>
+        /// 19/6 2020 Graphic学习
+        /// 对子类元素进行剔除和裁剪处理
+        /// </summary>
         public virtual void PerformClipping()
         {
             if (ReferenceEquals(Canvas, null))
@@ -166,6 +170,8 @@ namespace UnityEngine.UI
             // if the parents are changed
             // or something similar we
             // do a recalculate here
+            //当父节点发生改变的时候，或者OnHierarchyCanvasChanged以及添加裁剪或者移除裁剪子类元素的时候
+            //重新对裁剪的rect进行计算
             if (m_ShouldRecalculateClipRects)
             {
                 MaskUtilities.GetRectMasksForClip(this, m_Clippers);
@@ -179,12 +185,19 @@ namespace UnityEngine.UI
 
             // If the mask is in ScreenSpaceOverlay/Camera render mode, its content is only rendered when its rect
             // overlaps that of the root canvas.
+            //这一步是为了剔除子类元素
             RenderMode renderMode = Canvas.rootCanvas.renderMode;
+            //如果Canvas的渲染模式ScreenSpaceCamera或者 ScreenSpaceOverlay时，需要裁剪的cliprect与根节点Canvas的rect没有重叠
+            //则进行剔除
+            //这里好像判断是mask是否被剔除了
             bool maskIsCulled =
                 (renderMode == RenderMode.ScreenSpaceCamera || renderMode == RenderMode.ScreenSpaceOverlay) &&
                 !clipRect.Overlaps(rootCanvasRect, true);
 
+            //裁剪区域发生改变
             bool clipRectChanged = clipRect != m_LastClipRectCanvasSpace;
+            //是否裁剪的子元素发生变化
+            //添加裁剪子元素或者移除时，都为true
             bool forceClip = m_ForceClip;
 
             // Avoid looping multiple times.
