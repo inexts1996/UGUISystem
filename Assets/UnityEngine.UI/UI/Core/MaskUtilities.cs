@@ -119,6 +119,7 @@ namespace UnityEngine.UI
         /// <returns>Is child equal to father or is a descendant.</returns>
         /// 18/6 2020 Graphic学习
         /// 判断child是否等于father或者是father的后裔
+        /// 原理也很简单，就是不停的取child的父物体和当前的father做比较就好了
         public static bool IsDescendantOrSelf(Transform father, Transform child)
         {
             if (father == null || child == null)
@@ -144,7 +145,7 @@ namespace UnityEngine.UI
         /// <param name="clippable">Clippable to search from.</param>
         /// <returns>The Correct RectMask2D</returns>
         /// 18/6 2020 Graphic学习
-        /// 查找元素身上的RectMask2D组件，并返回
+        /// 查找当前元素父级身上的RectMask2D组件，并返回
         public static RectMask2D GetRectMaskForClippable(IClippable clippable)
         {
             List<RectMask2D> rectMaskComponents = ListPool<RectMask2D>.Get();

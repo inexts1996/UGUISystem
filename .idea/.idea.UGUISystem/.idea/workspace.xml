@@ -23,21 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b949c889-7238-4d80-b51f-1d9e01436ea0" name="Default Changelist" comment="学习 image源码">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGUISystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/d54863-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/d54863-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/05/05d209f8480476d46ab995c370f1e0cb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/05/05d209f8480476d46ab995c370f1e0cb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/12/12f9cd5ae4a4d83419f6b8d739412779" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/12/12f9cd5ae4a4d83419f6b8d739412779" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/3b/3b62d923b20b01f459b8076613b45828" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3b/3b62d923b20b01f459b8076613b45828" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/91/9118a2fa0edcfc34cab4f19b0194430a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/91/9118a2fa0edcfc34cab4f19b0194430a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/a2/a2ac20fe83a67a645940dde22dc73067" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a2/a2ac20fe83a67a645940dde22dc73067" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/a9/a902e41acf0026f4b83cf21d2a514978" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a9/a902e41acf0026f4b83cf21d2a514978" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/ae/ae47d4a9eceeb02459a67c9a5079b0fc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ae/ae47d4a9eceeb02459a67c9a5079b0fc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/d7/d76e22f83a79f3e4c8e9944209e2200c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d7/d76e22f83a79f3e4c8e9944209e2200c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,79 +37,83 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/GraphicEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/34/27154a18/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/ImageEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/Raycasters/BaseRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRegistry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/df/3db544ca/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/ScrollRect.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/61/629af6c6/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/FontData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/MenuOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EA50B005-27EE-4EC3-B2F2-9C3A328B90FF/23/8c910fb7/GameObjectsTreeViewDragging.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Image.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/db/495a41ae/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/CanvasUpdateRegistry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Mask.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/ca/0c9aca79/GC.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/75/c31b2124/CanvasRenderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/TextEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Text.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/68/f849d094/Rect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/GridLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ILayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Works/SlgClient/Assets/Scripts/HotfixPro/Services/UI/Module/Hero/HeroControl.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/HorizontalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/VerticalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/ScrollRectEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ContentSizeFitter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/HorizontalOrVerticalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/4d/290c56f0/RectTransformUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/DefaultControls.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/CanvasScaler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Animation/CoroutineTween.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/SpecializedCollections/IndexedSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/52/5b40548f/ICanvasRaycastFilter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/EventSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/db/495a41ae/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/UIBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutRebuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/Clipping.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/IClipRegion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/StencilMaterial.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/RectangularVertexClipper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ListPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRegistry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/FontData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/testGraphic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ReflectionMethodsCache.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ObjectPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/VertexHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/PositionAsUV1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/BaseMeshEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MyPraphic.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/CanvasUpdateRegistry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/testMonobehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChangeImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Mask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TestCanvasRender.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ListPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Text.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/Raycasters/BaseRaycaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/34/27154a18/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/fe/dea12bbd/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/BaseInputModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/PointerInputModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ILayoutElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B140E050-1769-43F4-A096-6C7CFA9CC579/75/c31b2124/CanvasRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/StandaloneInputModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/GraphicEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/HorizontalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/ImageEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/VerticalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/AspectRatioFitter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/ScrollRect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ContentSizeFitter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRebuildTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Scrollbar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/35/d5a08bd8/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/Outline.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/IMeshModifier.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/PointerInputModule.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/testMonobehavior.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaterialModifiers/IMaterialModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/CanvasScaler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/MenuOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/testGraphic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EA50B005-27EE-4EC3-B2F2-9C3A328B90FF/77/4c37828f/GameObjectInspector.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/InputModules/StandaloneInputModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutRebuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/68/f849d094/Rect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/VertexHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Toggle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/SpecializedCollections/IndexedSet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Animation/CoroutineTween.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/862B9365-843C-4BF1-BA93-210C124BB523/d1/3941c4ae/EditorBrowsableState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/SetPropertyUtility.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/EventSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/Clipping.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/IClipRegion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/IMaskable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChangeImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/TextEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/RectangularVertexClipper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Image.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ReflectionMethodsCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/InputField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TestCanvasRender.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/64/fbade218/Camera.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/GridLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/PositionAsUV1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/BaseMeshEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UI/ScrollRectEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RawImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/7c/3379d7b0/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/Outline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaterialModifiers/IMaterialModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/VertexModifiers/IMeshModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/de/a0deedc5/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/HorizontalOrVerticalLayoutGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/ObjectPool.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -138,22 +131,23 @@
         <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF5F04D6-6C19-4D96-86AB-314B6714BDBF/fe/dea12bbd/Component.cs" />
         <option value="$USER_HOME$/.ideavimrc" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/InputField.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutRebuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/ILayoutElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/CanvasUpdateRegistry.cs" />
         <option value="$PROJECT_DIR$/Assets/testGraphic.cs" />
         <option value="$PROJECT_DIR$/Assets/testMonobehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/GraphicRegistry.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/EventSystem/UIBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TestCanvasRender.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/Clipping.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" />
-        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Image.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" />
         <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Utility/VertexHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/CanvasUpdateRegistry.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Layout/LayoutRebuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskableGraphic.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/MaskUtilities.cs" />
+        <option value="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/RectMask2D.cs" />
+        <option value="G:/download/Nutstore/我的坚果云/MarkDown/UGUI源码学习知识卡片.md" />
       </list>
     </option>
   </component>
@@ -180,7 +174,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -240,6 +234,21 @@
       <workItem from="1592568927447" duration="7142000" />
       <workItem from="1592829609218" duration="2977000" />
       <workItem from="1593346713055" duration="5613000" />
+      <workItem from="1594036050744" duration="3069000" />
+      <workItem from="1594121267081" duration="5365000" />
+      <workItem from="1594206076217" duration="5959000" />
+      <workItem from="1594293143299" duration="1055000" />
+      <workItem from="1594295093981" duration="4399000" />
+      <workItem from="1594638363268" duration="6249000" />
+      <workItem from="1594724972882" duration="5899000" />
+      <workItem from="1594811449218" duration="6661000" />
+      <workItem from="1594901628473" duration="2698000" />
+      <workItem from="1595245079438" duration="4590000" />
+      <workItem from="1595329899102" duration="5912000" />
+      <workItem from="1595386195488" duration="872000" />
+      <workItem from="1595419277631" duration="3613000" />
+      <workItem from="1595503773749" duration="5616000" />
+      <workItem from="1595577176898" duration="1360000" />
     </task>
     <task id="LOCAL-00001" summary="学习 image源码">
       <created>1589214454943</created>
@@ -279,9 +288,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="964" y="471" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1589904610185" />
-    <state x="968" y="529" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1591193493925">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="726" y="397" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1595505205350">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="726" y="397" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1595505205350" />
     <state x="968" y="529" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.2560.1440@0.0.2560.1440" timestamp="1591193493925" />
     <state width="656" height="582" key="DebuggerActiveHint" timestamp="1592399587272">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -291,101 +301,86 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
     <state width="2494" height="520" key="GridCell.Tab.0.center" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
     <state width="2494" height="520" key="GridCell.Tab.0.left" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802346" />
-    <state width="2511" height="478" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
     <state width="2494" height="520" key="GridCell.Tab.0.right" timestamp="1592569385471">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592569385471" />
     <state width="2494" height="520" key="GridCell.Tab.1.bottom" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
     <state width="2494" height="520" key="GridCell.Tab.1.center" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
     <state width="2494" height="520" key="GridCell.Tab.1.left" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
     <state width="2494" height="520" key="GridCell.Tab.1.right" timestamp="1592569388654">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.1.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998126" />
     <state width="2494" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592569388654" />
     <state width="2494" height="520" key="GridCell.Tab.2.bottom" timestamp="1592488356967">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.2.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.2.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.2.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
     <state width="2494" height="520" key="GridCell.Tab.2.center" timestamp="1592488356967">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.2.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.2.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.2.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
     <state width="2494" height="520" key="GridCell.Tab.2.left" timestamp="1592488356967">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.2.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.2.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.2.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
     <state width="2494" height="520" key="GridCell.Tab.2.right" timestamp="1592488356967">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.2.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.2.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.2.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356967" />
     <state width="2494" height="520" key="GridCell.Tab.3.bottom" timestamp="1592488356968">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.3.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802348" />
-    <state width="2511" height="478" key="GridCell.Tab.3.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.3.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356968" />
     <state width="2494" height="520" key="GridCell.Tab.3.center" timestamp="1592488356968">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.3.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.3.center/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.3.center/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356968" />
     <state width="2494" height="520" key="GridCell.Tab.3.left" timestamp="1592488356968">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.3.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.3.left/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.3.left/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356968" />
     <state width="2494" height="520" key="GridCell.Tab.3.right" timestamp="1592488356968">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1879" height="391" key="GridCell.Tab.3.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590481802347" />
-    <state width="2511" height="478" key="GridCell.Tab.3.right/0.0.2560.1400@0.0.2560.1400" timestamp="1584457998127" />
     <state width="2494" height="520" key="GridCell.Tab.3.right/0.0.2560.1440@0.0.2560.1440" timestamp="1592488356968" />
-    <state x="749" y="367" key="SettingsEditor" timestamp="1592397937248">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="562" y="275" key="SettingsEditor" timestamp="1594123174277">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="562" y="275" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1594123174277" />
     <state x="749" y="367" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1592397937248" />
     <state x="92" y="92" width="2376" height="1256" key="VCS.FileHistoryDialog" timestamp="1589713477110">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -403,33 +398,20 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="714" y="384" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1440@0.0.2560.1440" timestamp="1592398669986" />
-    <state x="851" y="388" width="865" height="676" key="find.popup" timestamp="1592574187903">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="638" y="291" width="701" height="534" key="find.popup" timestamp="1594815945814">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="638" y="291" width="701" height="534" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590581685250" />
+    <state x="638" y="291" width="701" height="534" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1594815945814" />
     <state x="851" y="388" width="865" height="676" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592574187903" />
-    <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup" timestamp="1592571870487">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup" timestamp="1595577475931">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1590580209052" />
+    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1595577475931" />
     <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592571870487" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs</url>
-          <line>255</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Graphic.cs" initialLine="253">
-            <startOffsets>
-              <option value="8705" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8725" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/UnityEngine.UI/UI/Core/Culling/ClipperRegistry.cs</url>
           <line>61</line>
