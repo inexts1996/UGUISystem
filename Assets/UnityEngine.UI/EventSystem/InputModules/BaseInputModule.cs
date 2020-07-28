@@ -32,6 +32,8 @@ namespace UnityEngine.EventSystems
     /// }
     /// </code>
     /// </example>
+    /// 27 / 7 2020 UGUI学习_EventSystem
+    /// 基础输入模块类
     public abstract class BaseInputModule : UIBehaviour
     {
         [NonSerialized] protected List<RaycastResult> m_RaycastResultCache = new List<RaycastResult>();

@@ -1,12 +1,9 @@
-namespace UnityEngine.EventSystems
-{
-    /// <summary>
-    /// A class that can be used for sending simple events via the event system.
-    /// </summary>
-   /// 27 / 7 2020 UGUI学习_EventSystem
-   /// 事件输入的数据的抽象类
-   /// 只简单记录
-    public abstract class AbstractEventData
+# EventSystem
+## 事件数据
+### EventData 事件相关的数据
+* AbstractEventData，事件数据抽象类。只包含一个字段m_Used用来表示是否被使用了，然后进一步处理
+```C#
+public abstract class AbstractEventData
     {
         protected bool m_Used;
 
@@ -37,11 +34,11 @@ namespace UnityEngine.EventSystems
             get { return m_Used; }
         }
     }
-
-    /// <summary>
-    /// A class that contains the base event data that is common to all event types in the new EventSystem.
-    /// </summary>
-    public class BaseEventData : AbstractEventData
+```
+* BaseEventData，事件数据的基类，继承自AbstractEventData。包含当前的EventSystem，以及当前的输入模块currentInputModule，还有
+当前选择的gameObject
+```C#
+public class BaseEventData : AbstractEventData
     {
         private readonly EventSystem m_EventSystem;
 
@@ -67,4 +64,30 @@ namespace UnityEngine.EventSystems
             set { m_EventSystem.SetSelectedGameObject(value, this); }
         }
     }
-}
+```
+之后AxisEventData和PointerEventData继承自BaseEventData。分别用来存储轴事件的数据，以及每次触摸事件的数据。
+AxisEventData主要用来存放关于轴事件的数据，比如水平、垂直以及鼠标滚轮的数据, 相对比较简单。主要就是和事件相关的
+原始向量数据，以及移动方向。
+```c#
+public class AxisEventData : BaseEventData
+    {
+        /// <summary>
+        /// Raw input vector associated with this event.
+        /// </summary>
+        public Vector2 moveVector { get; set; }
+
+        /// <summary>
+        /// MoveDirection for this event.
+        /// </summary>
+        public MoveDirection moveDir { get; set; }
+
+        public AxisEventData(EventSystem eventSystem)
+            : base(eventSystem)
+        {
+            moveVector = Vector2.zero;
+            moveDir = MoveDirection.None;
+        }
+    }
+```
+
+# InputModule 事件输入模块

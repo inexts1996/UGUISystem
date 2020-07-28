@@ -3,6 +3,8 @@ namespace UnityEngine.EventSystems
     /// <summary>
     /// A hit result from a BaseRaycaster.
     /// </summary>
+    /// 27 / 7 2020 UGUI学习_EventSystem
+    /// 射线检测结果信息
     public struct RaycastResult
     {
         private GameObject m_GameObject; // Game object hit by the raycast
