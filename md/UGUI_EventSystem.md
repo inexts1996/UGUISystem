@@ -89,5 +89,8 @@ public class AxisEventData : BaseEventData
         }
     }
 ```
+PointerEventData用来记录一次完整点触发生过程中的数据
 
 # InputModule 事件输入模块
+## baseInput
+baseInput，Input的封装类，用来获取当前输入的一些状态的。

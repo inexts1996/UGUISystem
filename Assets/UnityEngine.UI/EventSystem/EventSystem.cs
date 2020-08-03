@@ -118,6 +118,9 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Recalculate the internal list of BaseInputModules.
         /// </summary>
+        /// 27 / 7 2020 UGUI学习_EventSystem
+        /// 更新当前EventSystem中的输入模块
+        /// 移除没用的
         public void UpdateModules()
         {
             GetComponents(m_SystemInputModules);

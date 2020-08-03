@@ -9,6 +9,7 @@ namespace UnityEngine.EventSystems
     /// </summary>
     /// 28/7 2020 UGUI学习_EventSystem
     /// 每次点击事件相关的信息
+    /// 总体而言，就是用来存放一次完整的点触发生的整个过程的数据
     public class PointerEventData : BaseEventData
     {
         /// <summary>
@@ -178,6 +179,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// The amount of scroll since the last update.
         /// </summary>
+        /// 滚动差量值
         public Vector2 scrollDelta { get; set; }
 
         /// <summary>
@@ -186,16 +188,19 @@ namespace UnityEngine.EventSystems
         /// <remarks>
         /// If you do not want a drag threshold set this to false in IInitializePotentialDragHandler.OnInitializePotentialDrag.
         /// </remarks>
+        /// 设置是否需要使用滑动阈值
         public bool useDragThreshold { get; set; }
 
         /// <summary>
         /// Is a drag operation currently occuring.
         /// </summary>
+        ///记录当前是否正处于drag状态 
         public bool dragging { get; set; }
 
         /// <summary>
         /// The EventSystems.PointerEventData.InputButton for this event.
         /// </summary>
+        /// 输入button的方向 
         public InputButton button { get; set; }
 
         public PointerEventData(EventSystem eventSystem) : base(eventSystem)
@@ -218,6 +223,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Is the pointer moving.
         /// </summary>
+        /// 判断当前点是否发生了移动,主要时判断增量的长度
         public bool IsPointerMoving()
         {
             return delta.sqrMagnitude > 0.0f;
@@ -226,6 +232,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Is scroll being used on the input device.
         /// </summary>
+        /// 判断当前点触是否发生滚动
         public bool IsScrolling()
         {
             return scrollDelta.sqrMagnitude > 0.0f;
@@ -234,6 +241,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// The camera associated with the last OnPointerEnter event.
         /// </summary>
+        /// 属性：获取与最后一个OnPointerEnter事件相关的相机 
         public Camera enterEventCamera
         {
             get { return pointerCurrentRaycast.module == null ? null : pointerCurrentRaycast.module.eventCamera; }
@@ -242,6 +250,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// The camera associated with the last OnPointerPress event.
         /// </summary>
+        /// 属性：获取与最后一个OnPointPress事件相关的相机
         public Camera pressEventCamera
         {
             get { return pointerPressRaycast.module == null ? null : pointerPressRaycast.module.eventCamera; }
@@ -250,6 +259,7 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// The GameObject that received the OnPointerDown.
         /// </summary>
+        /// 获取被OnPointerDown接收到的GameObject
         public GameObject pointerPress
         {
             get { return m_PointerPress; }

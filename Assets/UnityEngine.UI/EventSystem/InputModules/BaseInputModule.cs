@@ -48,6 +48,8 @@ namespace UnityEngine.EventSystems
 
         /// <summary>
         /// The current BaseInput being used by the input module.
+        /// 27 / 7 2020 UGUI学习_EventSystem
+        /// input属性，获取当前输入模块的input
         /// </summary>
         public BaseInput input
         {
@@ -62,6 +64,7 @@ namespace UnityEngine.EventSystems
                     foreach (var baseInput in inputs)
                     {
                         // We dont want to use any classes that derrive from BaseInput for default.
+                        //这里只获取BaseInput类型的组件
                         if (baseInput != null && baseInput.GetType() == typeof(BaseInput))
                         {
                             m_DefaultInput = baseInput;
@@ -83,12 +86,15 @@ namespace UnityEngine.EventSystems
         /// <remarks>
         /// With this it is possible to bypass the Input system with your own but still use the same InputModule. For example this can be used to feed fake input into the UI or interface with a different input system.
         /// </remarks>
+        ///27 / 7 2020 UGUI学习_EventSystem
+        /// 用来覆盖默认baseInput
         public BaseInput inputOverride
         {
             get { return m_InputOverride; }
             set { m_InputOverride = value; }
         }
 
+        //获取当前的EventSystem
         protected EventSystem eventSystem
         {
             get { return m_EventSystem; }
@@ -110,11 +116,17 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Process the current tick for the module.
         /// </summary>
+        /// 用来处理当前帧的module
+        /// 类似Update方法, 而且也是在EventSystem的Update中调用的
+        /// BaseInputModule虽然继承自UIBehaviour，拥有Update方法，但是没有重写，而是省略
+        /// 为了更好的控制输入模块的流程
         public abstract void Process();
 
         /// <summary>
         /// Return the first valid RaycastResult.
         /// </summary>
+        /// 获取第一个可用的RaycastResult
+        /// 没有的话，直接返回一个新的raycastResult
         protected static RaycastResult FindFirstRaycast(List<RaycastResult> candidates)
         {
             for (var i = 0; i < candidates.Count; ++i)
@@ -133,6 +145,7 @@ namespace UnityEngine.EventSystems
         /// </summary>
         /// <param name="x">X movement.</param>
         /// <param name="y">Y movement.</param>
+        /// 传递一个移动位置，返回一个最好的移动方向
         protected static MoveDirection DetermineMoveDirection(float x, float y)
         {
             return DetermineMoveDirection(x, y, 0.6f);
@@ -143,7 +156,8 @@ namespace UnityEngine.EventSystems
         /// </summary>
         /// <param name="x">X movement.</param>
         /// <param name="y">Y movement.</param>
-        /// <param name="deadZone">Dead zone.</param>
+        /// <param name="deadZone">Dead zone.</param> 停止范围
+        /// 也就是获取轴事件的一个移动方向
         protected static MoveDirection DetermineMoveDirection(float x, float y, float deadZone)
         {
             // if vector is too small... just return
@@ -170,6 +184,7 @@ namespace UnityEngine.EventSystems
         /// <param name="g1">GameObject to compare</param>
         /// <param name="g2">GameObject to compare</param>
         /// <returns></returns>
+        /// 查找两个物体共同的根节点
         protected static GameObject FindCommonRoot(GameObject g1, GameObject g2)
         {
             if (g1 == null || g2 == null)
