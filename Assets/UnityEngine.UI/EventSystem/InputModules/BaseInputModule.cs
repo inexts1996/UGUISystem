@@ -210,11 +210,18 @@ namespace UnityEngine.EventSystems
         // walk up the tree till a common root between the last entered and the current entered is foung
         // send exit events up to (but not inluding) the common root. Then send enter events up to
         // (but not including the common root).
+        /// <summary>
+        ///4/8 2020 UGUI学习 InputModule 
+        ///处理物体上的pointerExit和Enter事件
+        /// </summary>
+        /// <param name="currentPointerData"></param>
+        /// <param name="newEnterTarget"></param>
         protected void HandlePointerExitAndEnter(PointerEventData currentPointerData, GameObject newEnterTarget)
         {
             // if we have no target / pointerEnter has been deleted
             // just send exit events to anything we are tracking
             // then exit
+            //当没有target或者pointEnter是空时，则对经过的物体执行pointExit方法
             if (newEnterTarget == null || currentPointerData.pointerEnter == null)
             {
                 for (var i = 0; i < currentPointerData.hovered.Count; ++i)
@@ -223,6 +230,7 @@ namespace UnityEngine.EventSystems
 
                 currentPointerData.hovered.Clear();
 
+                //当没有新目标的时候，将pointerEnter置空
                 if (newEnterTarget == null)
                 {
                     currentPointerData.pointerEnter = null;

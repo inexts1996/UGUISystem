@@ -3,6 +3,8 @@ namespace UnityEngine.EventSystems
     /// <summary>
     /// Base class that all EventSystem events inherit from.
     /// </summary>
+    /// 4/8 2020 UGUI学习 InputModule
+    /// 各种输入事件接收响应的基础类 
     public interface IEventSystemHandler
     {
     }
@@ -13,6 +15,8 @@ namespace UnityEngine.EventSystems
     /// <remarks>
     /// Criteria for this event is implementation dependent. For example see StandAloneInputModule.
     /// </remarks>
+    /// 4/8 2020 UGUI学习 InputModule
+    /// pointerEnter事件的接收接口
     public interface IPointerEnterHandler : IEventSystemHandler
     {
         /// <summary>

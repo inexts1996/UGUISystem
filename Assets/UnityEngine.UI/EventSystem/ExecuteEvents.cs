@@ -238,6 +238,15 @@ namespace UnityEngine.EventSystems
         private static readonly ObjectPool<List<IEventSystemHandler>> s_HandlerListPool =
             new ObjectPool<List<IEventSystemHandler>>(null, l => l.Clear());
 
+        /// <summary>
+        /// 对指定的物体，执行指定的事件处理
+        /// 比如：BaseInputModule中的执行PointExitHandler方法
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="eventData"></param>
+        /// <param name="functor"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool Execute<T>(GameObject target, BaseEventData eventData, EventFunction<T> functor)
             where T : IEventSystemHandler
         {
@@ -246,6 +255,7 @@ namespace UnityEngine.EventSystems
             //  if (s_InternalHandlers.Count > 0)
             //      Debug.Log("Executinng " + typeof (T) + " on " + target);
 
+            //拿到每个对象，转换成相应的T类型，然后执行相应的方法
             for (var i = 0; i < internalHandlers.Count; i++)
             {
                 T arg;
@@ -296,6 +306,17 @@ namespace UnityEngine.EventSystems
             return null;
         }
 
+        /// <summary>
+        ///4/8 2020 UGUI学习 InputModule
+        /// 主要是用来判断当前是否是需要发送事件
+        /// 首先判断是否是当前指定的类型
+        /// 如果是组件的话，则根据它当前的状态，来决定是否需要发送到组件里
+        /// 如果不是组件，则直接返回true，都需要发送到组件
+        /// 判断组件的原因是，button等一些组件元素，也间接继承自IEventSystemHandler
+        /// </summary>
+        /// <param name="component"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         private static bool ShouldSendToComponent<T>(Component component) where T : IEventSystemHandler
         {
             var valid = component is T;
@@ -311,6 +332,9 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Get the specified object's event event.
         /// </summary>
+        /// 4/8 2020 UGUI学习 InputModule
+        /// 获取当前物体上，指定类型的事件list
+        /// 查找当前物体上，需要发送事件到组件上的p派生自IEventSystemHandler的元素
         private static void GetEventList<T>(GameObject go, IList<IEventSystemHandler> results)
             where T : IEventSystemHandler
         {
