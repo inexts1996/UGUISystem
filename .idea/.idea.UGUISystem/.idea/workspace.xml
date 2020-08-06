@@ -273,6 +273,9 @@
       <workItem from="1596025026891" duration="1985000" />
       <workItem from="1596454206976" duration="5503000" />
       <workItem from="1596539595902" duration="6039000" />
+      <workItem from="1596545738257" duration="277000" />
+      <workItem from="1596627289582" duration="4339000" />
+      <workItem from="1596712216579" duration="3152000" />
     </task>
     <task id="LOCAL-00001" summary="学习 image源码">
       <created>1589214454943</created>
@@ -423,15 +426,15 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="714" y="384" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1440@0.0.2560.1440" timestamp="1592398669986" />
-    <state x="638" y="291" width="701" height="534" key="find.popup" timestamp="1596457888832">
+    <state x="638" y="291" width="701" height="534" key="find.popup" timestamp="1596630444077">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="638" y="291" width="701" height="534" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1596457888832" />
+    <state x="638" y="291" width="701" height="534" key="find.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1596630444077" />
     <state x="851" y="388" width="865" height="676" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592574187903" />
-    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup" timestamp="1596026660364">
+    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup" timestamp="1596713565861">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1596026660364" />
+    <state x="644" y="239" width="672" height="776" key="search.everywhere.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1596713565861" />
     <state x="859" y="318" width="840" height="1034" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1592571870487" />
   </component>
   <component name="XDebuggerManager">

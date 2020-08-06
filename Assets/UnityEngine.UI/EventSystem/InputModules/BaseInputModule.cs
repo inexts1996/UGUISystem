@@ -212,7 +212,7 @@ namespace UnityEngine.EventSystems
         // (but not including the common root).
         /// <summary>
         ///4/8 2020 UGUI学习 InputModule 
-        ///处理物体上的pointerExit和Enter事件
+        ///接收处理物体上的pointerExit和Enter事件
         /// </summary>
         /// <param name="currentPointerData"></param>
         /// <param name="newEnterTarget"></param>
@@ -245,6 +245,9 @@ namespace UnityEngine.EventSystems
             GameObject commonRoot = FindCommonRoot(currentPointerData.pointerEnter, newEnterTarget);
 
             // and we already an entered object from last time
+            //当pointerEnter不为空并且不是newTareget的root或者没有共同的root时，
+            //则对pointerEnter以及pointerEnter的父级元素，执行PointerExitHandler方法
+            //并把元素从hovered中移除掉
             if (currentPointerData.pointerEnter != null)
             {
                 // send exit handler call to all elements in the chain
@@ -264,6 +267,8 @@ namespace UnityEngine.EventSystems
             }
 
             // now issue the enter call up to but not including the common root
+            //将newEnterTarget赋值给pointerEnter，当newEnterTarget不为null并且之前的PointerEnter与newEnterTarget的root不为
+            //newTarget时，则对newTarget以及newTarget的父级元素，执行PointerEnterHandler方法，并加入到hovered列表中
             currentPointerData.pointerEnter = newEnterTarget;
             if (newEnterTarget != null)
             {
@@ -284,6 +289,8 @@ namespace UnityEngine.EventSystems
         /// <param name="x">X movement.</param>
         /// <param name="y">Y movement.</param>
         /// <param name="deadZone">Dead zone.</param>
+        /// 5/8 2020 UGUI学习System_InputModule
+        /// 根据给定的数据，生成可以用于EventSystem的AxisEventData
         protected virtual AxisEventData GetAxisEventData(float x, float y, float moveDeadZone)
         {
             if (m_AxisEventData == null)
@@ -298,6 +305,8 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Generate a BaseEventData that can be used by the EventSystem.
         /// </summary>
+        /// 5/8 2020 UGUI学习System_InputModule
+        /// 获取用于EventSystem的基础EventData
         protected virtual BaseEventData GetBaseEventData()
         {
             if (m_BaseEventData == null)
@@ -312,6 +321,9 @@ namespace UnityEngine.EventSystems
         /// </summary>
         /// <param name="pointerId">Pointer ID</param>
         /// <returns>Is the given pointer over an event system object?</returns>
+        /// 5/8 2020 UGUI学习System_InputModule
+        /// 根据一个id判断当前点击事件是否处于一个EventSytem上，也就是是否处于UI上
+        /// 而且只有pointInputModule时，才会进行override，其他输入模块统统返回false
         public virtual bool IsPointerOverGameObject(int pointerId)
         {
             return false;
@@ -320,6 +332,9 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Should the module be activated.
         /// </summary>
+        /// 6/8 2020 UGUI学习EventSystem_InputModule
+        /// 模块是否应该被激活
+        /// 普通输入模块，主要根据它是否可用以及是否在Hierarchy里是激活的
         public virtual bool ShouldActivateModule()
         {
             return enabled && gameObject.activeInHierarchy;
