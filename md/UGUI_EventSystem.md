@@ -164,3 +164,9 @@ protected void HandlePointerExitAndEnter(PointerEventData currentPointerData, Ga
             }
         }
 ```
+
+## 扩展
+* canvas的worldCamera，由canvas的renderMode来决定的，screen space-Overlay模式下，worldCamera为null；screen space-Camera或者World Space模式下，
+分别为Render Camera和Event Camera。
+* UI的targetDisplay取决于canvas的Render mode，当render mode为Screen Space-Overlay时，取canvas的TagetDisplay，这里的值根据对canvas的targetDisplay的设定；
+当render Mode为Screen Space-Camera或者World Space时，worldCamera不为null时，则取worldCamera的targetDisplay。否则为Canvas的targetDisplay的默认值，也就是diplay1（0）；

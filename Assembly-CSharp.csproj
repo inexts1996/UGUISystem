@@ -57,10 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EventCameraTest.cs" />
     <Compile Include="Assets\Scripts\ChangeImage.cs" />
     <Compile Include="Assets\Scripts\MyPraphic.cs" />
     <Compile Include="Assets\Scripts\TestCanvasRender.cs" />
     <Compile Include="Assets\Scripts\testGraphic.cs" />
+    <Compile Include="Assets\Scripts\TestGridlayout.cs" />
     <Compile Include="Assets\Scripts\testMonobehavior.cs" />
     <Compile Include="Assets\UnityEngine.UI\EventSystem\EventData\AxisEventData.cs" />
     <Compile Include="Assets\UnityEngine.UI\EventSystem\EventData\BaseEventData.cs" />

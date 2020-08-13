@@ -85,7 +85,7 @@ namespace UnityEngine.EventSystems
             released = (input.phase == TouchPhase.Canceled) || (input.phase == TouchPhase.Ended);
 
             //这里执行了两次pointerData的位置的设置，当为新创建的时候，那么下面偏移delta就是0，对于缓存的pointEvennnt
-            //当没有处于pressed状态下u时，那么就有可能出现滑动增量的情况。
+            //当没有处于pressed状态下时，那么就有可能出现滑动增量的情况。
             if (created)
                 pointerData.position = input.position;
 

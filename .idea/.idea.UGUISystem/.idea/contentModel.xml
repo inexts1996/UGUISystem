@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Administrator\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Administrator\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_UGUISystem.-1800029795.00" t="ExcludeRecursive" />
-    <e p="D:\github\UGUISystem" t="IncludeRecursive">
+    <e p="C:\Users\18209\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\18209\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_UGUISystem.1975305221.00" t="ExcludeRecursive" />
+    <e p="E:\Project\Unity\UGUISystem" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -50,11 +50,13 @@
             <e p="ToggleEditor.cs" t="Include" />
           </e>
         </e>
+        <e p="EventCameraTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="ChangeImage.cs" t="Include" />
           <e p="MyPraphic.cs" t="Include" />
           <e p="TestCanvasRender.cs" t="Include" />
           <e p="testGraphic.cs" t="Include" />
+          <e p="TestGridlayout.cs" t="Include" />
           <e p="testMonobehavior.cs" t="Include" />
         </e>
         <e p="UnityEngine.UI" t="Include">

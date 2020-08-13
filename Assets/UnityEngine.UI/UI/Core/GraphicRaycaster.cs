@@ -303,6 +303,8 @@ namespace UnityEngine.UI
         /// - canvas.worldCanvas if not null
         /// - Camera.main.
         /// </returns>
+        /// 13/8 2020 UGUI学习EventSystem_pointInputModule
+        /// 获取事件camera
         public override Camera eventCamera
         {
             get
