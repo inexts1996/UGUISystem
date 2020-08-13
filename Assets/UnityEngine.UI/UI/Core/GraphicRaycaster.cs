@@ -11,6 +11,8 @@ namespace UnityEngine.UI
     /// <summary>
     /// A derived BaseRaycaster to raycast against Graphic elements.
     /// </summary>
+    /// 9/8 2020 UGUI学习_EventSystem_InputModule
+    /// 针对图形的射线广播
     public class GraphicRaycaster : BaseRaycaster
     {
         protected const int kNoEventMaskSet = -1;

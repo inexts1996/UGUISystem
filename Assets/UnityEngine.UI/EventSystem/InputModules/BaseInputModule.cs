@@ -343,6 +343,8 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Called when the module is deactivated. Override this if you want custom code to execute when you deactivate your module.
         /// </summary>
+        /// 7/8 2020 UGUI学习EventSystem_InputModule
+        /// 当模块无效的时候，执行的方法，大概率是用来做一些特殊的操作，比如恢复数据呀什么的
         public virtual void DeactivateModule()
         {
         }
@@ -350,6 +352,8 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Called when the module is activated. Override this if you want custom code to execute when you activate your module.
         /// </summary>
+        /// 7/8 2020 UGUI学习EventSystem_InputModule
+        /// 当激活模块的时候，执行的方法，大概率是做一些初始化的工作
         public virtual void ActivateModule()
         {
         }
@@ -357,6 +361,8 @@ namespace UnityEngine.EventSystems
         /// <summary>
         /// Update the internal state of the Module.
         /// </summary>
+        /// 7/8 2020 UGUI学习EventSystem_InputModule
+        /// 更新模块内部状态
         public virtual void UpdateModule()
         {
         }
@@ -365,6 +371,8 @@ namespace UnityEngine.EventSystems
         /// Check to see if the module is supported. Override this if you have a platform specific module (eg. TouchInputModule that you do not want to activate on standalone.)
         /// </summary>
         /// <returns>Is the module supported.</returns>
+        /// 7/8 2020 UGUI学习EventSystem_InputModule
+        /// 用来限制模块的，比如那些模块可以被支持或者不被支持
         public virtual bool IsModuleSupported()
         {
             return true;

@@ -7,6 +7,8 @@ namespace UnityEngine.EventSystems
     /// <summary>
     /// A BaseInputModule for pointer input.
     /// </summary>
+    /// 7/8 2020 UGUI学习EventSystem_InputModule
+    /// 点输入模块
     public abstract class PointerInputModule : BaseInputModule
     {
         /// <summary>
@@ -38,6 +40,8 @@ namespace UnityEngine.EventSystems
         /// <param name="data">Found data</param>
         /// <param name="create">If not found should it be created</param>
         /// <returns>True if pointer is found.</returns>
+        /// 7/8 2020 UGUI学习EventSystem_InputModule
+        /// 根据一个id来获取一个pointerEventData
         protected bool GetPointerData(int id, out PointerEventData data, bool create)
         {
             if (!m_PointerData.TryGetValue(id, out data) && create)
@@ -68,6 +72,8 @@ namespace UnityEngine.EventSystems
         /// <param name="pressed">Are we pressed this frame</param>
         /// <param name="released">Are we released this frame</param>
         /// <returns></returns>
+        /// 9/8 2020 UGUI学习_EventSystem_InputModule
+        /// 给定一个触摸数据，填充一个pointerEventData返回一个事件信息的数据，并且返回是否是在按下状态或者释放状态
         protected PointerEventData GetTouchPointerEventData(Touch input, out bool pressed, out bool released)
         {
             PointerEventData pointerData;
@@ -78,6 +84,8 @@ namespace UnityEngine.EventSystems
             pressed = created || (input.phase == TouchPhase.Began);
             released = (input.phase == TouchPhase.Canceled) || (input.phase == TouchPhase.Ended);
 
+            //这里执行了两次pointerData的位置的设置，当为新创建的时候，那么下面偏移delta就是0，对于缓存的pointEvennnt
+            //当没有处于pressed状态下u时，那么就有可能出现滑动增量的情况。
             if (created)
                 pointerData.position = input.position;
 
@@ -90,6 +98,7 @@ namespace UnityEngine.EventSystems
 
             pointerData.button = PointerEventData.InputButton.Left;
 
+            //获取当前点的射线检测结果
             if (input.phase == TouchPhase.Canceled)
             {
                 pointerData.pointerCurrentRaycast = new RaycastResult();

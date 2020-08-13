@@ -94,3 +94,73 @@ PointerEventData用来记录一次完整点触发生过程中的数据
 # InputModule 事件输入模块
 ## baseInput
 baseInput，Input的封装类，用来获取当前输入的一些状态的。
+## baseInputModule
+输入模块的基础类，主要是定义一些方法供子类实现。最重要的方法就是HandlePointerExitAndEnter，用来处理pointerEnter和Exit事件
+```c#
+protected void HandlePointerExitAndEnter(PointerEventData currentPointerData, GameObject newEnterTarget)
+        {
+            // if we have no target / pointerEnter has been deleted
+            // just send exit events to anything we are tracking
+            // then exit
+            //当没有target或者pointEnter是空时，则对经过的物体执行pointExit方法
+            if (newEnterTarget == null || currentPointerData.pointerEnter == null)
+            {
+                for (var i = 0; i < currentPointerData.hovered.Count; ++i)
+                    ExecuteEvents.Execute(currentPointerData.hovered[i], currentPointerData,
+                        ExecuteEvents.pointerExitHandler);
+
+                currentPointerData.hovered.Clear();
+
+                //当没有新目标的时候，将pointerEnter置空
+                if (newEnterTarget == null)
+                {
+                    currentPointerData.pointerEnter = null;
+                    return;
+                }
+            }
+
+            // if we have not changed hover target
+            if (currentPointerData.pointerEnter == newEnterTarget && newEnterTarget)
+                return;
+
+            GameObject commonRoot = FindCommonRoot(currentPointerData.pointerEnter, newEnterTarget);
+
+            // and we already an entered object from last time
+            //当pointerEnter不为空并且不是newTareget的root或者没有共同的root时，
+            //则对pointerEnter以及pointerEnter的父级元素，执行PointerExitHandler方法
+            //并把元素从hovered中移除掉
+            if (currentPointerData.pointerEnter != null)
+            {
+                // send exit handler call to all elements in the chain
+                // until we reach the new target, or null!
+                Transform t = currentPointerData.pointerEnter.transform;
+
+                while (t != null)
+                {
+                    // if we reach the common root break out!
+                    if (commonRoot != null && commonRoot.transform == t)
+                        break;
+
+                    ExecuteEvents.Execute(t.gameObject, currentPointerData, ExecuteEvents.pointerExitHandler);
+                    currentPointerData.hovered.Remove(t.gameObject);
+                    t = t.parent;
+                }
+            }
+
+            // now issue the enter call up to but not including the common root
+            //将newEnterTarget赋值给pointerEnter，当newEnterTarget不为null并且之前的PointerEnter与newEnterTarget的root不为
+            //newTarget时，则对newTarget以及newTarget的父级元素，执行PointerEnterHandler方法，并加入到hovered列表中
+            currentPointerData.pointerEnter = newEnterTarget;
+            if (newEnterTarget != null)
+            {
+                Transform t = newEnterTarget.transform;
+
+                while (t != null && t.gameObject != commonRoot)
+                {
+                    ExecuteEvents.Execute(t.gameObject, currentPointerData, ExecuteEvents.pointerEnterHandler);
+                    currentPointerData.hovered.Add(t.gameObject);
+                    t = t.parent;
+                }
+            }
+        }
+```
