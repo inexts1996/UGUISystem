@@ -171,3 +171,65 @@ protected void HandlePointerExitAndEnter(PointerEventData currentPointerData, Ga
 * UI的targetDisplay取决于canvas的Render mode，当render mode为Screen Space-Overlay时，取canvas的TagetDisplay，这里的值根据对canvas的targetDisplay的设定；
 当render Mode为Screen Space-Camera或者World Space时，worldCamera不为null时，则取worldCamera的targetDisplay。否则为Canvas的targetDisplay的默认值，也就是diplay1（0）；
 * Unity的view Space以屏幕左下角为(0, 0)点，x轴的正向为右，y轴的正向为上，并且view space中的坐标取值范围为0~1
+
+### GraphicRaycaster
+
+GraphicRaycaster主要是对当前Canvas内的所有UI元素进行射线检测的用的，包含三个属性。
+
+![image-20200818000059102](C:\Users\18209\AppData\Roaming\Typora\typora-user-images\image-20200818000059102.png)
+
+* Ignore Reversed Graphics：用来忽略对反转图形的射线检测。不勾选的时候，会对反转图形也进行射线检测。
+* Blocking Objects：用来指定阻挡射线投射到当前Canvas上的物体类型，默认None
+* Blocking Mask：用来指定阻挡射线投射到当前Canvas上的物体所在的层，默认Everything
+
+需要注意的是，Blocking Object和Blocking Mask只有在Canvas的render Mode不为Screen Space-Overlay时，才会生效，可以从GraphicRaycaster的源码中看的很清晰。
+
+```C#
+if (canvas.renderMode != RenderMode.ScreenSpaceOverlay && blockingObjects != BlockingObjects.None)
+            {
+                float distanceToClipPlane = 100.0f;
+
+                if (currentEventCamera != null)
+                {
+                    float projectionDirection = ray.direction.z;
+                    distanceToClipPlane = Mathf.Approximately(0.0f, projectionDirection)
+                        ? Mathf.Infinity
+                        : Mathf.Abs((currentEventCamera.farClipPlane - currentEventCamera.nearClipPlane) /
+                                    projectionDirection);
+                }
+
+                if (blockingObjects == BlockingObjects.ThreeD || blockingObjects == BlockingObjects.All)
+                {
+                    if (ReflectionMethodsCache.Singleton.raycast3D != null)
+                    {
+                        Debug.DrawRay(ray.origin, ray.direction);
+                        var hits = ReflectionMethodsCache.Singleton.raycast3DAll(ray, distanceToClipPlane,
+                            (int) m_BlockingMask);
+                        if (hits.Length > 0)
+                            hitDistance = hits[0].distance;
+                    }
+                }
+
+                if (blockingObjects == BlockingObjects.TwoD || blockingObjects == BlockingObjects.All)
+                {
+                    if (ReflectionMethodsCache.Singleton.raycast2D != null)
+                    {
+                        var hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane,
+                            (int) m_BlockingMask);
+                        if (hits.Length > 0)
+                            hitDistance = hits[0].distance;
+                    }
+                }
+            }
+```
+
+另外Blocking Object和Blocking Mask是一套组合拳，有一个不满足都无法构成对射线的阻挡，但是存在一个先后的顺序，只有Blocking Object不为None的时候，Blocking Mask才会生效，反过来就没必要了。这里阻挡的前提是，2D gameObject或者3D gameObject，必须位于Canvas和Canvas上指定的Camera之间才可以产生射线阻挡效果。而且呀，一定要记得Unity中产生射线碰撞的前提是，物体具有Collider才行，自己琢磨2D物体的射线阻挡，一直不成功就是因为2D物体上没有挂载Collider组件。
+
+另外一点就是，自己刚开始认为忽略2D或者3D物体的射线阻挡效果就是不对2D或者3D物体进行射线的检测，但是其实不是的，2D或者3D物体的射线碰撞仍然存在。
+
+
+
+### 问题
+
+* GraphicRaycaster是如何忽略2D和3D物体的射线阻挡的？
+

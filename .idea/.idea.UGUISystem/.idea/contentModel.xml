@@ -52,6 +52,7 @@
         </e>
         <e p="EventCameraTest.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="BlockObjectTest.cs" t="Include" />
           <e p="ChangeImage.cs" t="Include" />
           <e p="MyPraphic.cs" t="Include" />
           <e p="TestCanvasRender.cs" t="Include" />

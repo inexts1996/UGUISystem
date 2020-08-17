@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EventCameraTest.cs" />
+    <Compile Include="Assets\Scripts\BlockObjectTest.cs" />
     <Compile Include="Assets\Scripts\ChangeImage.cs" />
     <Compile Include="Assets\Scripts\MyPraphic.cs" />
     <Compile Include="Assets\Scripts\TestCanvasRender.cs" />
