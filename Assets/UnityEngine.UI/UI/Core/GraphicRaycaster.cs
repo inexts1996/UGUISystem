@@ -147,18 +147,24 @@ namespace UnityEngine.UI
             var eventPosition = Display.RelativeMouseAt(eventData.position);
             if (eventPosition != Vector3.zero)
             {
+                //根据eventPosition来识别是否是多屏幕显示
                 // We support multiple display and display identification based on event position.
 
                 int eventDisplayIndex = (int) eventPosition.z;
 
+                //当事件的DisplayIndex和当前的displayIndex不同时，会将当前的事件舍弃，不会和任何一个display进行交互
                 // Discard events that are not part of this display so the user does not interact with multiple displays at once.
                 if (eventDisplayIndex != displayIndex)
                     return;
             }
             else
             {
+                //当返回Vector3.zero时，表示不支持多屏幕显示，但是我没搞明白这个原理是什么
                 // The multiple display system is not supported on all platforms, when it is not supported the returned position
                 // will be all zeros so when the returned index is 0 we will default to the event data to be safe.
+                //当不支持多屏幕显示的时候，eventPosition为vector3.zero，此时diplay默认为0，并且此时event data是安全的，不知道是为啥，难道
+                //是因为单个屏幕的原因，所以eventdata不存在被舍弃的情况吗？有可能，毕竟多屏幕显示的时候，display不同，eventdata就会被丢弃
+                //但是eventPosition赋值成EventData.position是什么操作
                 eventPosition = eventData.position;
 
                 // We dont really know in which display the event occured. We will process the event assuming it occured in our display.
@@ -168,9 +174,13 @@ namespace UnityEngine.UI
             Vector2 pos;
             if (currentEventCamera == null)
             {
+                //当前EventCamera为null时，将eventPosition转换为视野坐标
+                //Display 0显示的分辨率是桌面分辨率
                 // Multiple display support only when not the main display. For display 0 the reported
                 // resolution is always the desktops resolution since its part of the display API,
                 // so we use the standard none multiple display method. (case 741751)
+                //当displayindex为0时，默认时桌面分辨率
+                //不为0时，则在display列表中获取
                 float w = Screen.width;
                 float h = Screen.height;
                 if (displayIndex > 0 && displayIndex < Display.displays.Length)

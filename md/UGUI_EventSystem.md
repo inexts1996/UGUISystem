@@ -170,3 +170,4 @@ protected void HandlePointerExitAndEnter(PointerEventData currentPointerData, Ga
 分别为Render Camera和Event Camera。
 * UI的targetDisplay取决于canvas的Render mode，当render mode为Screen Space-Overlay时，取canvas的TagetDisplay，这里的值根据对canvas的targetDisplay的设定；
 当render Mode为Screen Space-Camera或者World Space时，worldCamera不为null时，则取worldCamera的targetDisplay。否则为Canvas的targetDisplay的默认值，也就是diplay1（0）；
+* Unity的view Space以屏幕左下角为(0, 0)点，x轴的正向为右，y轴的正向为上，并且view space中的坐标取值范围为0~1
