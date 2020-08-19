@@ -225,7 +225,7 @@ namespace UnityEngine.UI
                         var hits = ReflectionMethodsCache.Singleton.raycast3DAll(ray, distanceToClipPlane,
                             (int) m_BlockingMask);
                         if (hits.Length > 0)
-                            hitDistance = hits[0].distance;
+                            hitDistance = hits[0].distance;//获取从ray.Origin到第一个碰撞的3D物体之间的距离
                     }
                 }
 
@@ -236,7 +236,7 @@ namespace UnityEngine.UI
                         var hits = ReflectionMethodsCache.Singleton.getRayIntersectionAll(ray, distanceToClipPlane,
                             (int) m_BlockingMask);
                         if (hits.Length > 0)
-                            hitDistance = hits[0].distance;
+                            hitDistance = hits[0].distance;//获取从ray.Origin到第一个碰撞的2D物体之间的距离
                     }
                 }
             }
@@ -346,6 +346,7 @@ namespace UnityEngine.UI
                 if (graphic.depth == -1 || !graphic.raycastTarget || graphic.canvasRenderer.cull)
                     continue;
 
+                //判断一个点是否在一个矩形内
                 if (!RectTransformUtility.RectangleContainsScreenPoint(graphic.rectTransform, pointerPosition,
                     eventCamera))
                     continue;
