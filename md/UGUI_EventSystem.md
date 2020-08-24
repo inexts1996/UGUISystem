@@ -226,7 +226,14 @@ if (canvas.renderMode != RenderMode.ScreenSpaceOverlay && blockingObjects != Blo
 另外Blocking Object和Blocking Mask是一套组合拳，有一个不满足都无法构成对射线的阻挡，但是存在一个先后的顺序，只有Blocking Object不为None的时候，Blocking Mask才会生效，反过来就没必要了。这里阻挡的前提是，2D gameObject或者3D gameObject，必须位于Canvas和Canvas上指定的Camera之间才可以产生射线阻挡效果。而且呀，一定要记得Unity中产生射线碰撞的前提是，物体具有Collider才行，自己琢磨2D物体的射线阻挡，一直不成功就是因为2D物体上没有挂载Collider组件。
 
 另外一点就是，自己刚开始认为忽略2D或者3D物体的射线阻挡效果就是不对2D或者3D物体进行射线的检测，但是其实不是的，2D或者3D物体的射线碰撞仍然存在。
+transfrom.lossyScale与transfrom.localScale的区别
+1. 两个属性都是获取物体的scale
+2. lossyScale获取的时候物体在space world中真实的缩放。如果物体存在父级的话，lossyScale会受到父级的scale的影响
+3. localScale获取到是物体本身的scale，是inspector面板上的值，并不代表着物体在space world中的真实缩放
+4. 当物体没有父级，或者父级的localScale为（1，1，1）时，lossyScale=localScale
 
+### RectTransformUtility.RectangleContainsScreenPoint(graphic.rectTransform, pointerPosition, eventCamera)
+主要就是用来判断一个点是否在指定的rect范围内
 
 
 ### 问题
